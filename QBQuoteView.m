@@ -10,7 +10,7 @@
 
 @interface QBQuoteView()
 
-@property(nonatomic,strong) UIImage *profilePicture;
+@property(nonatomic,strong) UIImageView *profilePicture;
 @property(nonatomic,strong) NSString *quote;
 
 @end
@@ -24,6 +24,11 @@
         self.backgroundColor = [UIColor colorWithRed:75.0f green:255.0f blue:75.0f alpha:0.3f];
     }
     return self;
+}
+
+-(void)designViewWithQuote:(QBQuote *)quote
+{
+    //method loads all the necessary data into the view
 }
 
 

@@ -26,13 +26,16 @@
         self.quoteView = [[QBQuoteView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.view = self.quoteView;
         [self initQuoteView];
+        //initialise the model
+        self.model = [[QBQuoteModel alloc] init];
     }
     return self;
 }
 
 -(void)initQuoteView
 {
-    
+    //get the quote
+    QBQuote *quote = [self.model getLastQuote];
 }
 
 - (void)viewDidLoad {

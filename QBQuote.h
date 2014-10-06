@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+@import UIKit;
 
 @interface QBQuote : NSObject
+
+-(void)setAuthor:(NSString *)author;
+-(void)set:(NSString *)quote;
+-(void)setTitle:(NSString *)title;
+-(void)setTitle:(NSString *)title for:(NSString *)quote;
+-(void)setAuthorImageProperty:(UIImage *)image;
 
 @end

@@ -13,4 +13,6 @@
 
 @interface QBQuoteModel : NSObject
 
+-(QBQuote *)getLastQuote;
+
 @end

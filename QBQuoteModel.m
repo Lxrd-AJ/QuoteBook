@@ -7,8 +7,12 @@
 //
 
 #import "QBQuoteModel.h"
+#import "QBNetworkClient.h"
+#import "QBQuote.h"
 
-@interface QBQuoteModel() 
+@interface QBQuoteModel()
+
+@property(nonatomic,strong) NSMutableArray *downloadedQuotes;
 
 @end
 
@@ -18,9 +22,26 @@
 {
     self = [super init];
     if (self) {
-        //d
+        self.downloadedQuotes = [[NSMutableArray alloc] init];
+        [self loadTestData];
     }
     return self;
+}
+
+-(void)loadTestData
+{
+    //create a new quote
+    QBQuote *quote = [[QBQuote alloc] init];
+    [quote setTitle:@"Imagination" for:@"Imagination is more important then knowledge"];
+    [quote setAuthor:@"Albert Einstein"];
+    [quote setAuthorImageProperty:[UIImage imageNamed:@"finger.jpg"]];
+    
+    [self.downloadedQuotes addObject:quote];
+}
+
+-(QBQuote *)getLastQuote
+{
+    return [self.downloadedQuotes lastObject];
 }
 
 @end

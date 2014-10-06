@@ -1,5 +1,5 @@
 //
-//  QBQuoteView.h
+//  QBQuoteLabel.h
 //  QuoteBook
 //
 //  Created by AJ Ibraheem on 06/10/2014.
@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QBQuote.h"
 
-@interface QBQuoteView : UIView
-
--(void)designViewWithQuote:(QBQuote *)quote;
+@interface QBQuoteLabel : UILabel
 
 @end
