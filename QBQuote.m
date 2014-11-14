@@ -19,16 +19,18 @@
 
 @implementation QBQuote
 
+
 -(id)init
 {
     self = [super init];
     if (self != nil) {
         //do stuff
+        self.title = @"Dummy Text";
     }
     return self;
 }
 
--(void)setAuthor:(NSString *)author
+-(void)setQuoteAuthor:(NSString *)author
 {
     self.author = [[NSString alloc] initWithString:author];
 }
@@ -38,14 +40,14 @@
     self.quote = [[NSString alloc] initWithString:quote];
 }
 
--(void)setTitle:(NSString *)title
+-(void)setQuoteTitle:(NSString *)mtitle
 {
-    self.title = [[NSString alloc] initWithString:title];
+    self.title = mtitle;
 }
 
--(void)setTitle:(NSString *)title for:(NSString *)quote
+-(void)setTitle:(NSString *)title forQuote:(NSString *)quote
 {
-    [self setTitle:title];
+    [self setQuoteTitle:title];
     self.quote = [[NSString alloc] initWithString:quote];
 }
 

@@ -11,10 +11,10 @@
 
 @interface QBQuote : NSObject
 
--(void)setAuthor:(NSString *)author;
+-(void)setQuoteAuthor:(NSString *)author;
 -(void)set:(NSString *)quote;
 -(void)setTitle:(NSString *)title;
--(void)setTitle:(NSString *)title for:(NSString *)quote;
+-(void)setTitle:(NSString *)title forQuote:(NSString *)quote;
 -(void)setAuthorImageProperty:(UIImage *)image;
 
 -(UIImageView *)getAuthorImage;

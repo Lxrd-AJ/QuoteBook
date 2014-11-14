@@ -25,9 +25,9 @@
     if (self) {
         self.quoteView = [[QBQuoteView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.view = self.quoteView;
-        [self initQuoteView];
         //initialise the model
         self.model = [[QBQuoteModel alloc] init];
+        [self initQuoteView];
     }
     return self;
 }
@@ -35,7 +35,8 @@
 -(void)initQuoteView
 {
     //get the quote
-    //QBQuote *quote = [self.model getLastQuote];
+    QBQuote *quote = [self.model getLastQuote];
+    [self.quoteView designViewWithQuote:quote];
 }
 
 - (void)viewDidLoad {

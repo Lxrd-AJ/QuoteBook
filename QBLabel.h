@@ -1,13 +1,13 @@
 //
-//  QBQuoteLabel.h
+//  QBLabel.h
 //  QuoteBook
 //
-//  Created by AJ Ibraheem on 06/10/2014.
+//  Created by AJ Ibraheem on 14/11/2014.
 //  Copyright (c) 2014 The Leaf Enterprise. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface QBQuoteLabel : UILabel
+@interface QBLabel : UILabel
 
 @end
