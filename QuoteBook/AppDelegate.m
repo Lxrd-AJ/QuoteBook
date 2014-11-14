@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "QBNavigationController.h"
+#import "QBQuoteViewController.h"
 
 @interface AppDelegate ()
+
+@property(nonatomic,strong) QBQuoteViewController *quoteViewController;
+@property(nonatomic,strong) QBNavigationController *navigationController;
 
 @end
 
@@ -17,6 +22,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //---------------------------------------------------------------
+    //Create the QuoteViewController to embed in the NavigationController
+    self.quoteViewController = [[QBQuoteViewController alloc] init];
+    //create our custom navigation controller
+    self.navigationController = [[QBNavigationController alloc] initWithRootViewController:self.quoteViewController];
+    
+    //customise the window
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor yellowColor];
+    self.window.tintColor = [UIColor colorWithRed:100.0f green:200.0f blue:240.0f alpha:0.6f];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

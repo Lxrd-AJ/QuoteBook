@@ -15,6 +15,16 @@
 		2197681419E248990030AD11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2197681319E248990030AD11 /* Images.xcassets */; };
 		2197681719E248990030AD11 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2197681519E248990030AD11 /* LaunchScreen.xib */; };
 		2197682319E248990030AD11 /* QuoteBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197682219E248990030AD11 /* QuoteBookTests.m */; };
+		2197682F19E24E120030AD11 /* QBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197682E19E24E120030AD11 /* QBUser.m */; };
+		2197683219E24FCD0030AD11 /* QBQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197683119E24FCD0030AD11 /* QBQuote.m */; };
+		2197683519E250AB0030AD11 /* QBFortuneCookie.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197683419E250AB0030AD11 /* QBFortuneCookie.m */; };
+		21D9127A19E2552B00153A4B /* QBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9127919E2552B00153A4B /* QBNavigationController.m */; };
+		21D9127D19E256C500153A4B /* QBQuoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9127C19E256C500153A4B /* QBQuoteViewController.m */; };
+		21D9128019E2575100153A4B /* QBQuoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9127F19E2575100153A4B /* QBQuoteView.m */; };
+		21D9128419E3123700153A4B /* QBQuoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9128319E3123700153A4B /* QBQuoteModel.m */; };
+		21D9128719E3183D00153A4B /* QBNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9128619E3183D00153A4B /* QBNetworkClient.m */; };
+		21D9128919E3250800153A4B /* finger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9128819E3250800153A4B /* finger.jpg */; };
+		21D9128D19E32B6900153A4B /* QBQuoteLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9128C19E32B6900153A4B /* QBQuoteLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +52,25 @@
 		2197681C19E248990030AD11 /* QuoteBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuoteBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2197682119E248990030AD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2197682219E248990030AD11 /* QuoteBookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuoteBookTests.m; sourceTree = "<group>"; };
+		2197682D19E24E120030AD11 /* QBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBUser.h; sourceTree = "<group>"; };
+		2197682E19E24E120030AD11 /* QBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBUser.m; sourceTree = "<group>"; };
+		2197683019E24FCD0030AD11 /* QBQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuote.h; sourceTree = "<group>"; };
+		2197683119E24FCD0030AD11 /* QBQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuote.m; sourceTree = "<group>"; };
+		2197683319E250AB0030AD11 /* QBFortuneCookie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBFortuneCookie.h; sourceTree = "<group>"; };
+		2197683419E250AB0030AD11 /* QBFortuneCookie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBFortuneCookie.m; sourceTree = "<group>"; };
+		21D9127819E2552B00153A4B /* QBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBNavigationController.h; sourceTree = "<group>"; };
+		21D9127919E2552B00153A4B /* QBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBNavigationController.m; sourceTree = "<group>"; };
+		21D9127B19E256C500153A4B /* QBQuoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuoteViewController.h; sourceTree = "<group>"; };
+		21D9127C19E256C500153A4B /* QBQuoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuoteViewController.m; sourceTree = "<group>"; };
+		21D9127E19E2575100153A4B /* QBQuoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuoteView.h; sourceTree = "<group>"; };
+		21D9127F19E2575100153A4B /* QBQuoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuoteView.m; sourceTree = "<group>"; };
+		21D9128219E3123600153A4B /* QBQuoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuoteModel.h; sourceTree = "<group>"; };
+		21D9128319E3123700153A4B /* QBQuoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuoteModel.m; sourceTree = "<group>"; };
+		21D9128519E3183D00153A4B /* QBNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBNetworkClient.h; sourceTree = "<group>"; };
+		21D9128619E3183D00153A4B /* QBNetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBNetworkClient.m; sourceTree = "<group>"; };
+		21D9128819E3250800153A4B /* finger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = finger.jpg; sourceTree = "<group>"; };
+		21D9128B19E32B6900153A4B /* QBQuoteLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuoteLabel.h; sourceTree = "<group>"; };
+		21D9128C19E32B6900153A4B /* QBQuoteLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuoteLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +112,10 @@
 		2197680219E248990030AD11 /* QuoteBook */ = {
 			isa = PBXGroup;
 			children = (
+				21D9128A19E3251600153A4B /* Resources */,
+				21D9128119E2576200153A4B /* Views */,
+				21D9127719E254EB00153A4B /* Controllers */,
+				2197682C19E24DDD0030AD11 /* Models */,
 				2197680719E248990030AD11 /* AppDelegate.h */,
 				2197680819E248990030AD11 /* AppDelegate.m */,
 				2197680D19E248990030AD11 /* ViewController.h */,
@@ -92,6 +125,8 @@
 				2197681519E248990030AD11 /* LaunchScreen.xib */,
 				2197680A19E248990030AD11 /* QuoteBook.xcdatamodeld */,
 				2197680319E248990030AD11 /* Supporting Files */,
+				21D9128519E3183D00153A4B /* QBNetworkClient.h */,
+				21D9128619E3183D00153A4B /* QBNetworkClient.m */,
 			);
 			path = QuoteBook;
 			sourceTree = "<group>";
@@ -120,6 +155,51 @@
 				2197682119E248990030AD11 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2197682C19E24DDD0030AD11 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2197682D19E24E120030AD11 /* QBUser.h */,
+				2197682E19E24E120030AD11 /* QBUser.m */,
+				2197683019E24FCD0030AD11 /* QBQuote.h */,
+				2197683119E24FCD0030AD11 /* QBQuote.m */,
+				2197683319E250AB0030AD11 /* QBFortuneCookie.h */,
+				2197683419E250AB0030AD11 /* QBFortuneCookie.m */,
+				21D9128219E3123600153A4B /* QBQuoteModel.h */,
+				21D9128319E3123700153A4B /* QBQuoteModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		21D9127719E254EB00153A4B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				21D9127819E2552B00153A4B /* QBNavigationController.h */,
+				21D9127919E2552B00153A4B /* QBNavigationController.m */,
+				21D9127B19E256C500153A4B /* QBQuoteViewController.h */,
+				21D9127C19E256C500153A4B /* QBQuoteViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		21D9128119E2576200153A4B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				21D9127E19E2575100153A4B /* QBQuoteView.h */,
+				21D9127F19E2575100153A4B /* QBQuoteView.m */,
+				21D9128B19E32B6900153A4B /* QBQuoteLabel.h */,
+				21D9128C19E32B6900153A4B /* QBQuoteLabel.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		21D9128A19E3251600153A4B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21D9128819E3250800153A4B /* finger.jpg */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +251,7 @@
 				TargetAttributes = {
 					219767FF19E248990030AD11 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 349P7P3B63;
 					};
 					2197681B19E248990030AD11 = {
 						CreatedOnToolsVersion = 6.0;
@@ -204,6 +285,7 @@
 			files = (
 				2197681219E248990030AD11 /* Main.storyboard in Resources */,
 				2197681719E248990030AD11 /* LaunchScreen.xib in Resources */,
+				21D9128919E3250800153A4B /* finger.jpg in Resources */,
 				2197681419E248990030AD11 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,8 +306,17 @@
 			files = (
 				2197680919E248990030AD11 /* AppDelegate.m in Sources */,
 				2197680619E248990030AD11 /* main.m in Sources */,
+				21D9128D19E32B6900153A4B /* QBQuoteLabel.m in Sources */,
+				21D9128419E3123700153A4B /* QBQuoteModel.m in Sources */,
+				21D9128019E2575100153A4B /* QBQuoteView.m in Sources */,
+				21D9127D19E256C500153A4B /* QBQuoteViewController.m in Sources */,
+				21D9127A19E2552B00153A4B /* QBNavigationController.m in Sources */,
 				2197680F19E248990030AD11 /* ViewController.m in Sources */,
 				2197680C19E248990030AD11 /* QuoteBook.xcdatamodeld in Sources */,
+				21D9128719E3183D00153A4B /* QBNetworkClient.m in Sources */,
+				2197682F19E24E120030AD11 /* QBUser.m in Sources */,
+				2197683219E24FCD0030AD11 /* QBQuote.m in Sources */,
+				2197683519E250AB0030AD11 /* QBFortuneCookie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ganiyu Ibraheem (Q5L56H9SBX)";
 				INFOPLIST_FILE = QuoteBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ganiyu Ibraheem (Q5L56H9SBX)";
 				INFOPLIST_FILE = QuoteBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -418,6 +511,7 @@
 				2197682819E248990030AD11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2197682919E248990030AD11 /* Build configuration list for PBXNativeTarget "QuoteBookTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +520,7 @@
 				2197682B19E248990030AD11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
