@@ -91,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2140FF8B1A167D63000EE78A /* NetworkAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				21D9128519E3183D00153A4B /* QBNetworkClient.h */,
+				21D9128619E3183D00153A4B /* QBNetworkClient.m */,
+			);
+			name = NetworkAdapter;
+			sourceTree = "<group>";
+		};
 		219767F719E248990030AD11 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +121,7 @@
 		2197680219E248990030AD11 /* QuoteBook */ = {
 			isa = PBXGroup;
 			children = (
+				2140FF8B1A167D63000EE78A /* NetworkAdapter */,
 				21D9128A19E3251600153A4B /* Resources */,
 				21D9128119E2576200153A4B /* Views */,
 				21D9127719E254EB00153A4B /* Controllers */,
@@ -125,8 +135,6 @@
 				2197681519E248990030AD11 /* LaunchScreen.xib */,
 				2197680A19E248990030AD11 /* QuoteBook.xcdatamodeld */,
 				2197680319E248990030AD11 /* Supporting Files */,
-				21D9128519E3183D00153A4B /* QBNetworkClient.h */,
-				21D9128619E3183D00153A4B /* QBNetworkClient.m */,
 			);
 			path = QuoteBook;
 			sourceTree = "<group>";
