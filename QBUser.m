@@ -19,7 +19,7 @@
 
 @implementation QBUser
 
--(instancetype)init
+-(id)init
 {
     self = [super init];
     if (self) {

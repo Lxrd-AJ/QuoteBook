@@ -35,7 +35,7 @@
 -(void)initQuoteView
 {
     //get the quote
-    QBQuote *quote = [self.model getLastQuote];
+    //QBQuote *quote = [self.model getLastQuote];
 }
 
 - (void)viewDidLoad {

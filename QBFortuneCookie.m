@@ -16,7 +16,7 @@
 
 @implementation QBFortuneCookie
 
--(instancetype)init{
+-(id)init{
     self = [super init];
     if (self) {
         //do stuff

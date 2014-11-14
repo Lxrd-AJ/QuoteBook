@@ -19,10 +19,10 @@
 
 @implementation QBQuote
 
--(instancetype)init
+-(id)init
 {
     self = [super init];
-    if (self) {
+    if (self != nil) {
         //do stuff
     }
     return self;
@@ -45,7 +45,7 @@
 
 -(void)setTitle:(NSString *)title for:(NSString *)quote
 {
-    self.title = [[NSString alloc] initWithString:title];
+    [self setTitle:title];
     self.quote = [[NSString alloc] initWithString:quote];
 }
 
@@ -67,5 +67,17 @@
     self.authorImage.layer.borderWidth = 0.5f;
     self.authorImage.image = result;
 }
+
+-(UIImageView *)getAuthorImage
+{
+    return self.authorImage;
+}
+
+-(NSString*)getQuoteText
+{
+    return self.quote;
+}
+
+
 
 @end

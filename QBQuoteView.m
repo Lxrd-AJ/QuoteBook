@@ -29,6 +29,8 @@
 -(void)designViewWithQuote:(QBQuote *)quote
 {
     //method loads all the necessary data into the view
+    self.profilePicture = [quote getAuthorImage];
+    
 }
 
 

@@ -23,7 +23,7 @@
     self = [super init];
     if (self) {
         self.downloadedQuotes = [[NSMutableArray alloc] init];
-        [self loadTestData];
+        //[self loadTestData];
     }
     return self;
 }
