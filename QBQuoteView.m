@@ -13,6 +13,8 @@
 
 @property(nonatomic,strong) UIImageView *profilePicture;
 @property(nonatomic,strong) QBLabel *quoteLabel;
+@property(nonatomic,strong) QBLabel *authorLabel;
+@property(nonatomic,strong) QBLabel *titleLabel;
 
 @end
 
@@ -37,11 +39,22 @@
     self.profilePicture = [quote getAuthorImage];
     self.profilePicture.frame = CGRectMake(10, 20, 50, 50);
     [self addSubview:self.profilePicture];
+    NSLog(@"%@", self.profilePicture);
     
+    //Add the Quote to the View
     self.quoteLabel = [[QBLabel alloc] initWithFrame:frame];
     [self.quoteLabel setText:[quote getQuoteText]];
     [self addSubview:self.quoteLabel];
     NSLog(@"%@",self.quoteLabel.text);
+    
+    //----------------------BUG FIX-------------
+    //Author Label not positioned properly
+    //----Add the author to the view
+    self.authorLabel = [[QBLabel alloc] initWithFrame:CGRectMake(0, screen.origin.y , screen.size.width, screen.size.height * 0.3)];
+    self.authorLabel.text = [quote getQuoteAuthor];
+    [self addSubview:self.authorLabel];
+    [self.authorLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
+    NSLog(@"%@", self.authorLabel.text);
     
 }
 

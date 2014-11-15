@@ -80,6 +80,11 @@
     return self.quote;
 }
 
+-(NSString*)getQuoteAuthor
+{
+    return self.author;
+}
+
 
 
 @end

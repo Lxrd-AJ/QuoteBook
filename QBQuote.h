@@ -16,6 +16,7 @@
 -(void)setTitle:(NSString *)title;
 -(void)setTitle:(NSString *)title forQuote:(NSString *)quote;
 -(void)setAuthorImageProperty:(UIImage *)image;
+-(NSString*)getQuoteAuthor;
 
 -(UIImageView *)getAuthorImage;
 -(NSString *)getQuoteText;
