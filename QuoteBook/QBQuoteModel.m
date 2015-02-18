@@ -7,8 +7,8 @@
 //
 
 #import "QBQuoteModel.h"
-#import "QBNetworkClient.h"
 #import "QBQuote.h"
+#import "QuoteBook-Swift.h"
 
 @interface QBQuoteModel()
 
@@ -23,7 +23,7 @@
     self = [super init];
     if (self) {
         self.downloadedQuotes = [[NSMutableArray alloc] init];
-        //[self loadTestData];
+        [self loadTestData];
     }
     return self;
 }
@@ -32,9 +32,23 @@
 {
     //create a new quote
     QBQuote *quote = [[QBQuote alloc] init];
-    [quote setTitle:@"Imagination" for:@"Imagination is more important then knowledge"];
-    [quote setAuthor:@"Albert Einstein"];
-    [quote setAuthorImageProperty:[UIImage imageNamed:@"finger.jpg"]];
+    [quote setTitle:@"Imagination" forQuote:@"Imagination is more important than knowledge"];
+    [quote setQuoteAuthor:@"Albert Einstein"];
+    [quote setAuthorImageProperty:[UIImage imageNamed:@"finger"]];
+    
+    NSDictionary *testQuotes = [[NSDictionary alloc] init];
+    testQuotes = @{
+        @"1" : @{
+                @"Author" : @"Eric Thomas",
+                @"Title" : @"TGIM",
+                @"Quote" : @"When you want to succeed as bad as you want to    breathe, then you'll be successful"
+                },
+        @"2" : @{
+                @"Author" : @"Albert Einstein",
+                @"Title" : @"Imagination",
+                @"Quote" : @"Imagination is more important than knowledge"
+                }
+    };
     
     [self.downloadedQuotes addObject:quote];
 }
