@@ -55,7 +55,12 @@
 
 -(QBQuote *)getLastQuote
 {
-    return [self.downloadedQuotes lastObject];
+    //return [self.downloadedQuotes lastObject];
+    QBQuote *quote = [[QBQuote alloc] init];
+    [quote setTitle:@"Imagination" forQuote:@"Imagination is more important than knowledge"];
+    [quote setQuoteAuthor:@"Albert Einstein"];
+    [quote setAuthorImageProperty:[UIImage imageNamed:@"finger"]];
+    return quote;
 }
 
 @end

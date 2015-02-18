@@ -12,7 +12,6 @@
 		2197680619E248990030AD11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197680519E248990030AD11 /* main.m */; };
 		2197680919E248990030AD11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197680819E248990030AD11 /* AppDelegate.m */; };
 		2197680C19E248990030AD11 /* QuoteBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2197680A19E248990030AD11 /* QuoteBook.xcdatamodeld */; };
-		2197681219E248990030AD11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2197681019E248990030AD11 /* Main.storyboard */; };
 		2197681419E248990030AD11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2197681319E248990030AD11 /* Images.xcassets */; };
 		2197681719E248990030AD11 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2197681519E248990030AD11 /* LaunchScreen.xib */; };
 		2197682319E248990030AD11 /* QuoteBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197682219E248990030AD11 /* QuoteBookTests.m */; };
@@ -22,9 +21,9 @@
 		21D9128019E2575100153A4B /* QBQuoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9127F19E2575100153A4B /* QBQuoteView.m */; };
 		21D9128419E3123700153A4B /* QBQuoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9128319E3123700153A4B /* QBQuoteModel.m */; };
 		21D9128919E3250800153A4B /* finger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D9128819E3250800153A4B /* finger.jpg */; };
-		21E10E5F1A949B75005F49AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E5E1A949B75005F49AF /* ViewController.swift */; };
 		21E10E611A949B9B005F49AF /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E601A949B9B005F49AF /* NetworkAdapter.swift */; };
 		21E10E631A949C65005F49AF /* FortuneCookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E621A949C65005F49AF /* FortuneCookie.swift */; };
+		21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E641A94AF48005F49AF /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +46,6 @@
 		2197680719E248990030AD11 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2197680819E248990030AD11 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2197680B19E248990030AD11 /* QuoteBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuoteBook.xcdatamodel; sourceTree = "<group>"; };
-		2197681119E248990030AD11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2197681319E248990030AD11 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2197681619E248990030AD11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2197681C19E248990030AD11 /* QuoteBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuoteBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,9 +63,9 @@
 		21D9128319E3123700153A4B /* QBQuoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuoteModel.m; sourceTree = "<group>"; };
 		21D9128819E3250800153A4B /* finger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = finger.jpg; sourceTree = "<group>"; };
 		21E10E5D1A949B75005F49AF /* QuoteBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteBook-Bridging-Header.h"; sourceTree = "<group>"; };
-		21E10E5E1A949B75005F49AF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21E10E601A949B9B005F49AF /* NetworkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		21E10E621A949C65005F49AF /* FortuneCookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FortuneCookie.swift; sourceTree = "<group>"; };
+		21E10E641A94AF48005F49AF /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +122,6 @@
 				2197682C19E24DDD0030AD11 /* Models */,
 				2197680719E248990030AD11 /* AppDelegate.h */,
 				2197680819E248990030AD11 /* AppDelegate.m */,
-				2197681019E248990030AD11 /* Main.storyboard */,
 				2197681319E248990030AD11 /* Images.xcassets */,
 				2197681519E248990030AD11 /* LaunchScreen.xib */,
 				2197680A19E248990030AD11 /* QuoteBook.xcdatamodeld */,
@@ -177,9 +174,9 @@
 		21D9127719E254EB00153A4B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				21E10E5E1A949B75005F49AF /* ViewController.swift */,
 				21D9127B19E256C500153A4B /* QBQuoteViewController.h */,
 				21D9127C19E256C500153A4B /* QBQuoteViewController.m */,
+				21E10E641A94AF48005F49AF /* PageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -285,7 +282,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2197681219E248990030AD11 /* Main.storyboard in Resources */,
 				2197681719E248990030AD11 /* LaunchScreen.xib in Resources */,
 				21D9128919E3250800153A4B /* finger.jpg in Resources */,
 				2197681419E248990030AD11 /* Images.xcassets in Resources */,
@@ -316,7 +312,7 @@
 				21D9127D19E256C500153A4B /* QBQuoteViewController.m in Sources */,
 				21E10E631A949C65005F49AF /* FortuneCookie.swift in Sources */,
 				2197680C19E248990030AD11 /* QuoteBook.xcdatamodeld in Sources */,
-				21E10E5F1A949B75005F49AF /* ViewController.swift in Sources */,
+				21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */,
 				2197682F19E24E120030AD11 /* QBUser.m in Sources */,
 				2197683219E24FCD0030AD11 /* QBQuote.m in Sources */,
 			);
@@ -341,14 +337,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2197681019E248990030AD11 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2197681119E248990030AD11 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2197681519E248990030AD11 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
