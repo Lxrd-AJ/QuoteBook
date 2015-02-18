@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "QBQuote.h"
 #import "QBUser.h"
-#import "QBFortuneCookie.h"
 
 @interface QBQuoteModel : NSObject
 

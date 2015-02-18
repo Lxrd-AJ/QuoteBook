@@ -7,13 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "QBNavigationController.h"
 #import "QBQuoteViewController.h"
 
 @interface AppDelegate ()
 
 @property(nonatomic,strong) QBQuoteViewController *quoteViewController;
-@property(nonatomic,strong) QBNavigationController *navigationController;
+@property(nonatomic,strong) UINavigationController *navigationController;
 
 @end
 
@@ -26,7 +25,7 @@
     //Create the QuoteViewController to embed in the NavigationController
     self.quoteViewController = [[QBQuoteViewController alloc] init];
     //create our custom navigation controller
-    self.navigationController = [[QBNavigationController alloc] initWithRootViewController:self.quoteViewController];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.quoteViewController];
     
     //customise the window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
