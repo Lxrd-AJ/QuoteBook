@@ -11,6 +11,8 @@
 		2140FF8E1A16999A000EE78A /* QBLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2140FF8D1A16999A000EE78A /* QBLabel.m */; };
 		21450EAF1AA2BD8D007C5493 /* LoadingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21450EAE1AA2BD8D007C5493 /* LoadingModel.swift */; };
 		21453F431AB92B20000E939B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453F421AB92B20000E939B /* main.m */; };
+		21453F471AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */; };
+		21453F481AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */; };
 		216C79221A16C00F00F73426 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 216C79211A16C00F00F73426 /* appIcon.png */; };
 		2197680919E248990030AD11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197680819E248990030AD11 /* AppDelegate.m */; };
 		2197680C19E248990030AD11 /* QuoteBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2197680A19E248990030AD11 /* QuoteBook.xcdatamodeld */; };
@@ -47,6 +49,8 @@
 		21450EAE1AA2BD8D007C5493 /* LoadingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingModel.swift; sourceTree = "<group>"; };
 		21453F411AB92AC8000E939B /* QBQuoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuoteView.h; sourceTree = "<group>"; };
 		21453F421AB92B20000E939B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png"; sourceTree = "<group>"; };
+		21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png"; sourceTree = "<group>"; };
 		216C79211A16C00F00F73426 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		2197680019E248990030AD11 /* QuoteBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2197680419E248990030AD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,6 +113,15 @@
 				21E10E601A949B9B005F49AF /* NetworkAdapter.swift */,
 			);
 			name = NetworkAdapter;
+			sourceTree = "<group>";
+		};
+		21453F441AB92F2C000E939B /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */,
+				21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */,
+			);
+			name = Screenshots;
 			sourceTree = "<group>";
 		};
 		219767F719E248990030AD11 = {
@@ -214,6 +227,7 @@
 		21D9128A19E3251600153A4B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				21453F441AB92F2C000E939B /* Screenshots */,
 				216C79211A16C00F00F73426 /* appIcon.png */,
 			);
 			name = Resources;
@@ -314,8 +328,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2197681719E248990030AD11 /* LaunchScreen.xib in Resources */,
+				21453F481AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png in Resources */,
 				2197681419E248990030AD11 /* Images.xcassets in Resources */,
 				216C79221A16C00F00F73426 /* appIcon.png in Resources */,
+				21453F471AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
