@@ -13,6 +13,8 @@
 		21453F431AB92B20000E939B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453F421AB92B20000E939B /* main.m */; };
 		21453F471AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */; };
 		21453F481AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */; };
+		21453F4A1AB93070000E939B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21453F491AB93070000E939B /* LoadingView.swift */; };
+		21453F4C1AB9319B000E939B /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21453F4B1AB9319B000E939B /* LoadingViewController.swift */; };
 		216C79221A16C00F00F73426 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 216C79211A16C00F00F73426 /* appIcon.png */; };
 		2197680919E248990030AD11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197680819E248990030AD11 /* AppDelegate.m */; };
 		2197680C19E248990030AD11 /* QuoteBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2197680A19E248990030AD11 /* QuoteBook.xcdatamodeld */; };
@@ -51,6 +53,8 @@
 		21453F421AB92B20000E939B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png"; sourceTree = "<group>"; };
 		21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png"; sourceTree = "<group>"; };
+		21453F491AB93070000E939B /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		21453F4B1AB9319B000E939B /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		216C79211A16C00F00F73426 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		2197680019E248990030AD11 /* QuoteBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2197680419E248990030AD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				21D9127B19E256C500153A4B /* QBQuoteViewController.h */,
 				21D9127C19E256C500153A4B /* QBQuoteViewController.m */,
 				21E10E641A94AF48005F49AF /* PageViewController.swift */,
+				21453F4B1AB9319B000E939B /* LoadingViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				21D9127F19E2575100153A4B /* QBQuoteView.m */,
 				2140FF8C1A16999A000EE78A /* QBLabel.h */,
 				2140FF8D1A16999A000EE78A /* QBLabel.m */,
+				21453F491AB93070000E939B /* LoadingView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -399,9 +405,11 @@
 			files = (
 				21453F431AB92B20000E939B /* main.m in Sources */,
 				2197680919E248990030AD11 /* AppDelegate.m in Sources */,
+				21453F4C1AB9319B000E939B /* LoadingViewController.swift in Sources */,
 				21E10E611A949B9B005F49AF /* NetworkAdapter.swift in Sources */,
 				2140FF8E1A16999A000EE78A /* QBLabel.m in Sources */,
 				21D9128419E3123700153A4B /* QBQuoteModel.m in Sources */,
+				21453F4A1AB93070000E939B /* LoadingView.swift in Sources */,
 				21D9128019E2575100153A4B /* QBQuoteView.m in Sources */,
 				21B905221AA472F300A3BC8E /* Parser.swift in Sources */,
 				21D9127D19E256C500153A4B /* QBQuoteViewController.m in Sources */,

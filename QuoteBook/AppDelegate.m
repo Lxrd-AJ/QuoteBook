@@ -31,12 +31,15 @@
     self.networkClient.delegate = self.pageViewController;
     [self.networkClient getRequest:@""];
     
+    //create the loading viewController
+    LoadingViewController *controller = [[LoadingViewController alloc] init];
     
     //customise the window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor yellowColor];
     self.window.tintColor = [UIColor colorWithRed:100.0f green:200.0f blue:240.0f alpha:0.6f];
-    self.window.rootViewController = self.pageViewController;
+    //self.window.rootViewController = self.pageViewController;
+    self.window.rootViewController = controller;
     [self.window makeKeyAndVisible];
     return YES;
 }
