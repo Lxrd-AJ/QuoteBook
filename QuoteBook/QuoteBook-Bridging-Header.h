@@ -12,4 +12,4 @@
 
 //Models
 #import "QBQuote.h"
-#import "QBQuoteModel.h"
+

@@ -8,16 +8,11 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController, NetworkAdapterDelegate {
+class PageViewController: UIPageViewController {
     
-    var model:LoadingModel = LoadingModel() {
+    var model:Model = Model() {
         didSet {
             self.setup()
-        }
-    }
-    var count:Int{
-        get{
-            return model.quoteCount()
         }
     }
     
@@ -25,16 +20,15 @@ class PageViewController: UIPageViewController, NetworkAdapterDelegate {
         super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
         self.dataSource = self
         self.delegate = self
-        setup()
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        setup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +38,7 @@ class PageViewController: UIPageViewController, NetworkAdapterDelegate {
     
     func setup(){
         let cont = QBQuoteViewController()
-        cont.setQuote( model.getNextQuote() )
+        cont.setQuote( model.nextQuote() )
         self.setViewControllers([cont], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
     }
     
@@ -58,25 +52,13 @@ extension PageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         let cont = QBQuoteViewController()
-        cont.setQuote( model.getPreviousQuote() ) //TODO: If nil returned, no new quotes
+        cont.setQuote( model.previousQuote() ) //TODO: If nil returned, no new quotes
         return cont
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         let cont = QBQuoteViewController()
-        cont.setQuote( model.getNextQuote() ) //TODO: If nil returned, no new quotes
+        cont.setQuote( model.nextQuote() ) //TODO: If nil returned, no new quotes
         return cont
-    }
-}
-
-extension PageViewController: NetworkAdapterDelegate {
-    func clientDidFinishDownloading(sender: NSObject, data: NSString, status: DownloadStatus) {
-        switch status {
-        case .NewQuotes:
-            self.model.setRandomQuoteString( data as String )
-        default:
-            self.model.setRandomQuoteString("No new quotes for now 😩")
-        }
-        //setup()
     }
 }

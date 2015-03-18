@@ -9,6 +9,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 @objc enum DownloadStatus:Int {
     case Idle
@@ -18,40 +19,32 @@ import Alamofire
     case NoQuote
     case NetworkError
 }
-//TODO: The network adapter should be used in the model instead
 
 @objc protocol NetworkAdapterDelegate {
-    func clientDidFinishDownloading( sender:NSObject, data:NSString, status:DownloadStatus )
+    func clientDidFinishDownloading( sender:NSObject, data:AnyObject?, status:DownloadStatus )
 }
 
 class NetworkAdapter: NSObject {
-    let iheartQuotes = "http://www.iheartquotes.com/api/v1/random?format=text"
+    let iheartQuotes = "http://www.iheartquotes.com/api/v1/random"
     var status:DownloadStatus = .Idle
     var randomQuote:NSString?
     var delegate:NetworkAdapterDelegate?
+    let api = [
+            "iHeartQuote": "http://www.iheartquotes.com/api/v1/random",
+            "theySaidSo": "http://api.theysaidso.com/qod.json"
+        ]
     
-    func getRequest( url:String? ) {
-        let HTTPMethod = "GET"
-        let timeout = 100
-        let URL = NSURL( string: iheartQuotes )
-        let URLRequest = NSMutableURLRequest(URL: URL!)
-        URLRequest.HTTPMethod = HTTPMethod
-        let queue = NSOperationQueue()
-        
-        NSURLConnection.sendAsynchronousRequest(URLRequest, queue: queue, completionHandler: {
-            (response:NSURLResponse!, data:NSData?, error:NSError! ) in
-            if data?.length > 0 && error == nil {
-                let result = NSString( data: data! , encoding: NSUTF8StringEncoding )
-                self.status = .NewQuotes
-                self.randomQuote = result
-                self.delegate?.clientDidFinishDownloading(self, data: result!, status: .NewQuotes )
-                println( result! )
+    func downloadQuotesFromAPIs() {
+        Alamofire.request( .GET, iheartQuotes, parameters:["format":"json", "max_lines":"3", "max_characters":"50"] ).responseJSON(options: .MutableContainers){
+            (request, response, json, error) in
+            if error == nil {
+                self.delegate?.clientDidFinishDownloading(self, data: json!, status: .NewQuotes )
+                println( json )
             }else{
                 println( error )
-                self.delegate?.clientDidFinishDownloading(self, data: NSString(), status: .NetworkError )
+                self.delegate?.clientDidFinishDownloading(self, data: json, status: .NetworkError )
             }
-        })
-        
+        }
     }
     
 }

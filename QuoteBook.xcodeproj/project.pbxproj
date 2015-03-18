@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		211747EA1AA91B7600B08EF6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211747E91AA91B7600B08EF6 /* CoreData.framework */; };
 		2140FF8E1A16999A000EE78A /* QBLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2140FF8D1A16999A000EE78A /* QBLabel.m */; };
-		21450EAF1AA2BD8D007C5493 /* LoadingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21450EAE1AA2BD8D007C5493 /* LoadingModel.swift */; };
 		21453F431AB92B20000E939B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453F421AB92B20000E939B /* main.m */; };
 		21453F471AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */; };
 		21453F481AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */; };
 		21453F4A1AB93070000E939B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21453F491AB93070000E939B /* LoadingView.swift */; };
 		21453F4C1AB9319B000E939B /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21453F4B1AB9319B000E939B /* LoadingViewController.swift */; };
+		21453F4E1AB93A5A000E939B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21453F4D1AB93A5A000E939B /* Model.swift */; };
 		216C79221A16C00F00F73426 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 216C79211A16C00F00F73426 /* appIcon.png */; };
 		2197680919E248990030AD11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197680819E248990030AD11 /* AppDelegate.m */; };
 		2197680C19E248990030AD11 /* QuoteBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2197680A19E248990030AD11 /* QuoteBook.xcdatamodeld */; };
@@ -25,7 +25,6 @@
 		21B905221AA472F300A3BC8E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B905211AA472F300A3BC8E /* Parser.swift */; };
 		21D9127D19E256C500153A4B /* QBQuoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9127C19E256C500153A4B /* QBQuoteViewController.m */; };
 		21D9128019E2575100153A4B /* QBQuoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9127F19E2575100153A4B /* QBQuoteView.m */; };
-		21D9128419E3123700153A4B /* QBQuoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9128319E3123700153A4B /* QBQuoteModel.m */; };
 		21E10E611A949B9B005F49AF /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E601A949B9B005F49AF /* NetworkAdapter.swift */; };
 		21E10E631A949C65005F49AF /* FortuneCookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E621A949C65005F49AF /* FortuneCookie.swift */; };
 		21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E641A94AF48005F49AF /* PageViewController.swift */; };
@@ -48,13 +47,13 @@
 		211747E91AA91B7600B08EF6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2140FF8C1A16999A000EE78A /* QBLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBLabel.h; sourceTree = "<group>"; };
 		2140FF8D1A16999A000EE78A /* QBLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBLabel.m; sourceTree = "<group>"; };
-		21450EAE1AA2BD8D007C5493 /* LoadingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingModel.swift; sourceTree = "<group>"; };
 		21453F411AB92AC8000E939B /* QBQuoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuoteView.h; sourceTree = "<group>"; };
 		21453F421AB92B20000E939B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png"; sourceTree = "<group>"; };
 		21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png"; sourceTree = "<group>"; };
 		21453F491AB93070000E939B /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		21453F4B1AB9319B000E939B /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		21453F4D1AB93A5A000E939B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		216C79211A16C00F00F73426 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		2197680019E248990030AD11 /* QuoteBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2197680419E248990030AD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,8 +71,6 @@
 		21D9127B19E256C500153A4B /* QBQuoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuoteViewController.h; sourceTree = "<group>"; };
 		21D9127C19E256C500153A4B /* QBQuoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuoteViewController.m; sourceTree = "<group>"; };
 		21D9127F19E2575100153A4B /* QBQuoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuoteView.m; sourceTree = "<group>"; };
-		21D9128219E3123600153A4B /* QBQuoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuoteModel.h; sourceTree = "<group>"; };
-		21D9128319E3123700153A4B /* QBQuoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuoteModel.m; sourceTree = "<group>"; };
 		21E10E5D1A949B75005F49AF /* QuoteBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteBook-Bridging-Header.h"; sourceTree = "<group>"; };
 		21E10E601A949B9B005F49AF /* NetworkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		21E10E621A949C65005F49AF /* FortuneCookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FortuneCookie.swift; sourceTree = "<group>"; };
@@ -199,10 +196,8 @@
 			children = (
 				2197683019E24FCD0030AD11 /* QBQuote.h */,
 				2197683119E24FCD0030AD11 /* QBQuote.m */,
-				21D9128219E3123600153A4B /* QBQuoteModel.h */,
-				21D9128319E3123700153A4B /* QBQuoteModel.m */,
 				21E10E621A949C65005F49AF /* FortuneCookie.swift */,
-				21450EAE1AA2BD8D007C5493 /* LoadingModel.swift */,
+				21453F4D1AB93A5A000E939B /* Model.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -408,13 +403,12 @@
 				21453F4C1AB9319B000E939B /* LoadingViewController.swift in Sources */,
 				21E10E611A949B9B005F49AF /* NetworkAdapter.swift in Sources */,
 				2140FF8E1A16999A000EE78A /* QBLabel.m in Sources */,
-				21D9128419E3123700153A4B /* QBQuoteModel.m in Sources */,
 				21453F4A1AB93070000E939B /* LoadingView.swift in Sources */,
+				21453F4E1AB93A5A000E939B /* Model.swift in Sources */,
 				21D9128019E2575100153A4B /* QBQuoteView.m in Sources */,
 				21B905221AA472F300A3BC8E /* Parser.swift in Sources */,
 				21D9127D19E256C500153A4B /* QBQuoteViewController.m in Sources */,
 				21E10E631A949C65005F49AF /* FortuneCookie.swift in Sources */,
-				21450EAF1AA2BD8D007C5493 /* LoadingModel.swift in Sources */,
 				2197680C19E248990030AD11 /* QuoteBook.xcdatamodeld in Sources */,
 				21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */,
 				2197683219E24FCD0030AD11 /* QBQuote.m in Sources */,
