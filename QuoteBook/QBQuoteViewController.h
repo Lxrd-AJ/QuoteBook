@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QBQuote.h"
 
 @interface QBQuoteViewController : UIViewController
+
+-(void)setQuote:(QBQuote *)newQuote;
 
 @end

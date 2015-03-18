@@ -13,5 +13,8 @@
 @interface QBQuoteModel : NSObject
 
 -(QBQuote *)getLastQuote;
+-(QBQuote *)getNextQuote;
+-(QBQuote *)getPreviousQuote;
+-(NSInteger)quoteCount;
 
 @end

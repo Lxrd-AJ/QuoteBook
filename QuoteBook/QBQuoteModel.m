@@ -28,6 +28,28 @@
     return self;
 }
 
+-(NSInteger)quoteCount {
+    return 1;
+}
+
+-(QBQuote *)getPreviousQuote {
+    //create a new quote
+    QBQuote *quote = [[QBQuote alloc] init];
+    [quote setTitle:@"Imagination" forQuote:@"Imagination is more important than knowledge"];
+    [quote setQuoteAuthor:@"Albert Einstein"];
+    [quote setAuthorImageProperty:[UIImage imageNamed:@"finger"]];
+    return quote;
+}
+
+-(QBQuote *)getNextQuote {
+    //create a new quote
+    QBQuote *quote = [[QBQuote alloc] init];
+    [quote setTitle:@"Imagination" forQuote:@"Imagination is more important than knowledge"];
+    [quote setQuoteAuthor:@"Albert Einstein"];
+    [quote setAuthorImageProperty:[UIImage imageNamed:@"finger"]];
+    return quote;
+}
+
 -(void)loadTestData
 {
     //create a new quote

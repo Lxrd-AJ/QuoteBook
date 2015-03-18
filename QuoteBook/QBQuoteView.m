@@ -32,7 +32,7 @@
 -(void)designViewWithQuote:(QBQuote *)quote
 {
     CGRect screen = [UIScreen mainScreen].bounds ;
-    CGRect frame = CGRectMake(screen.origin.x * 0, screen.origin.y * 0.4, screen.size.width, screen.size.height  * 0.8);
+    CGRect frame = CGRectMake(screen.origin.x * 0, screen.size.height * 0.1, screen.size.width, screen.size.height  * 0.9);
     //method loads all the necessary data into the view
     //------------------BUG FIX-----------------
     //Image not showing in app
@@ -50,7 +50,7 @@
     //----------------------BUG FIX-------------
     //Author Label not positioned properly
     //----Add the author to the view
-    self.authorLabel = [[QBLabel alloc] initWithFrame:CGRectMake(0, screen.origin.y , screen.size.width, screen.size.height * 0.3)];
+    self.authorLabel = [[QBLabel alloc] initWithFrame:CGRectMake(0, screen.size.height * 0 , screen.size.width, screen.size.height * 0.15)];
     self.authorLabel.text = [quote getQuoteAuthor];
     [self addSubview:self.authorLabel];
     [self.authorLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];

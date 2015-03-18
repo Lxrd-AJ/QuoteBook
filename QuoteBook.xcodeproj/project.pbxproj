@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211747EA1AA91B7600B08EF6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211747E91AA91B7600B08EF6 /* CoreData.framework */; };
 		2140FF8E1A16999A000EE78A /* QBLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2140FF8D1A16999A000EE78A /* QBLabel.m */; };
+		21450EAF1AA2BD8D007C5493 /* LoadingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21450EAE1AA2BD8D007C5493 /* LoadingModel.swift */; };
 		216C79221A16C00F00F73426 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 216C79211A16C00F00F73426 /* appIcon.png */; };
 		2197680619E248990030AD11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197680519E248990030AD11 /* main.m */; };
 		2197680919E248990030AD11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197680819E248990030AD11 /* AppDelegate.m */; };
@@ -17,6 +19,7 @@
 		2197682319E248990030AD11 /* QuoteBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197682219E248990030AD11 /* QuoteBookTests.m */; };
 		2197682F19E24E120030AD11 /* QBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197682E19E24E120030AD11 /* QBUser.m */; };
 		2197683219E24FCD0030AD11 /* QBQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197683119E24FCD0030AD11 /* QBQuote.m */; };
+		21B905221AA472F300A3BC8E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B905211AA472F300A3BC8E /* Parser.swift */; };
 		21D9127D19E256C500153A4B /* QBQuoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9127C19E256C500153A4B /* QBQuoteViewController.m */; };
 		21D9128019E2575100153A4B /* QBQuoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9127F19E2575100153A4B /* QBQuoteView.m */; };
 		21D9128419E3123700153A4B /* QBQuoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9128319E3123700153A4B /* QBQuoteModel.m */; };
@@ -24,6 +27,7 @@
 		21E10E611A949B9B005F49AF /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E601A949B9B005F49AF /* NetworkAdapter.swift */; };
 		21E10E631A949C65005F49AF /* FortuneCookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E621A949C65005F49AF /* FortuneCookie.swift */; };
 		21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E641A94AF48005F49AF /* PageViewController.swift */; };
+		8AF387016451FF6ECA09DBC2 /* Pods_QuoteBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7879AA79C8D81E0BC008A40 /* Pods_QuoteBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B131F6D23311BA157B15AB3 /* Pods-QuoteBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook.debug.xcconfig"; sourceTree = "<group>"; };
+		211747E71AA91B6300B08EF6 /* libPods-QuoteBook-Alamofire.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-QuoteBook-Alamofire.a"; path = "Pods/build/Debug-iphoneos/libPods-QuoteBook-Alamofire.a"; sourceTree = "<group>"; };
+		211747E91AA91B7600B08EF6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2140FF8C1A16999A000EE78A /* QBLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBLabel.h; sourceTree = "<group>"; };
 		2140FF8D1A16999A000EE78A /* QBLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBLabel.m; sourceTree = "<group>"; };
+		21450EAE1AA2BD8D007C5493 /* LoadingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingModel.swift; sourceTree = "<group>"; };
 		216C79211A16C00F00F73426 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		2197680019E248990030AD11 /* QuoteBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2197680419E248990030AD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +63,7 @@
 		2197682E19E24E120030AD11 /* QBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBUser.m; sourceTree = "<group>"; };
 		2197683019E24FCD0030AD11 /* QBQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuote.h; sourceTree = "<group>"; };
 		2197683119E24FCD0030AD11 /* QBQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuote.m; sourceTree = "<group>"; };
+		21B905211AA472F300A3BC8E /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		21D9127B19E256C500153A4B /* QBQuoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuoteViewController.h; sourceTree = "<group>"; };
 		21D9127C19E256C500153A4B /* QBQuoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuoteViewController.m; sourceTree = "<group>"; };
 		21D9127E19E2575100153A4B /* QBQuoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuoteView.h; sourceTree = "<group>"; };
@@ -66,6 +75,8 @@
 		21E10E601A949B9B005F49AF /* NetworkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		21E10E621A949C65005F49AF /* FortuneCookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FortuneCookie.swift; sourceTree = "<group>"; };
 		21E10E641A94AF48005F49AF /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		5A9DCB270C9E87FBFFD83832 /* Pods-QuoteBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook.release.xcconfig"; sourceTree = "<group>"; };
+		B7879AA79C8D81E0BC008A40 /* Pods_QuoteBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuoteBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				211747EA1AA91B7600B08EF6 /* CoreData.framework in Frameworks */,
+				8AF387016451FF6ECA09DBC2 /* Pods_QuoteBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2061296CAFEA2F780419EF9D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1B131F6D23311BA157B15AB3 /* Pods-QuoteBook.debug.xcconfig */,
+				5A9DCB270C9E87FBFFD83832 /* Pods-QuoteBook.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2140FF8B1A167D63000EE78A /* NetworkAdapter */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +122,8 @@
 				2197680219E248990030AD11 /* QuoteBook */,
 				2197681F19E248990030AD11 /* QuoteBookTests */,
 				2197680119E248990030AD11 /* Products */,
+				7B32073B6A6EDCC371F1E814 /* Frameworks */,
+				2061296CAFEA2F780419EF9D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +151,7 @@
 				2197680A19E248990030AD11 /* QuoteBook.xcdatamodeld */,
 				2197680319E248990030AD11 /* Supporting Files */,
 				21E10E5D1A949B75005F49AF /* QuoteBook-Bridging-Header.h */,
+				21B905211AA472F300A3BC8E /* Parser.swift */,
 			);
 			path = QuoteBook;
 			sourceTree = "<group>";
@@ -167,6 +192,7 @@
 				21D9128219E3123600153A4B /* QBQuoteModel.h */,
 				21D9128319E3123700153A4B /* QBQuoteModel.m */,
 				21E10E621A949C65005F49AF /* FortuneCookie.swift */,
+				21450EAE1AA2BD8D007C5493 /* LoadingModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -201,6 +227,16 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		7B32073B6A6EDCC371F1E814 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				211747E91AA91B7600B08EF6 /* CoreData.framework */,
+				211747E71AA91B6300B08EF6 /* libPods-QuoteBook-Alamofire.a */,
+				B7879AA79C8D81E0BC008A40 /* Pods_QuoteBook.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,9 +244,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2197682619E248990030AD11 /* Build configuration list for PBXNativeTarget "QuoteBook" */;
 			buildPhases = (
+				CB77E6A442A4BB55F41C48CF /* Check Pods Manifest.lock */,
 				219767FC19E248990030AD11 /* Sources */,
 				219767FD19E248990030AD11 /* Frameworks */,
 				219767FE19E248990030AD11 /* Resources */,
+				058968106B529E3C870C7D45 /* Copy Pods Resources */,
+				EB67AB38863EF8065F82D9EE /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -298,6 +337,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		058968106B529E3C870C7D45 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB77E6A442A4BB55F41C48CF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EB67AB38863EF8065F82D9EE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		219767FC19E248990030AD11 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -309,8 +396,10 @@
 				2140FF8E1A16999A000EE78A /* QBLabel.m in Sources */,
 				21D9128419E3123700153A4B /* QBQuoteModel.m in Sources */,
 				21D9128019E2575100153A4B /* QBQuoteView.m in Sources */,
+				21B905221AA472F300A3BC8E /* Parser.swift in Sources */,
 				21D9127D19E256C500153A4B /* QBQuoteViewController.m in Sources */,
 				21E10E631A949C65005F49AF /* FortuneCookie.swift in Sources */,
+				21450EAF1AA2BD8D007C5493 /* LoadingModel.swift in Sources */,
 				2197680C19E248990030AD11 /* QuoteBook.xcdatamodeld in Sources */,
 				21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */,
 				2197682F19E24E120030AD11 /* QBUser.m in Sources */,
@@ -365,6 +454,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = NO;
@@ -408,6 +498,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = NO;
@@ -422,6 +513,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -430,6 +522,7 @@
 		};
 		2197682719E248990030AD11 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B131F6D23311BA157B15AB3 /* Pods-QuoteBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -438,6 +531,10 @@
 				INFOPLIST_FILE = QuoteBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuoteBook/QuoteBook-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -446,6 +543,7 @@
 		};
 		2197682819E248990030AD11 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A9DCB270C9E87FBFFD83832 /* Pods-QuoteBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -454,6 +552,10 @@
 				INFOPLIST_FILE = QuoteBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuoteBook/QuoteBook-Bridging-Header.h";
 			};

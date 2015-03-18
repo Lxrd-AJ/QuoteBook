@@ -7,12 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "QBQuoteViewController.h"
+#import "QBQuoteModel.h"
+#import "QuoteBook-Swift.h"
 
 @interface AppDelegate ()
 
-@property(nonatomic,strong) QBQuoteViewController *quoteViewController;
-@property(nonatomic,strong) UINavigationController *navigationController;
+@property(nonatomic,strong) PageViewController *pageViewController;
+@property(nonatomic,strong) NetworkAdapter *networkClient;
 
 @end
 
@@ -22,16 +23,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //---------------------------------------------------------------
-    //Create the QuoteViewController to embed in the NavigationController
-    self.quoteViewController = [[QBQuoteViewController alloc] init];
-    //create our custom navigation controller
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.quoteViewController];
+    //create our page view controller
+    self.pageViewController = [[PageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    //Network Request
+    self.networkClient = [[NetworkAdapter alloc] init];
+    //[self.networkClient setDelegate:self.pageViewController];
+    self.networkClient.delegate = self.pageViewController;
+    [self.networkClient getRequest:@""];
+    
     
     //customise the window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor yellowColor];
     self.window.tintColor = [UIColor colorWithRed:100.0f green:200.0f blue:240.0f alpha:0.6f];
-    self.window.rootViewController = self.navigationController;
+    self.window.rootViewController = self.pageViewController;
     [self.window makeKeyAndVisible];
     return YES;
 }

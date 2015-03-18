@@ -7,14 +7,14 @@
 //
 
 #import "QBQuoteViewController.h"
-#import "QBQuoteModel.h"
+#import "QBQuote.h"
 #import "QBQuoteView.h"
 #import "QuoteBook-Swift.h"
 
 @interface QBQuoteViewController ()
 
 @property(nonatomic,strong) QBQuoteView *quoteView;
-@property(nonatomic,strong) QBQuoteModel *model;
+@property(nonatomic,strong) QBQuote *quote;
 
 @end
 
@@ -26,18 +26,20 @@
     if (self) {
         self.quoteView = [[QBQuoteView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.view = self.quoteView;
-        //initialise the model
-        self.model = [[QBQuoteModel alloc] init];
-        [self initQuoteView];
+        self.quote = [[QBQuote alloc] init];
     }
     return self;
 }
 
--(void)initQuoteView
+-(void)initQuoteViewWith:(QBQuote *)quote
 {
-    //get the quote
-    QBQuote *quote = [self.model getLastQuote];
     [self.quoteView designViewWithQuote:quote];
+}
+
+-(void)setQuote:(QBQuote *)newQuote
+{
+    //self.quote = newQuote;
+    [self initQuoteViewWith:newQuote];
 }
 
 - (void)viewDidLoad {
