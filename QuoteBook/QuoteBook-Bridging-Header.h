@@ -11,6 +11,5 @@
 #import "QBQuoteViewController.h"
 
 //Models
-#import "QBUser.h"
 #import "QBQuote.h"
 #import "QBQuoteModel.h"

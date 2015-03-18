@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "QBQuote.h"
-#import "QBUser.h"
 
 @interface QBQuoteModel : NSObject
 
