@@ -27,6 +27,11 @@
 // 1. Add notification features for early morning daily quote
 // 2. Implement notification center widget
 // 3. Add apple watch target
+// 4. Add a menu { offer customisation }
+// 5. Add advertisements to the app
+// 6. Create the mac version
+// 7. Add a share feature for the quotes
 
 // Bugs list
-// -- No Bugs --
+// -- Add support for swift 1.1
+// -- Alert the user when there is no network connection
