@@ -7,9 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 #import "QuoteBook-Swift.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic,strong) Model *model;
 
 @end
 
@@ -19,10 +22,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //---------------------------------------------------------------
+    //Setup Parse
+    [Parse enableLocalDatastore];
+    [Parse setApplicationId:@"z3rPfifyHvVjZh2U9KsWOEQz9GOWPOYc1o8LCfDk" clientKey:@"6EIPhRpX5apNxkqkeiwZ2MIJ3nR0CIBUBoSNYz51"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     //create the loading viewController
     LoadingViewController *controller = [[LoadingViewController alloc] init];
-    Model *model = [[Model alloc] init];
-    model.delegate = controller;
+    self.model = [[Model alloc] init];
+    self.model.delegate = controller;
     
     //customise the window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -30,7 +38,14 @@
     self.window.tintColor = [UIColor colorWithRed:100.0f green:200.0f blue:240.0f alpha:0.6f];
     self.window.rootViewController = controller;
     [self.window makeKeyAndVisible];
+    
+    //Background fetching stuff
+    [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     return YES;
+}
+
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    [self.model.networkClient fetchQuotesInBackground:completionHandler];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

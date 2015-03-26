@@ -20,5 +20,6 @@
 
 -(UIImageView *)getAuthorImage;
 -(NSString *)getQuoteText;
++(QBQuote *)endQuote;
 
 @end

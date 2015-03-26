@@ -297,6 +297,11 @@
 					219767FF19E248990030AD11 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = 349P7P3B63;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					2197681B19E248990030AD11 = {
 						CreatedOnToolsVersion = 6.0;
@@ -544,6 +549,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "628cfa12-572c-43fb-958e-6368226da59a";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuoteBook/QuoteBook-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -565,6 +571,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "628cfa12-572c-43fb-958e-6368226da59a";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuoteBook/QuoteBook-Bridging-Header.h";
 			};
 			name = Release;

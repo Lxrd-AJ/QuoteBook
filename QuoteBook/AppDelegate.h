@@ -23,3 +23,10 @@
 
 @end
 
+// Feature list
+// 1. Add notification features for early morning daily quote
+// 2. Implement notification center widget
+// 3. Add apple watch target
+
+// Bugs list
+// -- No Bugs --

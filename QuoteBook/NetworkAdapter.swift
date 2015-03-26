@@ -8,8 +8,8 @@
 //
 
 import Foundation
-import Alamofire
-import SwiftyJSON
+//import Alamofire
+import Parse
 
 @objc enum DownloadStatus:Int {
     case Idle
@@ -18,31 +18,80 @@ import SwiftyJSON
     case NewQuotes
     case NoQuote
     case NetworkError
+    case MoreQuotes
 }
 
 @objc protocol NetworkAdapterDelegate {
-    func clientDidFinishDownloading( sender:NSObject, data:AnyObject?, status:DownloadStatus )
+    func clientDidFinishDownloading( sender:NSObject, data:[String:AnyObject], status:DownloadStatus )
+    func didFinishDownloading( data:[QBQuote] )
+    func didFinishBackgroundFetch( data:[QBQuote] )
 }
 
 class NetworkAdapter: NSObject {
-    let iheartQuotes = "http://www.iheartquotes.com/api/v1/random"
+
     var status:DownloadStatus = .Idle
     var randomQuote:NSString?
     var delegate:NetworkAdapterDelegate?
+    let iheartQuotes = "http://www.iheartquotes.com/api/v1/random"
     let api = [
             "iHeartQuote": "http://www.iheartquotes.com/api/v1/random",
             "theySaidSo": "http://api.theysaidso.com/qod.json"
         ]
     
-    func downloadQuotesFromAPIs() {
-        Alamofire.request( .GET, iheartQuotes, parameters:["format":"json", "max_lines":"3", "max_characters":"50"] ).responseJSON(options: .MutableContainers){
-            (request, response, json, error) in
-            if error == nil {
-                self.delegate?.clientDidFinishDownloading(self, data: json!, status: .NewQuotes )
-                println( json )
+//    func downloadQuotesFromAPIs() {
+//        Alamofire.request( .GET, iheartQuotes, parameters:["format":"json", "max_lines":"10", "max_characters":"65"] ).responseJSON(options: .MutableContainers){
+//            (request, response, json, error) in
+//            if error == nil {
+//                self.delegate?.clientDidFinishDownloading(self, data: ["iHeartQuote":json!], status: .NewQuotes )
+//                //println( json )
+//            }else{
+//                println( error )
+//            }
+//        }
+//        downloadQuotes()
+//    }
+//    
+//    func downloadQuotes(){
+//        for (key,value) in api {
+//            Alamofire.request( .GET, value ).responseJSON(options: .MutableContainers, completionHandler: {
+//                (request, response, json, error ) in
+//                if error == nil {
+//                    println( json! )
+//                    self.delegate?.clientDidFinishDownloading(self, data:[ key: json! ], status: .MoreQuotes )
+//                }
+//            })
+//        }
+//    }
+//    
+    func downloadQuotesFromServer(){
+        var quotes = Array<QBQuote>()
+        var query = PFQuery( className: "Quote" )
+        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]?, error: NSError?) -> Void in
+            if let objects = objects as? [PFObject] {
+                for object in objects {
+                    let obj = Parser.parsePFObjectToQuote( object )
+                    quotes.append( obj )
+                }
+                self.delegate?.didFinishDownloading(quotes)
+            }
+        }
+    }
+    
+    func fetchQuotesInBackground( callBack:(fetchStatus:UIBackgroundFetchResult) -> Void ) {
+        var quotes = Array<QBQuote>()
+        var query = PFQuery( className: "Quote" )
+        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]?, error: NSError?) -> Void in
+            if let objects = objects as? [PFObject] {
+                for object in objects {
+                    let obj = Parser.parsePFObjectToQuote( object )
+                    quotes.append( obj )
+                }
+                self.delegate?.didFinishBackgroundFetch(quotes)
+                println("Background fetching \(quotes)")
+                callBack( fetchStatus: .NewData )
             }else{
-                println( error )
-                self.delegate?.clientDidFinishDownloading(self, data: json, status: .NetworkError )
+                //No data
+                callBack( fetchStatus: .Failed )
             }
         }
     }

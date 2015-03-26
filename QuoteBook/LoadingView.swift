@@ -17,5 +17,11 @@ class LoadingView: QBQuoteView {
         loadingQuote.setQuoteAuthor("QuoteBook App")
         super.designViewWithQuote( loadingQuote )
     }
+    
+    func designWithNoQuote() {
+        loadingQuote.setTitle("Oops!", forQuote: "Something went wrong \nThere seem to be no quotes 😩!")
+        loadingQuote.setQuoteAuthor("QuoteBook App")
+        super.designViewWithQuote( loadingQuote )
+    }
 
 }

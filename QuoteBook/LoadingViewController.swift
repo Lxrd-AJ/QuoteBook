@@ -11,6 +11,7 @@ import UIKit
 class LoadingViewController: UIViewController {
     
     let loadingView = LoadingView()
+    var pageController:PageViewController?
     
     override init() {
         super.init(nibName: nil, bundle: nil)
@@ -35,9 +36,18 @@ class LoadingViewController: UIViewController {
 
 extension LoadingViewController: ModelDelegate {
     func didFinishDownloadingData(#sender: NSObject) {
-        let pageController = PageViewController( transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil )
-        pageController.model = sender as! Model
         self.view.subviews.map{ $0.removeFromSuperview() }
-        self.presentViewController(pageController, animated: true, completion: nil)
+        let model = sender as! Model
+        if model.quoteCount() == 0 {
+            self.loadingView.designWithNoQuote()
+        }else{
+            self.pageController = PageViewController( transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil )
+            self.pageController!.model = sender as! Model
+            self.presentViewController(self.pageController!, animated: true, completion: nil)
+        }
+    }
+    
+    func didFinishBackgroundFetch(#sender: Model) {
+        self.pageController!.model = sender;
     }
 }

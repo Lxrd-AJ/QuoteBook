@@ -7,24 +7,58 @@
 //
 
 import UIKit
-import SwiftyJSON
+//import SwiftyJSON
 
 class Parser: NSObject {
-    
-    func createQuote( title:String, quote:String ) -> QBQuote {
-        let res = QBQuote()
-        res.setTitle(title, forQuote: quote)
-        return res
-    }
 
-    static func parseiHeartQuotes( quote:AnyObject ) -> QBQuote {
-        let json = JSON( quote )
-        let quote = QBQuote()
-        if let body = json["quote"].string {
-            quote.setQuoteAuthor("I❤️Quote")
-            quote.setTitle("Random", forQuote: body)
-        }
-        return quote
+//    static func parseQuote( data: [String:AnyObject] ) -> QBQuote {
+//        var result = QBQuote()
+//        for (source,quote) in data{
+//            switch source {
+//            case "iHeartQuotes":
+//                result = parseiHeartQuotes( [source:quote] )
+//            default:
+//                result = QBQuote()
+//            }
+//        }
+//        return result
+//    }
+//    
+//    static func parseiHeartQuotes( data :[String:AnyObject] ) -> QBQuote {
+//        let quote = QBQuote()
+//        for (key,value) in data {
+//            let json = JSON( value )
+//            if let body = json["quote"].string {
+//                if let source = json["source"].string {
+//                    quote.setQuoteAuthor("I❤️Quote")
+//                    quote.setTitle("Random", forQuote: "\(body) \n - \(source)")
+//                }
+//            }
+//        }
+//        return quote
+//    }
+//    
+//    static func parseTheySaidSo( data: [String:AnyObject] ) -> QBQuote {
+//        let quote = QBQuote()
+//        for (key,value) in data {
+//            let json = JSON( value )
+//            if let author = json["contents"]["author"].string {
+//                if let quoteString = json["contents"]["quote"].string {
+//                    quote.setQuoteAuthor( author )
+//                    quote.setTitle("TheySaidSo", forQuote: quoteString )
+//                }
+//            }
+//        }
+//        return quote
+//    }
+    
+    static func parsePFObjectToQuote( object:PFObject ) -> QBQuote {
+        let result = QBQuote()
+        var author = object["author"] as! String
+        var quote = object["quote"] as! String
+        result.setTitle( author, forQuote: quote )
+        result.setQuoteAuthor(author)
+        return result
     }
 }
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CD7CBF04-4063-438B-98BB-41DC34ABCBDB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>QuoteBook</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>375CD10A3D5750B653493B4F8151C31A40A175A4</key>
+		<string>https://github.com/Lxrd-AJ/QuoteBook.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>QuoteBook.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>375CD10A3D5750B653493B4F8151C31A40A175A4</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Lxrd-AJ/QuoteBook.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>375CD10A3D5750B653493B4F8151C31A40A175A4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>375CD10A3D5750B653493B4F8151C31A40A175A4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>QuoteBook</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>375CD10A3D5750B653493B4F8151C31A40A175A4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>QuoteBook</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -13,3 +13,6 @@
 //Models
 #import "QBQuote.h"
 
+//Libraries
+#import <Parse/Parse.h>
+

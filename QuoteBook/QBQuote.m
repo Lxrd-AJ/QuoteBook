@@ -51,6 +51,13 @@
     self.quote = [[NSString alloc] initWithString:quote];
 }
 
++(QBQuote*)endQuote {
+    QBQuote *result = [[QBQuote alloc] init];
+    [result setTitle:@"The end" forQuote:@"You have reached the end \n my young padwan 😅"];
+    [result setQuoteAuthor:@"QuoteBook App"];
+    return result;
+}
+
 -(void)setAuthorImageProperty:(UIImage *)image
 {
     UIImage *result = nil;

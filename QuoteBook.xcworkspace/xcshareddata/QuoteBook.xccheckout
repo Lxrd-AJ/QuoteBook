@@ -18,7 +18,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>375CD10A3D5750B653493B4F8151C31A40A175A4</key>
-		<string>..QuoteBook/</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Lxrd-AJ/QuoteBook.git</string>

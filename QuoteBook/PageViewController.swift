@@ -52,13 +52,23 @@ extension PageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         let cont = QBQuoteViewController()
-        cont.setQuote( model.previousQuote() ) //TODO: If nil returned, no new quotes
-        return cont
+         //If nil returned, no new quotes, go home happily
+        if let quote = model.previousQuote() {
+            cont.setQuote( quote )
+            return cont
+        }else{
+            return nil
+        }
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         let cont = QBQuoteViewController()
-        cont.setQuote( model.nextQuote() ) //TODO: If nil returned, no new quotes
-        return cont
+         //TODO: If nil returned, no new quotes
+        if let quote = model.nextQuote() {
+            cont.setQuote( model.nextQuote() )
+            return cont
+        }else{
+            return LoadingViewController()
+        }
     }
 }

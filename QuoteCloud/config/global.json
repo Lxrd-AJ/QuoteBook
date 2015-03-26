@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.4.0"
+  },
+  "applications": {
+    "QuoteBook": {
+      "applicationId": "z3rPfifyHvVjZh2U9KsWOEQz9GOWPOYc1o8LCfDk",
+      "masterKey": "shvF7i1fSbvwCGxFs9ggy1fiFfjUvvGUjWWyGNc9"
+    },
+    "_default": {
+      "link": "QuoteBook"
+    }
+  }
+}
