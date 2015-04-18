@@ -549,7 +549,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "628cfa12-572c-43fb-958e-6368226da59a";
+				PROVISIONING_PROFILE = "3e14395f-90f2-46db-a6a9-0f8e2f505670";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuoteBook/QuoteBook-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -571,7 +571,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "628cfa12-572c-43fb-958e-6368226da59a";
+				PROVISIONING_PROFILE = "3e14395f-90f2-46db-a6a9-0f8e2f505670";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuoteBook/QuoteBook-Bridging-Header.h";
 			};
 			name = Release;
