@@ -16,13 +16,13 @@ class PageViewController: UIPageViewController {
         }
     }
     
-    override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [NSObject : AnyObject]?) {
+    override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : AnyObject]?) {
         super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
         self.dataSource = self
         self.delegate = self
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -64,7 +64,7 @@ extension PageViewController: UIPageViewControllerDataSource {
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         let cont = QBQuoteViewController()
          //TODO: If nil returned, no new quotes
-        if let quote = model.nextQuote() {
+        if let _ = model.nextQuote() {
             cont.setQuote( model.nextQuote() )
             return cont
         }else{

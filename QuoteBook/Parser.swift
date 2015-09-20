@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 //import SwiftyJSON
 
 class Parser: NSObject {
@@ -54,8 +55,8 @@ class Parser: NSObject {
     
     static func parsePFObjectToQuote( object:PFObject ) -> QBQuote {
         let result = QBQuote()
-        var author = object["author"] as! String
-        var quote = object["quote"] as! String
+        let author = object["author"] as! String
+        let quote = object["quote"] as! String
         result.setTitle( author, forQuote: quote )
         result.setQuoteAuthor(author)
         return result

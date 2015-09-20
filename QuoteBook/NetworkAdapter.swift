@@ -65,7 +65,7 @@ class NetworkAdapter: NSObject {
 //    
     func downloadQuotesFromServer(){
         var quotes = Array<QBQuote>()
-        var query = PFQuery( className: "Quote" )
+        let query = PFQuery( className: "Quote" )
         query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]?, error: NSError?) -> Void in
             if let objects = objects as? [PFObject] {
                 for object in objects {
@@ -79,21 +79,21 @@ class NetworkAdapter: NSObject {
     
     func fetchQuotesInBackground( callBack:(fetchStatus:UIBackgroundFetchResult) -> Void ) {
         var quotes = Array<QBQuote>()
-        var query = PFQuery( className: "Quote" )
-        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]?, error: NSError?) -> Void in
-            if let objects = objects as? [PFObject] {
-                for object in objects {
-                    let obj = Parser.parsePFObjectToQuote( object )
-                    quotes.append( obj )
-                }
-                self.delegate?.didFinishBackgroundFetch(quotes)
-                println("Background fetching \(quotes)")
-                callBack( fetchStatus: .NewData )
-            }else{
-                //No data
-                callBack( fetchStatus: .Failed )
-            }
-        }
+        let query = PFQuery( className: "Quote" )
+//        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]?, error: NSError?) -> Void in
+//            if let objects = objects as? [PFObject] {
+//                for object in objects {
+//                    let obj = Parser.parsePFObjectToQuote( object )
+//                    quotes.append( obj )
+//                }
+//                self.delegate?.didFinishBackgroundFetch(quotes)
+//                print("Background fetching \(quotes)")
+//                callBack( fetchStatus: .NewData )
+//            }else{
+//                //No data
+//                callBack( fetchStatus: .Failed )
+//            }
+//        }
     }
     
 }

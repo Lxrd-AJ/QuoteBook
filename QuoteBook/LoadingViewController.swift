@@ -13,14 +13,13 @@ class LoadingViewController: UIViewController {
     let loadingView = LoadingView()
     var pageController:PageViewController?
     
-    override init() {
-        super.init(nibName: nil, bundle: nil)
-        self.view = self.loadingView
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    override init() {
+//        super.init()
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,14 +28,14 @@ class LoadingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view = self.loadingView
     }
 
 }
 
 extension LoadingViewController: ModelDelegate {
-    func didFinishDownloadingData(#sender: NSObject) {
-        self.view.subviews.map{ $0.removeFromSuperview() }
+    func didFinishDownloadingData(sender sender: NSObject) {
+        _ = self.view.subviews.map{ $0.removeFromSuperview() }
         let model = sender as! Model
         if model.quoteCount() == 0 {
             self.loadingView.designWithNoQuote()
@@ -47,7 +46,7 @@ extension LoadingViewController: ModelDelegate {
         }
     }
     
-    func didFinishBackgroundFetch(#sender: Model) {
+    func didFinishBackgroundFetch(sender sender: Model) {
         self.pageController!.model = sender;
     }
 }

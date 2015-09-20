@@ -25,15 +25,17 @@
 
 // Feature list
 // - Add the new StandS4 API to the server
-// 1. Add notification features for early morning daily quote
-// 2. Implement notification center widget
-// 3. Add apple watch target
-// 4. Add a menu { allow user change the colors }
-// 5. Add advertisements to the app
-// 6. Create the mac version
-// 7. Add a share feature for the quotes
-// 8. Integrate beautiful adverts in the app
+// - Add notification features for early morning daily quote
+// - Implement notification center widget
+// - Add apple watch target
+// - Add a menu { allow user change the colors }
+// - Add advertisements to the app
+// - Create the mac version
+// - Add a share feature for the quotes
+// - Integrate beautiful adverts in the app
 // - Allow people add their own quotes { People can upvote & downvote quotes just like stack overflow, User generated content + My generated content 🙌🏽🙌🏽🙌🏽 }
+// - Apple Watch feature: Send the user a quote about hearts based on the current heartbeat
+
 
 
 // Bugs list
@@ -41,7 +43,7 @@
 // -- Allow text re-size to accomodate for long quotes
 // -- Alert the user when there is no network connection
 // -- server side, write a script to prevent duplicate quotes
-=======
+//=======
 // 1. Add notification features for early morning daily quote
 // 2. Implement notification center widget
 // 3. Add apple watch target
