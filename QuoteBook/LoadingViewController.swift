@@ -10,7 +10,7 @@ import UIKit
 
 class LoadingViewController: UIViewController {
     
-    let loadingView = LoadingView()
+    let loadingView = QuoteView.instanceFromNib()
     var pageController:PageViewController?
     
 //    override init() {
@@ -20,15 +20,16 @@ class LoadingViewController: UIViewController {
 //    required init?(coder aDecoder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
 //    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.loadingView.designViewWithQuote()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = self.loadingView
+        self.view = loadingView
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        loadingView.titleLabel.text = "QuoteBook App"
+        loadingView.quoteTextView.text = "Patience is a virtue \n\nFetching your quotes...."
     }
 
 }
@@ -38,7 +39,7 @@ extension LoadingViewController: ModelDelegate {
         _ = self.view.subviews.map{ $0.removeFromSuperview() }
         let model = sender as! Model
         if model.quoteCount() == 0 {
-            self.loadingView.designWithNoQuote()
+            //self.loadingView.designWithNoQuote()
         }else{
             self.pageController = PageViewController( transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil )
             self.pageController!.model = sender as! Model

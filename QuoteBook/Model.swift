@@ -38,7 +38,7 @@ class Model: NSObject {
         super.init()
         networkClient.delegate = self
         //networkClient.downloadQuotesFromAPIs()
-        networkClient.downloadQuotesFromServer()
+        //networkClient.downloadQuotesFromServer()
     }
     
     func quoteCount() -> Int {

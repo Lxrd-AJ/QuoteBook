@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5ABE435C2C58D75B2E6FC9BA"
+               BlueprintIdentifier = "9DA9DF204C4169BB48B3DD4A"
                BuildableName = "Pods_QuoteBook.framework"
                BlueprintName = "Pods-QuoteBook"
                ReferencedContainer = "container:Pods.xcodeproj">

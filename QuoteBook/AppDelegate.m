@@ -45,7 +45,7 @@
 }
 
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
-    [self.model.networkClient fetchQuotesInBackground:completionHandler];
+    //[self.model.networkClient fetchQuotesInBackground:completionHandler];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
