@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "375CD10A3D5750B653493B4F8151C31A40A175A4+++DC68B8C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "375CD10A3D5750B653493B4F8151C31A40A175A4+++281949A" : 0,
+    "375CD10A3D5750B653493B4F8151C31A40A175A4+++DC68B8C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9F2E4226-A59E-475D-AA8E-1D939427262A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "375CD10A3D5750B653493B4F8151C31A40A175A4+++281949A" : "QuoteBook",
+    "375CD10A3D5750B653493B4F8151C31A40A175A4+++DC68B8C" : "QuoteBook"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "QuoteBook",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "QuoteBook.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Lxrd-AJ\/QuoteBook.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "375CD10A3D5750B653493B4F8151C31A40A175A4+++281949A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Lxrd-AJ\/QuoteBook.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "375CD10A3D5750B653493B4F8151C31A40A175A4+++DC68B8C"
+    }
+  ]
+}
