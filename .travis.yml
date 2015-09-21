@@ -1,1 +1,6 @@
-language: objective-c
+language: swift
+oxs_image: xcode7
+script: 
+   - xctool -workspace QuoteBook.xcworkspace -scheme QuoteBook -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+   - xctool test -workspace QuoteBook.xcworkspace -scheme QuoteBookTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+
