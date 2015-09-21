@@ -9,22 +9,19 @@
 /* Begin PBXBuildFile section */
 		21105DC11BAF1C120061DCFD /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21105DC01BAF1C120061DCFD /* Parse.swift */; };
 		211747EA1AA91B7600B08EF6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211747E91AA91B7600B08EF6 /* CoreData.framework */; };
-		2140FF8E1A16999A000EE78A /* QBLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2140FF8D1A16999A000EE78A /* QBLabel.m */; };
 		2142837F1BAF1EE800A76082 /* QuoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2142837E1BAF1EE800A76082 /* QuoteView.xib */; };
 		214283821BAF200100A76082 /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214283811BAF200100A76082 /* ParseService.swift */; };
 		214283841BAF20D800A76082 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214283831BAF20D800A76082 /* QuoteView.swift */; };
 		214283861BAF32BB00A76082 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214283851BAF32BB00A76082 /* Utilities.swift */; };
-		21453F431AB92B20000E939B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21453F421AB92B20000E939B /* main.m */; };
+		2142838A1BAFC26800A76082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214283891BAFC26800A76082 /* AppDelegate.swift */; };
+		2142838C1BAFC33600A76082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2142838B1BAFC33600A76082 /* Main.storyboard */; };
+		2142838E1BAFC61400A76082 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2142838D1BAFC61400A76082 /* Quote.swift */; };
 		21453F471AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */; };
 		21453F481AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */; };
-		21453F4C1AB9319B000E939B /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21453F4B1AB9319B000E939B /* LoadingViewController.swift */; };
 		21453F4E1AB93A5A000E939B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21453F4D1AB93A5A000E939B /* Model.swift */; };
 		216C79221A16C00F00F73426 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 216C79211A16C00F00F73426 /* appIcon.png */; };
-		2197680919E248990030AD11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197680819E248990030AD11 /* AppDelegate.m */; };
 		2197681419E248990030AD11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2197681319E248990030AD11 /* Images.xcassets */; };
 		2197681719E248990030AD11 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2197681519E248990030AD11 /* LaunchScreen.xib */; };
-		2197683219E24FCD0030AD11 /* QBQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = 2197683119E24FCD0030AD11 /* QBQuote.m */; };
-		21B905221AA472F300A3BC8E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B905211AA472F300A3BC8E /* Parser.swift */; };
 		21E10E611A949B9B005F49AF /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E601A949B9B005F49AF /* NetworkAdapter.swift */; };
 		21E10E631A949C65005F49AF /* FortuneCookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E621A949C65005F49AF /* FortuneCookie.swift */; };
 		21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E641A94AF48005F49AF /* PageViewController.swift */; };
@@ -46,30 +43,24 @@
 		21105DC01BAF1C120061DCFD /* Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
 		211747E71AA91B6300B08EF6 /* libPods-QuoteBook-Alamofire.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-QuoteBook-Alamofire.a"; path = "Pods/build/Debug-iphoneos/libPods-QuoteBook-Alamofire.a"; sourceTree = "<group>"; };
 		211747E91AA91B7600B08EF6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		2140FF8C1A16999A000EE78A /* QBLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBLabel.h; sourceTree = "<group>"; };
-		2140FF8D1A16999A000EE78A /* QBLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBLabel.m; sourceTree = "<group>"; };
 		2142837E1BAF1EE800A76082 /* QuoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteView.xib; sourceTree = "<group>"; };
 		214283801BAF200100A76082 /* QuoteBookTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteBookTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		214283811BAF200100A76082 /* ParseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseService.swift; sourceTree = "<group>"; };
 		214283831BAF20D800A76082 /* QuoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		214283851BAF32BB00A76082 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		21453F421AB92B20000E939B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		214283891BAFC26800A76082 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2142838B1BAFC33600A76082 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2142838D1BAFC61400A76082 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png"; sourceTree = "<group>"; };
 		21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png"; sourceTree = "<group>"; };
-		21453F4B1AB9319B000E939B /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		21453F4D1AB93A5A000E939B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		216C79211A16C00F00F73426 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		2197680019E248990030AD11 /* QuoteBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2197680419E248990030AD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2197680719E248990030AD11 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2197680819E248990030AD11 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2197681319E248990030AD11 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2197681619E248990030AD11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2197681C19E248990030AD11 /* QuoteBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuoteBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2197682119E248990030AD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2197683019E24FCD0030AD11 /* QBQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBQuote.h; sourceTree = "<group>"; };
-		2197683119E24FCD0030AD11 /* QBQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBQuote.m; sourceTree = "<group>"; };
-		21B905211AA472F300A3BC8E /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		21E10E5D1A949B75005F49AF /* QuoteBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteBook-Bridging-Header.h"; sourceTree = "<group>"; };
 		21E10E601A949B9B005F49AF /* NetworkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		21E10E621A949C65005F49AF /* FortuneCookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FortuneCookie.swift; sourceTree = "<group>"; };
@@ -148,18 +139,17 @@
 		2197680219E248990030AD11 /* QuoteBook */ = {
 			isa = PBXGroup;
 			children = (
+				214283891BAFC26800A76082 /* AppDelegate.swift */,
+				2142838B1BAFC33600A76082 /* Main.storyboard */,
 				2140FF8B1A167D63000EE78A /* Services */,
 				21D9128A19E3251600153A4B /* Resources */,
 				21D9128119E2576200153A4B /* Views */,
 				21D9127719E254EB00153A4B /* Controllers */,
 				2197682C19E24DDD0030AD11 /* Models */,
-				2197680719E248990030AD11 /* AppDelegate.h */,
-				2197680819E248990030AD11 /* AppDelegate.m */,
 				2197681319E248990030AD11 /* Images.xcassets */,
 				2197681519E248990030AD11 /* LaunchScreen.xib */,
 				2197680319E248990030AD11 /* Supporting Files */,
 				21E10E5D1A949B75005F49AF /* QuoteBook-Bridging-Header.h */,
-				21B905211AA472F300A3BC8E /* Parser.swift */,
 				214283851BAF32BB00A76082 /* Utilities.swift */,
 			);
 			path = QuoteBook;
@@ -168,7 +158,6 @@
 		2197680319E248990030AD11 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				21453F421AB92B20000E939B /* main.m */,
 				2197680419E248990030AD11 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -195,10 +184,9 @@
 		2197682C19E24DDD0030AD11 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2197683019E24FCD0030AD11 /* QBQuote.h */,
-				2197683119E24FCD0030AD11 /* QBQuote.m */,
 				21E10E621A949C65005F49AF /* FortuneCookie.swift */,
 				21453F4D1AB93A5A000E939B /* Model.swift */,
+				2142838D1BAFC61400A76082 /* Quote.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -207,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				21E10E641A94AF48005F49AF /* PageViewController.swift */,
-				21453F4B1AB9319B000E939B /* LoadingViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -215,8 +202,6 @@
 		21D9128119E2576200153A4B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2140FF8C1A16999A000EE78A /* QBLabel.h */,
-				2140FF8D1A16999A000EE78A /* QBLabel.m */,
 				2142837E1BAF1EE800A76082 /* QuoteView.xib */,
 				214283831BAF20D800A76082 /* QuoteView.swift */,
 			);
@@ -333,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2142838C1BAFC33600A76082 /* Main.storyboard in Resources */,
 				2197681719E248990030AD11 /* LaunchScreen.xib in Resources */,
 				21453F481AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png in Resources */,
 				2197681419E248990030AD11 /* Images.xcassets in Resources */,
@@ -404,19 +390,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21453F431AB92B20000E939B /* main.m in Sources */,
 				214283841BAF20D800A76082 /* QuoteView.swift in Sources */,
 				21105DC11BAF1C120061DCFD /* Parse.swift in Sources */,
-				2197680919E248990030AD11 /* AppDelegate.m in Sources */,
-				21453F4C1AB9319B000E939B /* LoadingViewController.swift in Sources */,
+				2142838A1BAFC26800A76082 /* AppDelegate.swift in Sources */,
+				2142838E1BAFC61400A76082 /* Quote.swift in Sources */,
 				21E10E611A949B9B005F49AF /* NetworkAdapter.swift in Sources */,
 				214283861BAF32BB00A76082 /* Utilities.swift in Sources */,
-				2140FF8E1A16999A000EE78A /* QBLabel.m in Sources */,
 				21453F4E1AB93A5A000E939B /* Model.swift in Sources */,
-				21B905221AA472F300A3BC8E /* Parser.swift in Sources */,
 				21E10E631A949C65005F49AF /* FortuneCookie.swift in Sources */,
 				21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */,
-				2197683219E24FCD0030AD11 /* QBQuote.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,7 +521,6 @@
 			baseConfigurationReference = 1B131F6D23311BA157B15AB3 /* Pods-QuoteBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -563,7 +544,6 @@
 			baseConfigurationReference = 5A9DCB270C9E87FBFFD83832 /* Pods-QuoteBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

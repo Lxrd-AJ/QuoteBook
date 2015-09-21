@@ -5,7 +5,7 @@ use_frameworks!
 target 'QuoteBook' do
     #pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'xcode-6.3'
     #pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git', :branch => 'xcode6.3'
-    pod 'Parse', '~> 1.8'
+    pod 'Parse'
 end
 
 target 'QuoteBookTests' do

@@ -8,17 +8,7 @@
 
 import Foundation
 
-extension Array
-{
-    /** Randomizes the order of an array's elements. */
-    mutating func shuffle()
-    {
-        for _ in 0..<10
-        {
-            sortInPlace { (_,_) in arc4random() < arc4random() }
-        }
-    }
-}
+
 
 @objc protocol ModelDelegate {
     func didFinishDownloadingData( sender sender:NSObject )
@@ -28,58 +18,58 @@ extension Array
 
 class Model: NSObject {
     
-    var downloadedQuotes:[QBQuote] = []
-    var delegate:ModelDelegate?
-    var counter:Int = 0
-    let networkClient:NetworkAdapter = NetworkAdapter()
-    
-    override init() {
-        //begin downloads
-        super.init()
-        networkClient.delegate = self
-        //networkClient.downloadQuotesFromAPIs()
-        //networkClient.downloadQuotesFromServer()
-    }
-    
-    func quoteCount() -> Int {
-        return self.downloadedQuotes.count
-    }
-    
-    func nextQuote() -> QBQuote? {
-        return self.downloadedQuotes[ counter++ % quoteCount() ]
-    }
-    
-    func previousQuote() -> QBQuote? {
-        return self.downloadedQuotes[ counter-- % quoteCount() ]
-    }
-    
+//    var downloadedQuotes:[QBQuote] = []
+//    var delegate:ModelDelegate?
+//    var counter:Int = 0
+//    let networkClient:NetworkAdapter = NetworkAdapter()
+//    
+//    override init() {
+//        //begin downloads
+//        super.init()
+//        networkClient.delegate = self
+//        //networkClient.downloadQuotesFromAPIs()
+//        //networkClient.downloadQuotesFromServer()
+//    }
+//    
+//    func quoteCount() -> Int {
+//        return self.downloadedQuotes.count
+//    }
+//    
+//    func nextQuote() -> QBQuote? {
+//        return self.downloadedQuotes[ counter++ % quoteCount() ]
+//    }
+//    
+//    func previousQuote() -> QBQuote? {
+//        return self.downloadedQuotes[ counter-- % quoteCount() ]
+//    }
+//    
 }
 
-extension Model: NetworkAdapterDelegate {
-    func clientDidFinishDownloading(sender: NSObject, data: [String:AnyObject], status: DownloadStatus) {
+//extension Model: NetworkAdapterDelegate {
+    //func clientDidFinishDownloading(sender: NSObject, data: [String:AnyObject], status: DownloadStatus) {
 //        switch status {
 //        case .NewQuotes:
 //            counter = -1
-//            let quote = Parser.parseiHeartQuotes(data)
-//            self.downloadedQuotes.append(quote)
-//            self.delegate?.didFinishDownloadingData( sender: self )
-//        case .MoreQuotes:
-//            self.downloadedQuotes.append( Parser.parseQuote( data ) )
-//        default:
-//            self.delegate?.didFinishDownloadingData(sender: self)
-//            println("No new quotes")
-//        }
-    }
-    
-    func didFinishDownloading(data: [QBQuote]) {
-        self.downloadedQuotes = data
-        self.downloadedQuotes.shuffle()
-        self.delegate?.didFinishDownloadingData( sender: self )
-    }
-    
-    func didFinishBackgroundFetch( data:[QBQuote] ) {
-        self.downloadedQuotes = data
-        self.downloadedQuotes.shuffle()
-        self.delegate?.didFinishBackgroundFetch(sender: self)
-    }
-}
+////            let quote = Parser.parseiHeartQuotes(data)
+////            self.downloadedQuotes.append(quote)
+////            self.delegate?.didFinishDownloadingData( sender: self )
+////        case .MoreQuotes:
+////            self.downloadedQuotes.append( Parser.parseQuote( data ) )
+////        default:
+////            self.delegate?.didFinishDownloadingData(sender: self)
+////            println("No new quotes")
+////        }
+//    }
+//    
+//    func didFinishDownloading(data: [QBQuote]) {
+//        self.downloadedQuotes = data
+//        self.downloadedQuotes.shuffle()
+//        self.delegate?.didFinishDownloadingData( sender: self )
+//    }
+//    
+//    func didFinishBackgroundFetch( data:[QBQuote] ) {
+//        self.downloadedQuotes = data
+//        self.downloadedQuotes.shuffle()
+//        self.delegate?.didFinishBackgroundFetch(sender: self)
+//    }
+//}

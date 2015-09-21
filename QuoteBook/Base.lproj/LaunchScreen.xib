@@ -19,7 +19,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hand-crafted with ❤️ in Brighton &amp; Cambridge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="m3v-bM-jf6">
-                    <rect key="frame" x="110.5" y="333" width="260" height="21"/>
+                    <rect key="frame" x="111" y="333" width="260" height="21"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="C7t-k3-G4R"/>
