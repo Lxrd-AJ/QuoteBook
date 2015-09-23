@@ -10,25 +10,55 @@ import UIKit
 
 class PageViewController: UIPageViewController {
     
-    var model:Model = Model() {
-        didSet {
-            self.setup()
+    let loadingView = QuoteView.instanceFromNib()
+    let loadingController = UIViewController()
+    var quotes:[Quote] = []
+    var quotesViewControllers:[UIViewController] = []
+    var index:Int = 0{
+//        get{ return (index % quotes.count) }
+        //set(newValue){ index = newValue % quotes.count }
+        //willSet(newValue){ index = newValue % quotes.count }
+        didSet{
+            if( index < 0 ){ index = quotes.count - 1 }
+            else{ index = index % quotes.count; print(index) }
         }
     }
     
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : AnyObject]?) {
         super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
-        //self.dataSource = self
-        self.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        //fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        self.dataSource = self
+        self.delegate = self
+    }
+    
+    override func viewDidLoad() {
+        //Setup
+        loadingView.titleLabel.text = "QuoteBook App"
+        loadingView.quoteTextView.text = "Patience is a virtue \n\nFetching your quotes...."
+        loadingController.view = loadingView
+        
+        self.setViewControllers([loadingController], direction: .Forward, animated: true, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        setup()
+        ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
+            self.quotes = quotes
+            self.quotes.shuffle()
+            if quotes.count == 0 {
+                let quote:Quote = Quote()
+                quote.quote = "😑😑 Err, It seems I can't connect to the mothership now\n Try again when there is an internet connection"
+                quote.author = "QuoteBook Maestro📱"
+                self.setViewControllers([self.newPage(quote)], direction: .Forward, animated: true, completion: nil)
+            }else{
+                self.quotesViewControllers = self.quotes.map( self.newPage )
+                self.setViewControllers( [self.newPage(self.quotes[0])], direction: .Forward, animated: true, completion: nil)
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,39 +66,29 @@ class PageViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setup(){
-        //let cont = QBQuoteViewController()
-        //cont.setQuote( model.nextQuote() )
-        //self.setViewControllers([cont], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+    func newPage( quote:Quote ) -> UIViewController {
+        let quoteView = QuoteView.instanceFromNib()
+        let res = UIViewController()
+        quoteView.quoteTextView.text = quote.quote!
+        quoteView.titleLabel.text = quote.author!
+        res.view = quoteView
+        return res
     }
-    
 }
 
 extension PageViewController: UIPageViewControllerDelegate {
    
 }
 
-//extension PageViewController: UIPageViewControllerDataSource {
-//    
-//    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-//        //let cont = QBQuoteViewController()
-//         //If nil returned, no new quotes, go home happily
-//        if let quote = model.previousQuote() {
-//            cont.setQuote( quote )
-//            return cont
-//        }else{
-//            return nil
-//        }
-//    }
-//    
-//    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-//        //let cont = QBQuoteViewController()
-//         //TODO: If nil returned, no new quotes
-//        if let _ = model.nextQuote() {
-//            cont.setQuote( model.nextQuote() )
-//            return cont
-//        }else{
-//            return LoadingViewController()
-//        }
-//    }
-//}
+extension PageViewController: UIPageViewControllerDataSource {
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        guard quotes.count != 0 else{ return nil }
+        return quotesViewControllers[ index-- ]
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        guard quotes.count != 0 else{ return nil }
+        return quotesViewControllers[ index++ ]
+    }
+}

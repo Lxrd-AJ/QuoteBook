@@ -13,5 +13,7 @@ class Quote {
     var quote:String?
     var author:String?
     var tag:String?
+    var createdAt:NSDate?
+    var updatedAt:NSDate?
     
 }
