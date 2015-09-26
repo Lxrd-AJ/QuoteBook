@@ -10,8 +10,8 @@ Parse.Cloud.job("fetchQuotes", function(request,status){
 	Parse.Cloud.httpRequest({
 		url: "http://www.iheartquotes.com/api/v1/random",
 		params: {
-			"format":"json", 
-			"max_lines":"10", 
+			"format":"json",
+			"max_lines":"10",
 			"max_characters":"65",
 		},
 		success: function( response ){
@@ -32,6 +32,23 @@ Parse.Cloud.job("fetchQuotes", function(request,status){
 	}, function( error ){
 		status.error("Failed to download quote");
 	});
-})
-
+});
 // "source": "prog_style+joel_on_software"
+
+Parse.Cloud.job("fetchQuotesFromStandS4", function(request,status){
+	status.message("Fetching Quotes from StandS4");
+	Parse.Cloud.httpRequest({
+		url: "",
+        params: {},
+        success: function(response){
+
+        },
+        error: function(response){
+            console.log("Request failed with error " + JSON.stringify(response));
+        }
+	}).then( function(){
+        status.success("successfully downloaded quotes from StandS4");
+    }, function(error){
+        status.error("Failed to download quotes \n Error: " + JSON.stringify(error));
+    });
+});

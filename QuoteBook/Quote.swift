@@ -16,4 +16,11 @@ class Quote {
     var createdAt:NSDate?
     var updatedAt:NSDate?
     
+    convenience init(){
+        self.init(quote:"", author:"", tag:"" )
+    }
+    
+    init( quote:String, author:String, tag:String ){
+        self.quote = quote; self.author = author; self.tag = tag;
+    }
 }

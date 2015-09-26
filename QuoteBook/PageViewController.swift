@@ -11,13 +11,10 @@ import UIKit
 class PageViewController: UIPageViewController {
     
     let loadingView = QuoteView.instanceFromNib()
-    let loadingController = UIViewController()
+    var loadingController:UIViewController = UIViewController()
     var quotes:[Quote] = []
     var quotesViewControllers:[UIViewController] = []
     var index:Int = 0{
-//        get{ return (index % quotes.count) }
-        //set(newValue){ index = newValue % quotes.count }
-        //willSet(newValue){ index = newValue % quotes.count }
         didSet{
             if( index < 0 ){ index = quotes.count - 1 }
             else{ index = index % quotes.count; print(index) }
@@ -37,10 +34,8 @@ class PageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         //Setup
-        loadingView.titleLabel.text = "QuoteBook App"
-        loadingView.quoteTextView.text = "Patience is a virtue \n\nFetching your quotes...."
-        loadingController.view = loadingView
-        
+        let loadingQuote:Quote = Quote(quote: "Patience is a virtue \n\nFetching your quotes....", author: "QuoteBook App", tag: ERROR );
+        loadingController = newPage( loadingQuote );
         self.setViewControllers([loadingController], direction: .Forward, animated: true, completion: nil)
     }
     
@@ -51,8 +46,9 @@ class PageViewController: UIPageViewController {
             self.quotes.shuffle()
             if quotes.count == 0 {
                 let quote:Quote = Quote()
-                quote.quote = "😑😑 Err, It seems I can't connect to the mothership now\n Try again when there is an internet connection"
+                quote.quote = "😑😑 Err, It seems I can't connect to the mothership now.\n Try again when there is an internet connection"
                 quote.author = "QuoteBook Maestro📱"
+                quote.tag = ERROR;
                 self.setViewControllers([self.newPage(quote)], direction: .Forward, animated: true, completion: nil)
             }else{
                 self.quotesViewControllers = self.quotes.map( self.newPage )
