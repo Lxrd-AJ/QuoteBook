@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9046" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9052" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="3" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U9O-fr-WfO">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="3" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U9O-fr-WfO">
                     <rect key="frame" x="8" y="229" width="584" height="326"/>
                     <animations/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -20,7 +20,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eZK-eO-GwU">
-                    <rect key="frame" x="38" y="64" width="524" height="21"/>
+                    <rect key="frame" x="38" y="109" width="524" height="21"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Yx7-V4-jK7"/>
@@ -35,33 +35,75 @@
                         </mask>
                     </variation>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJZ-4Y-fjv">
+                    <rect key="frame" x="537" y="35" width="30" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="6AN-h6-dn0"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="settings"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6w-EJ-rSO">
+                    <rect key="frame" x="8" y="535" width="45" height="50"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="IJa-WB-HyR"/>
+                    </constraints>
+                    <state key="normal" image="share"/>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="U9O-fr-WfO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="92" id="5Fm-65-Vjx"/>
-                <constraint firstItem="eZK-eO-GwU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="698-Pq-RhX"/>
-                <constraint firstItem="U9O-fr-WfO" firstAttribute="top" secondItem="eZK-eO-GwU" secondAttribute="bottom" constant="144" id="FpP-FU-6oJ"/>
+                <constraint firstItem="eZK-eO-GwU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="109" id="698-Pq-RhX"/>
+                <constraint firstItem="m6w-EJ-rSO" firstAttribute="leading" secondItem="U9O-fr-WfO" secondAttribute="leading" id="AQ1-Ag-pIo"/>
+                <constraint firstItem="U9O-fr-WfO" firstAttribute="top" secondItem="eZK-eO-GwU" secondAttribute="bottom" constant="99" id="FpP-FU-6oJ"/>
                 <constraint firstItem="U9O-fr-WfO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="Ksw-Lc-FXs"/>
                 <constraint firstItem="U9O-fr-WfO" firstAttribute="top" secondItem="eZK-eO-GwU" secondAttribute="bottom" constant="83" id="Lz1-dv-FU0"/>
+                <constraint firstAttribute="trailing" secondItem="bJZ-4Y-fjv" secondAttribute="trailing" constant="60" id="OXW-3g-dCX"/>
                 <constraint firstItem="eZK-eO-GwU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TJF-dR-GFJ"/>
+                <constraint firstAttribute="trailing" secondItem="bJZ-4Y-fjv" secondAttribute="trailing" constant="33" id="VFv-AA-SsO"/>
                 <constraint firstAttribute="trailing" secondItem="eZK-eO-GwU" secondAttribute="trailing" constant="38" id="ZZf-Ko-BRA"/>
+                <constraint firstItem="bJZ-4Y-fjv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="ZbO-Gv-EcG"/>
                 <constraint firstItem="eZK-eO-GwU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="38" id="ah0-C7-viP"/>
+                <constraint firstItem="bJZ-4Y-fjv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="515" id="dK1-D8-LG4"/>
+                <constraint firstItem="bJZ-4Y-fjv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="f80-2e-Hoo"/>
+                <constraint firstItem="eZK-eO-GwU" firstAttribute="top" secondItem="bJZ-4Y-fjv" secondAttribute="bottom" constant="49" id="grp-eA-9kT"/>
                 <constraint firstItem="eZK-eO-GwU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="33" id="kur-qW-djD"/>
+                <constraint firstItem="m6w-EJ-rSO" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" constant="-7" id="tBH-V9-im1"/>
                 <constraint firstItem="U9O-fr-WfO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zbP-tn-VSJ"/>
+                <constraint firstItem="eZK-eO-GwU" firstAttribute="top" secondItem="bJZ-4Y-fjv" secondAttribute="bottom" constant="44" id="zc0-CF-Cat"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="TJF-dR-GFJ"/>
+                    <exclude reference="grp-eA-9kT"/>
                     <exclude reference="kur-qW-djD"/>
                     <exclude reference="Lz1-dv-FU0"/>
+                    <exclude reference="OXW-3g-dCX"/>
+                    <exclude reference="dK1-D8-LG4"/>
+                    <exclude reference="f80-2e-Hoo"/>
                 </mask>
             </variation>
             <connections>
                 <outlet property="quoteTextView" destination="U9O-fr-WfO" id="vhN-NU-cam"/>
+                <outlet property="settingsButton" destination="bJZ-4Y-fjv" id="EwF-LW-sH1"/>
+                <outlet property="shareButton" destination="m6w-EJ-rSO" id="TOG-G3-ebq"/>
                 <outlet property="titleLabel" destination="eZK-eO-GwU" id="ThA-So-BpZ"/>
             </connections>
             <point key="canvasLocation" x="273" y="88"/>
         </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9GO-Cs-kxB">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <animations/>
+            <state key="normal" title="Button"/>
+            <point key="canvasLocation" x="74" y="417"/>
+        </button>
     </objects>
+    <resources>
+        <image name="settings" width="50" height="50"/>
+        <image name="share" width="50" height="50"/>
+    </resources>
 </document>

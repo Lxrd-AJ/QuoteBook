@@ -12,10 +12,17 @@ class QuoteView: UIView {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var quoteTextView: UITextView!
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     class func instanceFromNib() -> QuoteView {
         let view = UIView.loadFromNibName("QuoteView") as! QuoteView
-        view.backgroundColor = UIColor(red: 75, green: 255, blue: 75, alpha: 0.3)
+        if let colorData = NSUserDefaults.standardUserDefaults().objectForKey(BACKGROUND_COLOR) as? NSData{
+            view.backgroundColor = NSKeyedUnarchiver.unarchiveObjectWithData(colorData) as? UIColor
+        }else{
+            view.backgroundColor = UIColor(red: 75, green: 255, blue: 75, alpha: 0.3)
+        }
+        view.backgroundColor = getBackgroundColor()
         return view;
     }
     

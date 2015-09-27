@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("z3rPfifyHvVjZh2U9KsWOEQz9GOWPOYc1o8LCfDk", clientKey: "6EIPhRpX5apNxkqkeiwZ2MIJ3nR0CIBUBoSNYz51")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
-        self.window!.backgroundColor = UIColor.yellowColor()
+        self.window!.backgroundColor = getBackgroundColor()
         
         //Background fetching
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum);

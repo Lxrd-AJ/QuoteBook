@@ -18,7 +18,6 @@ class ParseService {
             else{
                 if let objects = objects {
                     result = objects.map( ParseService.parseObjectToQuote )
-                    print("Done fetching quotes from Server")
                     callBack(quotes: result!)
                 }
             }

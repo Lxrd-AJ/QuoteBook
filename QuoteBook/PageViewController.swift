@@ -10,14 +10,13 @@ import UIKit
 
 class PageViewController: UIPageViewController {
     
-    let loadingView = QuoteView.instanceFromNib()
-    var loadingController:UIViewController = UIViewController()
+    var loadingController:QuoteViewController = QuoteViewController()
     var quotes:[Quote] = []
-    var quotesViewControllers:[UIViewController] = []
+    var quotesViewControllers:[QuoteViewController] = []
     var index:Int = 0{
         didSet{
             if( index < 0 ){ index = quotes.count - 1 }
-            else{ index = index % quotes.count; print(index) }
+            else{ index = index % quotes.count; }
         }
     }
     
@@ -37,10 +36,6 @@ class PageViewController: UIPageViewController {
         let loadingQuote:Quote = Quote(quote: "Patience is a virtue \n\nFetching your quotes....", author: "QuoteBook App", tag: ERROR );
         loadingController = newPage( loadingQuote );
         self.setViewControllers([loadingController], direction: .Forward, animated: true, completion: nil)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
             self.quotes = quotes
             self.quotes.shuffle()
@@ -56,19 +51,30 @@ class PageViewController: UIPageViewController {
             }
         })
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshViewControllers()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func newPage( quote:Quote ) -> UIViewController {
+    func newPage( quote:Quote ) -> QuoteViewController {
         let quoteView = QuoteView.instanceFromNib()
-        let res = UIViewController()
+        let res = QuoteViewController()
         quoteView.quoteTextView.text = quote.quote!
         quoteView.titleLabel.text = quote.author!
         res.view = quoteView
+        res.quote = quote;
         return res
+    }
+    
+    func refreshViewControllers(){
+        let controllers = (self.viewControllers as! [QuoteViewController]) + self.quotesViewControllers
+        _ = controllers.map{ c in UIView.animateWithDuration(0.3, animations: { c.view.backgroundColor = getBackgroundColor() })}
     }
 }
 

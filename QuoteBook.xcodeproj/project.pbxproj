@@ -8,13 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		21105DC11BAF1C120061DCFD /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21105DC01BAF1C120061DCFD /* ParseService.swift */; };
+		211175881BB695C300E39BC2 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216609491BB6940500E94DFE /* QuoteViewController.swift */; };
+		2111758A1BB6A5EA00E39BC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 211175891BB6A5EA00E39BC2 /* Main.storyboard */; };
+		2111758B1BB6A5EA00E39BC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 211175891BB6A5EA00E39BC2 /* Main.storyboard */; };
+		2111758D1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111758C1BB6A61100E39BC2 /* SettingsTableViewController.swift */; };
+		2111758E1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111758C1BB6A61100E39BC2 /* SettingsTableViewController.swift */; };
+		211175901BB8769900E39BC2 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111758F1BB8769900E39BC2 /* ColorButton.swift */; };
+		211175911BB8769900E39BC2 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111758F1BB8769900E39BC2 /* ColorButton.swift */; };
+		211175931BB8812500E39BC2 /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211175921BB8812500E39BC2 /* BackgroundViewController.swift */; };
+		211175941BB8812500E39BC2 /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211175921BB8812500E39BC2 /* BackgroundViewController.swift */; };
 		211747EA1AA91B7600B08EF6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211747E91AA91B7600B08EF6 /* CoreData.framework */; };
 		2142837F1BAF1EE800A76082 /* QuoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2142837E1BAF1EE800A76082 /* QuoteView.xib */; };
 		214283821BAF200100A76082 /* ParseServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214283811BAF200100A76082 /* ParseServiceTest.swift */; };
 		214283841BAF20D800A76082 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214283831BAF20D800A76082 /* QuoteView.swift */; };
 		214283861BAF32BB00A76082 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214283851BAF32BB00A76082 /* Utilities.swift */; };
 		2142838A1BAFC26800A76082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214283891BAFC26800A76082 /* AppDelegate.swift */; };
-		2142838C1BAFC33600A76082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2142838B1BAFC33600A76082 /* Main.storyboard */; };
 		2142838E1BAFC61400A76082 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2142838D1BAFC61400A76082 /* Quote.swift */; };
 		2142838F1BB339E500A76082 /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21105DC01BAF1C120061DCFD /* ParseService.swift */; };
 		214283901BB33B6600A76082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214283891BAFC26800A76082 /* AppDelegate.swift */; };
@@ -25,6 +33,7 @@
 		214283981BB33B6600A76082 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214283851BAF32BB00A76082 /* Utilities.swift */; };
 		21453F471AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */; };
 		21453F481AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */; };
+		2166094A1BB6940500E94DFE /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216609491BB6940500E94DFE /* QuoteViewController.swift */; };
 		216C79221A16C00F00F73426 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 216C79211A16C00F00F73426 /* appIcon.png */; };
 		2197681419E248990030AD11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2197681319E248990030AD11 /* Images.xcassets */; };
 		2197681719E248990030AD11 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2197681519E248990030AD11 /* LaunchScreen.xib */; };
@@ -45,6 +54,10 @@
 /* Begin PBXFileReference section */
 		1B131F6D23311BA157B15AB3 /* Pods-QuoteBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook.debug.xcconfig"; sourceTree = "<group>"; };
 		21105DC01BAF1C120061DCFD /* ParseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseService.swift; sourceTree = "<group>"; };
+		211175891BB6A5EA00E39BC2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2111758C1BB6A61100E39BC2 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		2111758F1BB8769900E39BC2 /* ColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
+		211175921BB8812500E39BC2 /* BackgroundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundViewController.swift; sourceTree = "<group>"; };
 		211747E71AA91B6300B08EF6 /* libPods-QuoteBook-Alamofire.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-QuoteBook-Alamofire.a"; path = "Pods/build/Debug-iphoneos/libPods-QuoteBook-Alamofire.a"; sourceTree = "<group>"; };
 		211747E91AA91B7600B08EF6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2142837E1BAF1EE800A76082 /* QuoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteView.xib; sourceTree = "<group>"; };
@@ -53,10 +66,10 @@
 		214283831BAF20D800A76082 /* QuoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		214283851BAF32BB00A76082 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		214283891BAFC26800A76082 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2142838B1BAFC33600A76082 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2142838D1BAFC61400A76082 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png"; sourceTree = "<group>"; };
 		21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png"; sourceTree = "<group>"; };
+		216609491BB6940500E94DFE /* QuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		216C79211A16C00F00F73426 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		2197680019E248990030AD11 /* QuoteBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2197680419E248990030AD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				214283891BAFC26800A76082 /* AppDelegate.swift */,
-				2142838B1BAFC33600A76082 /* Main.storyboard */,
+				211175891BB6A5EA00E39BC2 /* Main.storyboard */,
 				2140FF8B1A167D63000EE78A /* Services */,
 				21D9128A19E3251600153A4B /* Resources */,
 				21D9128119E2576200153A4B /* Views */,
@@ -193,6 +206,9 @@
 			isa = PBXGroup;
 			children = (
 				21E10E641A94AF48005F49AF /* PageViewController.swift */,
+				216609491BB6940500E94DFE /* QuoteViewController.swift */,
+				2111758C1BB6A61100E39BC2 /* SettingsTableViewController.swift */,
+				211175921BB8812500E39BC2 /* BackgroundViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -202,6 +218,7 @@
 			children = (
 				2142837E1BAF1EE800A76082 /* QuoteView.xib */,
 				214283831BAF20D800A76082 /* QuoteView.swift */,
+				2111758F1BB8769900E39BC2 /* ColorButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -316,7 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2142838C1BAFC33600A76082 /* Main.storyboard in Resources */,
+				2111758A1BB6A5EA00E39BC2 /* Main.storyboard in Resources */,
 				2197681719E248990030AD11 /* LaunchScreen.xib in Resources */,
 				21453F481AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png in Resources */,
 				2197681419E248990030AD11 /* Images.xcassets in Resources */,
@@ -330,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2111758B1BB6A5EA00E39BC2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,9 +408,13 @@
 			files = (
 				214283841BAF20D800A76082 /* QuoteView.swift in Sources */,
 				21105DC11BAF1C120061DCFD /* ParseService.swift in Sources */,
+				211175931BB8812500E39BC2 /* BackgroundViewController.swift in Sources */,
 				2142838A1BAFC26800A76082 /* AppDelegate.swift in Sources */,
 				2142838E1BAFC61400A76082 /* Quote.swift in Sources */,
+				2111758D1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */,
 				214283861BAF32BB00A76082 /* Utilities.swift in Sources */,
+				211175901BB8769900E39BC2 /* ColorButton.swift in Sources */,
+				2166094A1BB6940500E94DFE /* QuoteViewController.swift in Sources */,
 				21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,11 +423,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				211175941BB8812500E39BC2 /* BackgroundViewController.swift in Sources */,
 				214283901BB33B6600A76082 /* AppDelegate.swift in Sources */,
 				214283921BB33B6600A76082 /* QuoteView.xib in Sources */,
 				214283931BB33B6600A76082 /* QuoteView.swift in Sources */,
+				211175911BB8769900E39BC2 /* ColorButton.swift in Sources */,
+				211175881BB695C300E39BC2 /* QuoteViewController.swift in Sources */,
 				214283941BB33B6600A76082 /* PageViewController.swift in Sources */,
 				214283971BB33B6600A76082 /* Quote.swift in Sources */,
+				2111758E1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */,
 				214283981BB33B6600A76082 /* Utilities.swift in Sources */,
 				214283821BAF200100A76082 /* ParseServiceTest.swift in Sources */,
 				2142838F1BB339E500A76082 /* ParseService.swift in Sources */,

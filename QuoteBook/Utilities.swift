@@ -9,6 +9,7 @@
 import Foundation
 
 let ERROR:String = "ERROR";
+let BACKGROUND_COLOR:String = "BACKGROUND_COLOR"
 
 extension UIView {
     class func loadFromNibName( nibNamed:String, bundle:NSBundle? = nil ) -> UIView? {
@@ -22,5 +23,13 @@ extension Array {
         for _ in 0..<10{
             sortInPlace { (_,_) in arc4random() < arc4random() }
         }
+    }
+}
+
+func getBackgroundColor() -> UIColor {
+    if let colorData = NSUserDefaults.standardUserDefaults().objectForKey(BACKGROUND_COLOR) as? NSData{
+        return NSKeyedUnarchiver.unarchiveObjectWithData(colorData) as! UIColor
+    }else{
+        return UIColor(red: 75, green: 255, blue: 75, alpha: 0.3)
     }
 }
