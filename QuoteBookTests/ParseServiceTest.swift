@@ -44,8 +44,21 @@ class ParseServiceTest: XCTestCase {
         })
     }
     
-    func testFetchQuotes(){
-        
+    
+    func testQuotesStoredInLocalStore(){
+        let expectation:XCTestExpectation = expectationWithDescription("Fetching Quotes from local datastore")
+        ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
+            let query = PFQuery(className: "Quote")
+            query.fromLocalDatastore()
+            query.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?, error:NSError?) -> Void in
+                XCTAssertTrue(quotes.count == objects?.count, "Number fetched from server equals local amount")
+                expectation.fulfill()
+            })
+        })
+
+        waitForExpectationsWithTimeout(15.0, handler: { (error) in
+            XCTAssertNotNil(error , "Failed to execute test within resonable time")
+        })
     }
     
 }

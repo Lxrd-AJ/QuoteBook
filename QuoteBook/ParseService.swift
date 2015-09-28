@@ -14,9 +14,28 @@ class ParseService {
         let query = PFQuery( className: "Quote" )
         var result:[Quote]?
         query.findObjectsInBackgroundWithBlock({(objects:[PFObject]?,error:NSError?) -> Void in
-            if error != nil { print(error); callBack(quotes: []) }
+            if error != nil {
+                print(error);
+                //Try fetching quotes from local datastore
+                //query = PFQuery(className: "Quote")
+                query.fromLocalDatastore()
+                query.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?, error:NSError?) -> Void in
+                    if error != nil {
+                        //Use the local quotes 
+                        if let objs = objects {
+                            print("Using \(objs.count) objects from local store")
+                            callBack(quotes: objs.map(ParseService.parseObjectToQuote) )
+                        }
+                    }else{
+                        print("No Quotes in local store")
+                        callBack(quotes: [])
+                    }
+                })
+            }
             else{
                 if let objects = objects {
+                    //Save the objects in the local datastore
+                    PFObject.pinAllInBackground(objects, withName: "Quotes")
                     result = objects.map( ParseService.parseObjectToQuote )
                     callBack(quotes: result!)
                 }
