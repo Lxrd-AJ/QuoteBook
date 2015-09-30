@@ -51,6 +51,11 @@
                     </constraints>
                     <state key="normal" image="share"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RC8-GD-l0p">
+                    <rect key="frame" x="50" y="39" width="22" height="22"/>
+                    <animations/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -87,6 +92,7 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="addQuoteButton" destination="RC8-GD-l0p" id="gIW-lg-I1R"/>
                 <outlet property="quoteTextView" destination="U9O-fr-WfO" id="vhN-NU-cam"/>
                 <outlet property="settingsButton" destination="bJZ-4Y-fjv" id="EwF-LW-sH1"/>
                 <outlet property="shareButton" destination="m6w-EJ-rSO" id="TOG-G3-ebq"/>

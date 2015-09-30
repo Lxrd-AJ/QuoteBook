@@ -22,8 +22,10 @@ class QuoteViewController: UIViewController {
         if let view = self.view as? QuoteView {
             view.settingsButton.hidden = true
             view.shareButton.hidden = true
+            view.addQuoteButton.hidden = true
             view.settingsButton.addTarget(self, action: "handleSettingsTap:", forControlEvents: .TouchUpInside )
             view.shareButton.addTarget(self, action: "showSharingOptions:", forControlEvents: .TouchUpInside)
+            view.addQuoteButton.addTarget( self, action:"showAddQuotesController:", forControlEvents: .TouchUpInside)
             
             //Add the tap gesture to the view
             let tapGesture = UITapGestureRecognizer(target: self, action: "toggleSettingsButton:")
@@ -43,8 +45,15 @@ class QuoteViewController: UIViewController {
             UIView.animateWithDuration(1.0, animations: {
                 view.settingsButton.hidden = !view.settingsButton.hidden
                 view.shareButton.hidden = !view.shareButton.hidden
+                view.addQuoteButton.hidden = !view.addQuoteButton.hidden
             }, completion: nil)
         }
+    }
+    
+    func showAddQuotesController( button:UIButton ) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let addQuoteVC = storyboard.instantiateViewControllerWithIdentifier("AddQuoteController") as! AddQuoteViewController
+        self.navigationController?.pushViewController(addQuoteVC, animated: true)
     }
     
     func handleSettingsTap( button:UIButton ){

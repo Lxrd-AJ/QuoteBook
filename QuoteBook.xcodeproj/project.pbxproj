@@ -33,6 +33,8 @@
 		214283981BB33B6600A76082 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214283851BAF32BB00A76082 /* Utilities.swift */; };
 		21453F471AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */; };
 		21453F481AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */; };
+		214768431BBBC69A0051AF3E /* AddQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214768421BBBC69A0051AF3E /* AddQuoteViewController.swift */; };
+		214768441BBBC7880051AF3E /* AddQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214768421BBBC69A0051AF3E /* AddQuoteViewController.swift */; };
 		2166094A1BB6940500E94DFE /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216609491BB6940500E94DFE /* QuoteViewController.swift */; };
 		216C79221A16C00F00F73426 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 216C79211A16C00F00F73426 /* appIcon.png */; };
 		2197681419E248990030AD11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2197681319E248990030AD11 /* Images.xcassets */; };
@@ -69,6 +71,7 @@
 		2142838D1BAFC61400A76082 /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png"; sourceTree = "<group>"; };
 		21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png"; sourceTree = "<group>"; };
+		214768421BBBC69A0051AF3E /* AddQuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuoteViewController.swift; sourceTree = "<group>"; };
 		216609491BB6940500E94DFE /* QuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		216C79211A16C00F00F73426 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		2197680019E248990030AD11 /* QuoteBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +212,7 @@
 				216609491BB6940500E94DFE /* QuoteViewController.swift */,
 				2111758C1BB6A61100E39BC2 /* SettingsTableViewController.swift */,
 				211175921BB8812500E39BC2 /* BackgroundViewController.swift */,
+				214768421BBBC69A0051AF3E /* AddQuoteViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -416,6 +420,7 @@
 				211175901BB8769900E39BC2 /* ColorButton.swift in Sources */,
 				2166094A1BB6940500E94DFE /* QuoteViewController.swift in Sources */,
 				21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */,
+				214768431BBBC69A0051AF3E /* AddQuoteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +437,7 @@
 				214283941BB33B6600A76082 /* PageViewController.swift in Sources */,
 				214283971BB33B6600A76082 /* Quote.swift in Sources */,
 				2111758E1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */,
+				214768441BBBC7880051AF3E /* AddQuoteViewController.swift in Sources */,
 				214283981BB33B6600A76082 /* Utilities.swift in Sources */,
 				214283821BAF200100A76082 /* ParseServiceTest.swift in Sources */,
 				2142838F1BB339E500A76082 /* ParseService.swift in Sources */,
