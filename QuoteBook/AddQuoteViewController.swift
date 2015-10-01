@@ -9,27 +9,38 @@
 import UIKit
 
 class AddQuoteViewController: UIViewController {
+    
+    @IBOutlet weak var authorTextField:UITextField!
+    @IBOutlet weak var quoteTextView:UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = false
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func saveQuote(sender: UIButton) {
+        //check if the quotes or author are not nil 
+        if( (authorTextField.text != "") && (quoteTextView.text != "") ){
+            //save the quote
+            let quote:Quote = Quote(quote: quoteTextView.text, author: authorTextField.text!, tag: USER_QUOTE )
+            let object = ParseService.parseQuoteToObject(quote)
+            do{ try object.pin() }
+            catch{ print(error) }
+        }else{
+            let alertController = UIAlertController(title: "Errr", message: "You have to enter an author and a quote, 😑😑", preferredStyle: .Alert )
+            let cancelAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+            alertController.addAction( cancelAction )
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
-    */
+    
+    @IBAction func cancel( sender:UIButton ) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 
 }

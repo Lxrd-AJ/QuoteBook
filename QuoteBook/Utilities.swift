@@ -10,6 +10,7 @@ import Foundation
 
 let ERROR:String = "ERROR";
 let BACKGROUND_COLOR:String = "BACKGROUND_COLOR"
+let USER_QUOTE:String = "USER_QUOTE"
 
 extension UIView {
     class func loadFromNibName( nibNamed:String, bundle:NSBundle? = nil ) -> UIView? {

@@ -54,4 +54,12 @@ class ParseService {
         result.updatedAt = object.updatedAt
         return result;
     }
+    
+    class func parseQuoteToObject( quote:Quote ) -> PFObject {
+        let object = PFObject(className: "Quote" )
+        object["author"] = quote.author
+        object["quote"] = quote.quote
+        object["Tag"] = quote.tag
+        return object;
+    }
 }

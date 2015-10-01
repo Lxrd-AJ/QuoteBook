@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Page View Controller-->
@@ -27,9 +28,65 @@
                     <view key="view" contentMode="scaleToFill" id="RdP-Pd-ebX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C3r-aZ-fah">
+                                <rect key="frame" x="112" y="79" width="376" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BxO-nU-fnX"/>
+                                    <constraint firstAttribute="width" constant="376" id="GLy-nC-MdD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v4Y-fr-VmV">
+                                <rect key="frame" x="47" y="178" width="506" height="177"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="177" id="1Ug-ou-67s"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2Q-fh-JTl">
+                                <rect key="frame" x="205" y="500" width="45" height="30"/>
+                                <animations/>
+                                <state key="normal" title="cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="OWw-UA-CxO" eventType="touchUpInside" id="UF6-AP-xFm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcU-3t-M8N">
+                                <rect key="frame" x="320" y="500" width="32" height="30"/>
+                                <animations/>
+                                <state key="normal" title="save"/>
+                                <connections>
+                                    <action selector="saveQuote:" destination="OWw-UA-CxO" eventType="touchUpInside" id="7bI-jz-tbY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C3r-aZ-fah" firstAttribute="centerX" secondItem="RdP-Pd-ebX" secondAttribute="centerX" id="0p3-Ii-6c2"/>
+                            <constraint firstItem="IcU-3t-M8N" firstAttribute="baseline" secondItem="v2Q-fh-JTl" secondAttribute="baseline" id="3ZO-7z-PqY"/>
+                            <constraint firstItem="v2Q-fh-JTl" firstAttribute="top" secondItem="v4Y-fr-VmV" secondAttribute="bottom" constant="145" id="5uq-Lg-5h0"/>
+                            <constraint firstItem="C3r-aZ-fah" firstAttribute="centerX" secondItem="v4Y-fr-VmV" secondAttribute="centerX" id="9bl-Mo-W87"/>
+                            <constraint firstItem="v4Y-fr-VmV" firstAttribute="top" secondItem="C3r-aZ-fah" secondAttribute="bottom" constant="69" id="Spr-T4-xIJ"/>
+                            <constraint firstItem="v2Q-fh-JTl" firstAttribute="top" secondItem="IcU-3t-M8N" secondAttribute="top" id="UVT-zR-Ibh"/>
+                            <constraint firstItem="IcU-3t-M8N" firstAttribute="top" secondItem="v4Y-fr-VmV" secondAttribute="bottom" constant="145" id="bw1-Pw-8t0"/>
+                            <constraint firstAttribute="trailing" secondItem="IcU-3t-M8N" secondAttribute="trailing" constant="248" id="ggg-V2-Kq5"/>
+                            <constraint firstItem="v4Y-fr-VmV" firstAttribute="leading" secondItem="RdP-Pd-ebX" secondAttribute="leadingMargin" constant="27" id="hIW-eW-QTO"/>
+                            <constraint firstItem="IcU-3t-M8N" firstAttribute="leading" secondItem="v2Q-fh-JTl" secondAttribute="trailing" constant="70" id="lk3-Ex-Ivj"/>
+                            <constraint firstItem="C3r-aZ-fah" firstAttribute="top" secondItem="ufX-mD-snl" secondAttribute="bottom" constant="59" id="nXx-No-hp4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="authorTextField" destination="C3r-aZ-fah" id="Kx1-39-VpJ"/>
+                        <outlet property="quoteTextView" destination="v4Y-fr-VmV" id="POH-E2-GZe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJy-UU-JLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
