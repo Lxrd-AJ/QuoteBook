@@ -17,10 +17,9 @@ class ParseService {
             if error != nil {
                 print(error);
                 //Try fetching quotes from local datastore
-                //query = PFQuery(className: "Quote")
                 query.fromLocalDatastore()
                 query.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?, error:NSError?) -> Void in
-                    if error != nil {
+                    if error == nil {
                         //Use the local quotes 
                         if let objs = objects {
                             print("Using \(objs.count) objects from local store")

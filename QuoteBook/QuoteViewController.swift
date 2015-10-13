@@ -12,6 +12,7 @@ import Social
 class QuoteViewController: UIViewController {
     
     var quote:Quote = Quote()
+    var index:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,7 @@ class QuoteViewController: UIViewController {
     }
     
     func toggleSettingsButton( tapGesture:UITapGestureRecognizer ){
+        guard self.quote.tag != ERROR else{ return }
         if let view = self.view as? QuoteView {
             //TODO: Add animation to remove the button after 3 seconds
             UIView.animateWithDuration(1.0, animations: {

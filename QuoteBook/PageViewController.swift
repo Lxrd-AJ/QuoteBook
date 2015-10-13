@@ -34,7 +34,7 @@ class PageViewController: UIPageViewController {
     override func viewDidLoad() {
         //Setup
         let loadingQuote:Quote = Quote(quote: "Patience is a virtue \n\nFetching your quotes....", author: "QuoteBook App", tag: ERROR );
-        loadingController = newPage( loadingQuote );
+        loadingController = newPage( loadingQuote,index: 0 );
         self.setViewControllers([loadingController], direction: .Forward, animated: true, completion: nil)
         ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
             self.quotes = quotes
@@ -44,10 +44,14 @@ class PageViewController: UIPageViewController {
                 quote.quote = "😑😑 Err, It seems I can't connect to the mothership now.\n Try again when there is an internet connection"
                 quote.author = "QuoteBook Maestro📱"
                 quote.tag = ERROR;
-                self.setViewControllers([self.newPage(quote)], direction: .Forward, animated: true, completion: nil)
+                self.setViewControllers([self.newPage(quote,index: 0)], direction: .Forward, animated: true, completion: nil)
             }else{
-                self.quotesViewControllers = self.quotes.map( self.newPage )
-                self.setViewControllers( [self.newPage(self.quotes[0])], direction: .Forward, animated: true, completion: nil)
+                //self.quotesViewControllers = self.quotes.map( self.newPage )
+                var counter = -1;
+                self.quotesViewControllers = self.quotes.map({ quote in
+                    return self.newPage(quote, index: ++counter)
+                })
+                self.setViewControllers( [self.quotesViewControllers[0]], direction: .Forward, animated: true, completion: nil)
             }
         })
     }
@@ -62,13 +66,14 @@ class PageViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func newPage( quote:Quote ) -> QuoteViewController {
+    func newPage( quote:Quote , index:Int ) -> QuoteViewController {
         let quoteView = QuoteView.instanceFromNib()
         let res = QuoteViewController()
         quoteView.quoteTextView.text = quote.quote!
         quoteView.titleLabel.text = quote.author!
         res.view = quoteView
         res.quote = quote;
+        res.index = index;
         return res
     }
     
@@ -86,11 +91,15 @@ extension PageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         guard quotes.count != 0 else{ return nil }
-        return quotesViewControllers[ index-- ]
+        var idx:Int = (viewController as! QuoteViewController).index
+        if idx <= 0 { return quotesViewControllers[ quotes.count - 1 ] }
+        else{ return quotesViewControllers[ --idx ] }
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         guard quotes.count != 0 else{ return nil }
-        return quotesViewControllers[ index++ ]
+        var idx:Int = (viewController as! QuoteViewController).index
+        if idx >= quotesViewControllers.count-1 { return quotesViewControllers[0] }
+        else{ return quotesViewControllers[ ++idx ] }
     }
 }
