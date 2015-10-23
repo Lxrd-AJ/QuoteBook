@@ -38,7 +38,9 @@ class PageViewController: UIPageViewController {
         self.setViewControllers([loadingController], direction: .Forward, animated: true, completion: nil)
         ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
             self.quotes = quotes
-            self.quotes.shuffle()
+            //self.quotes.shuffle()
+            //sort the quotes by creation date
+            self.quotes.sortInPlace({ $0.createdAt!.compare($1.createdAt!) == .OrderedDescending })
             if quotes.count == 0 {
                 let quote:Quote = Quote()
                 quote.quote = "😑😑 Err, It seems I can't connect to the mothership now.\n Try again when there is an internet connection"

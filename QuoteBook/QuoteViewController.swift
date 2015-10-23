@@ -44,10 +44,11 @@ class QuoteViewController: UIViewController {
         guard self.quote.tag != ERROR else{ return }
         if let view = self.view as? QuoteView {
             //TODO: Add animation to remove the button after 3 seconds
-            UIView.animateWithDuration(1.0, animations: {
+            UIView.animateWithDuration(1.1, animations: {
                 view.settingsButton.hidden = !view.settingsButton.hidden
                 view.shareButton.hidden = !view.shareButton.hidden
-                view.addQuoteButton.hidden = !view.addQuoteButton.hidden
+                //Dont show the add Button, yet :)
+                //view.addQuoteButton.hidden = !view.addQuoteButton.hidden
             }, completion: nil)
         }
     }

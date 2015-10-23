@@ -18,13 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         Parse.setApplicationId("z3rPfifyHvVjZh2U9KsWOEQz9GOWPOYc1o8LCfDk", clientKey: "6EIPhRpX5apNxkqkeiwZ2MIJ3nR0CIBUBoSNYz51")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        self.window!.backgroundColor = getBackgroundColor()
+        
         //Notifications settings
         let userNotificationTypes:UIUserNotificationType = [ .Alert, .Badge, .Sound ]
         let settings:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
+        application.applicationIconBadgeNumber = 0; //Reset the notification badge
         
-        self.window!.backgroundColor = getBackgroundColor()
+        //Notifications checking
+        if let localNotification:UILocalNotification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+            application.applicationIconBadgeNumber = localNotification.applicationIconBadgeNumber--
+        }
+        if let remoteNotificationPayload = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
+            print("Remote Notification Payload \(remoteNotificationPayload)")
+        }
         
         //Background fetching
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum);
@@ -53,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         //Update the Model
+        completionHandler( UIBackgroundFetchResult.NoData )
     }
 
 }

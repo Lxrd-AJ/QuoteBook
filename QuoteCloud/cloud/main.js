@@ -15,7 +15,7 @@ Parse.Cloud.job("fetchQuotes", function(request,status){
 			"max_characters":"65",
 		},
 		success: function( response ){
-			return saveQuote( response, 'json' );
+			return saveQuote( response, 'json' , 'iHeartQuotes');
 		},
 		error: function( response ){
 			console.log("Request failed with response code" + response.status );
@@ -38,20 +38,47 @@ Parse.Cloud.job("fetchQuotesFromStandS4", function(request,status){
 	Parse.Cloud.httpRequest({
 		url: "http://www.stands4.com/services/v2/quotes.php?uid="+uid+"&tokenid="+tokenID+"&searchtype="+searchtype,
         success: function(response){
-            //return saveQuote( response, 'xml' );
             return response;
         },
         error: function(response){
             console.log("Request failed with error " + JSON.stringify(response));
         }
 	}).then( function( response ){
-        saveQuote( response, 'xml' ).then(function(quote){
+        saveQuote( response, 'xml', 'StandS4' ).then(function(quote){
             status.success("successfully saved quotes from StandS4 " + quote);
         });
         //status.success("successfully downloaded quotes from StandS4 " + JSON.stringify(response));
     }, function(error){
         status.error("Failed to download quotes from StandS4 \n Error: " + JSON.stringify(error));
     });
+});
+
+Parse.Cloud.beforeSave("Quote", function(request,response){
+    var Quote = Parse.Object.extend("Quote");
+    var query = new Parse.Query(Quote);
+    var newQuote = request.object;
+
+    query.find({
+        success: function(quotes){
+            //Prevent Duplicate quotes
+            for( var i = 0; i < quotes.length; i++ ){
+                var quote = quotes[i];
+                if( quote.get('quote') === newQuote.get('quote') ){
+                    if( quote.get('author') === newQuote.get('author') ){
+                        response.error("Quote already exists");
+                        break;
+                    }
+                }
+            }
+            response.success();
+        },
+        error: function(error){
+            console.error(error);
+            response.error("An Error occurred while trying to fetch the quotes");
+        }
+    });
+
+
 });
 
 //Send out a notification whenever a new Quote is created
@@ -62,14 +89,17 @@ Parse.Cloud.afterSave("Quote", function(request){
 
     Parse.Push.send({
         where: pushQuery,
-        data:{ alert: "New Quote by " + author + " added." }
+        data:{
+            alert: "New Quote by " + author + " added.",
+            badge: "Increment"
+        }
     }, {
         success: function(){ console.log("Successfully sent the push notification for new quote by " + author); },
         error: function(error){ throw "Got an error " + error.code + " : " + error.message + " for author " + author; }
     });
 });
 
-function saveQuote( response, type ){
+function saveQuote( response, type, source ){
     Parse.Cloud.useMasterKey();
     var promise = new Parse.Promise();
     var json = {};
@@ -86,6 +116,7 @@ function saveQuote( response, type ){
     var quote = new Quote();
     quote.set('author',json["source"]);
     quote.set('quote', json["quote"]);
+    quote.set('source', source);
     quote.save(null,{
         success: function(quote){
             console.log("Successfully saved quote: " + quote.quote + " to DB");
