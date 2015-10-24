@@ -50,7 +50,7 @@ class SettingsTableViewController: UITableViewController {
                 scheduleDate = scheduleDate.dateByAddingTimeInterval(86400) //The following day
                 dateComponent = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year,NSCalendarUnit.Hour , NSCalendarUnit.Minute], fromDate: scheduleDate)
             }
-            dateComponent.hour = 7; dateComponent.minute = 23;
+            dateComponent.hour = 9; dateComponent.minute = 30;
             scheduleDate = calendar.dateFromComponents(dateComponent)!
             
             //create the notification
@@ -59,11 +59,7 @@ class SettingsTableViewController: UITableViewController {
             localNotification.alertBody = "Rise and Shine! ☀️☀️, your quotes are ready for you"
             localNotification.alertAction = "View quotes"
             localNotification.timeZone = NSTimeZone.defaultTimeZone()
-            if #available(iOS 8.2, *) {
-                localNotification.alertTitle = "Morning!"
-            } else {
-                // Fallback on earlier versions
-            }
+            localNotification.alertTitle = "Morning!"
             localNotification.repeatInterval = .Day
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
             print( scheduleDate )

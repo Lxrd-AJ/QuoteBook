@@ -36,6 +36,27 @@ class PageViewController: UIPageViewController {
         let loadingQuote:Quote = Quote(quote: "Patience is a virtue \n\nFetching your quotes....", author: "QuoteBook App", tag: ERROR );
         loadingController = newPage( loadingQuote,index: 0 );
         self.setViewControllers([loadingController], direction: .Forward, animated: true, completion: nil)
+        setUpQuotes()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshViewControllers()
+        
+        //If notified about a new Quote, then call setUpQuotes
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if appDelegate.remoteQuoteID != nil {
+            setUpQuotes()
+            appDelegate.remoteQuoteID = nil ;
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func setUpQuotes(){
         ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
             self.quotes = quotes
             //self.quotes.shuffle()
@@ -53,19 +74,11 @@ class PageViewController: UIPageViewController {
                 self.quotesViewControllers = self.quotes.map({ quote in
                     return self.newPage(quote, index: ++counter)
                 })
+                //TODO: if there is a first quote in AppDelegate then use it as the initial VC
                 self.setViewControllers( [self.quotesViewControllers[0]], direction: .Forward, animated: true, completion: nil)
             }
         })
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        refreshViewControllers()
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func newPage( quote:Quote , index:Int ) -> QuoteViewController {

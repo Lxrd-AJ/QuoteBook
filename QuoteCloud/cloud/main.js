@@ -91,7 +91,7 @@ Parse.Cloud.afterSave("Quote", function(request){
         where: pushQuery,
         data:{
             alert: "New Quote by " + author + " added.",
-            badge: "Increment"
+            objectID: request.object.id 
         }
     }, {
         success: function(){ console.log("Successfully sent the push notification for new quote by " + author); },
