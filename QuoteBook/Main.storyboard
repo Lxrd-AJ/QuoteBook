@@ -152,7 +152,7 @@
 - Napoleon Bonaparte</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tableCell" textLabel="AUP-nY-eAp" style="IBUITableViewCellStyleDefault" id="hxD-cj-Jxt">
-                                        <rect key="frame" x="0.0" y="168" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="167.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hxD-cj-Jxt" id="eqL-oG-gvA">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -288,11 +288,6 @@
                                     </stackView>
                                 </subviews>
                                 <animations/>
-
-<!--                                <fontDescription key="fontDescription" type="system" pointSize="30"/>-->
-<!--                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>-->
-<!--                                <nil key="highlightedColor"/>-->
-                            </label>
                             </stackView>
                         </subviews>
                         <animations/>
