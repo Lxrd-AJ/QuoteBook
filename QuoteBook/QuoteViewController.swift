@@ -97,6 +97,13 @@ class QuoteViewController: UIViewController {
         optionsController.addAction(twitterAction)
         //optionsController.addAction(facebookAction)
         optionsController.addAction(cancelAction)
+        optionsController.modalPresentationStyle = .Popover
+        if let popover:UIPopoverPresentationController = optionsController.popoverPresentationController{
+            if let view = self.view as? QuoteView {
+                popover.sourceView = view.shareButton
+                popover.sourceRect = view.shareButton.bounds
+            }
+        }
         self.presentViewController(optionsController, animated: true, completion: nil)
         
 
