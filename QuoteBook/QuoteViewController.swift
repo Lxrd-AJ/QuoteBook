@@ -12,6 +12,7 @@ import Social
 class QuoteViewController: UIViewController {
     
     var quote:Quote = Quote()
+    var index:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,14 @@ class QuoteViewController: UIViewController {
     }
     
     func toggleSettingsButton( tapGesture:UITapGestureRecognizer ){
+        guard self.quote.tag != ERROR else{ return }
         if let view = self.view as? QuoteView {
             //TODO: Add animation to remove the button after 3 seconds
-            UIView.animateWithDuration(1.0, animations: {
+            UIView.animateWithDuration(1.1, animations: {
                 view.settingsButton.hidden = !view.settingsButton.hidden
                 view.shareButton.hidden = !view.shareButton.hidden
-                view.addQuoteButton.hidden = !view.addQuoteButton.hidden
+                //Dont show the add Button, yet :)
+                //view.addQuoteButton.hidden = !view.addQuoteButton.hidden
             }, completion: nil)
         }
     }
@@ -94,6 +97,13 @@ class QuoteViewController: UIViewController {
         optionsController.addAction(twitterAction)
         //optionsController.addAction(facebookAction)
         optionsController.addAction(cancelAction)
+        optionsController.modalPresentationStyle = .Popover
+        if let popover:UIPopoverPresentationController = optionsController.popoverPresentationController{
+            if let view = self.view as? QuoteView {
+                popover.sourceView = view.shareButton
+                popover.sourceRect = view.shareButton.bounds
+            }
+        }
         self.presentViewController(optionsController, animated: true, completion: nil)
         
 

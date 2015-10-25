@@ -1,16 +1,16 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "375CD10A3D5750B653493B4F8151C31A40A175A4+++DC68B8C",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "375CD10A3D5750B653493B4F8151C31A40A175A4+++90F9E09",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "375CD10A3D5750B653493B4F8151C31A40A175A4+++281949A" : 0,
-    "375CD10A3D5750B653493B4F8151C31A40A175A4+++DC68B8C" : 0
+    "375CD10A3D5750B653493B4F8151C31A40A175A4+++90F9E09" : 0,
+    "375CD10A3D5750B653493B4F8151C31A40A175A4+++A5A11F3" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9F2E4226-A59E-475D-AA8E-1D939427262A",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "375CD10A3D5750B653493B4F8151C31A40A175A4+++281949A" : "QuoteBook",
-    "375CD10A3D5750B653493B4F8151C31A40A175A4+++DC68B8C" : "QuoteBook"
+    "375CD10A3D5750B653493B4F8151C31A40A175A4+++90F9E09" : "QuoteBook",
+    "375CD10A3D5750B653493B4F8151C31A40A175A4+++A5A11F3" : "QuoteBook"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "QuoteBook",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -19,12 +19,12 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Lxrd-AJ\/QuoteBook.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "375CD10A3D5750B653493B4F8151C31A40A175A4+++281949A"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "375CD10A3D5750B653493B4F8151C31A40A175A4+++90F9E09"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Lxrd-AJ\/QuoteBook.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "375CD10A3D5750B653493B4F8151C31A40A175A4+++DC68B8C"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "375CD10A3D5750B653493B4F8151C31A40A175A4+++A5A11F3"
     }
   ]
 }

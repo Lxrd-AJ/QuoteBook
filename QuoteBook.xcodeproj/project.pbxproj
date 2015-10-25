@@ -39,6 +39,9 @@
 		216C79221A16C00F00F73426 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 216C79211A16C00F00F73426 /* appIcon.png */; };
 		2197681419E248990030AD11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2197681319E248990030AD11 /* Images.xcassets */; };
 		2197681719E248990030AD11 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2197681519E248990030AD11 /* LaunchScreen.xib */; };
+		21BB42AA1BDBFD6E00FB258D /* ColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42A91BDBFD6E00FB258D /* ColorCollectionViewController.swift */; };
+		21BB42AC1BDBFE9F00FB258D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42AB1BDBFE9F00FB258D /* Color.swift */; };
+		21BB42B01BDC006100FB258D /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42AF1BDC006100FB258D /* ColorCell.swift */; };
 		21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E641A94AF48005F49AF /* PageViewController.swift */; };
 		8AF387016451FF6ECA09DBC2 /* Pods_QuoteBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7879AA79C8D81E0BC008A40 /* Pods_QuoteBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -80,6 +83,9 @@
 		2197681619E248990030AD11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2197681C19E248990030AD11 /* QuoteBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuoteBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2197682119E248990030AD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21BB42A91BDBFD6E00FB258D /* ColorCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewController.swift; sourceTree = "<group>"; };
+		21BB42AB1BDBFE9F00FB258D /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		21BB42AF1BDC006100FB258D /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		21E10E5D1A949B75005F49AF /* QuoteBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteBook-Bridging-Header.h"; sourceTree = "<group>"; };
 		21E10E641A94AF48005F49AF /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		5A9DCB270C9E87FBFFD83832 /* Pods-QuoteBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				2142838D1BAFC61400A76082 /* Quote.swift */,
+				21BB42AB1BDBFE9F00FB258D /* Color.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 				2111758C1BB6A61100E39BC2 /* SettingsTableViewController.swift */,
 				211175921BB8812500E39BC2 /* BackgroundViewController.swift */,
 				214768421BBBC69A0051AF3E /* AddQuoteViewController.swift */,
+				21BB42A91BDBFD6E00FB258D /* ColorCollectionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -223,6 +231,7 @@
 				2142837E1BAF1EE800A76082 /* QuoteView.xib */,
 				214283831BAF20D800A76082 /* QuoteView.swift */,
 				2111758F1BB8769900E39BC2 /* ColorButton.swift */,
+				21BB42AF1BDC006100FB258D /* ColorCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -303,6 +312,9 @@
 						DevelopmentTeam = 349P7P3B63;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -414,9 +426,12 @@
 				21105DC11BAF1C120061DCFD /* ParseService.swift in Sources */,
 				211175931BB8812500E39BC2 /* BackgroundViewController.swift in Sources */,
 				2142838A1BAFC26800A76082 /* AppDelegate.swift in Sources */,
+				21BB42AC1BDBFE9F00FB258D /* Color.swift in Sources */,
+				21BB42AA1BDBFD6E00FB258D /* ColorCollectionViewController.swift in Sources */,
 				2142838E1BAFC61400A76082 /* Quote.swift in Sources */,
 				2111758D1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */,
 				214283861BAF32BB00A76082 /* Utilities.swift in Sources */,
+				21BB42B01BDC006100FB258D /* ColorCell.swift in Sources */,
 				211175901BB8769900E39BC2 /* ColorButton.swift in Sources */,
 				2166094A1BB6940500E94DFE /* QuoteViewController.swift in Sources */,
 				21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */,
@@ -503,7 +518,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -542,7 +557,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
@@ -560,9 +575,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_OPTIMIZATION_LEVEL = 1;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = QuoteBook/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -572,7 +587,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuoteBook/QuoteBook-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -584,9 +600,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_OPTIMIZATION_LEVEL = 1;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = QuoteBook/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -596,7 +612,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuoteBook/QuoteBook-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
