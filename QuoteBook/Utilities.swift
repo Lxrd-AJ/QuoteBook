@@ -28,9 +28,14 @@ extension Array {
 }
 
 func getBackgroundColor() -> UIColor {
-    if let colorData = NSUserDefaults.standardUserDefaults().objectForKey(BACKGROUND_COLOR) as? NSData{
+    if let colorData = NSUserDefaults(suiteName: "group.com.TheLeaf.QuoteBook")!.objectForKey(BACKGROUND_COLOR) as? NSData{
         return NSKeyedUnarchiver.unarchiveObjectWithData(colorData) as! UIColor
     }else{
         return UIColor(red: 75, green: 255, blue: 75, alpha: 0.3)
     }
+}
+
+func setBackgroundColor( color:UIColor ) {
+    let colorData = NSKeyedArchiver.archivedDataWithRootObject(color)
+    NSUserDefaults(suiteName: "group.com.TheLeaf.QuoteBook")!.setObject(colorData, forKey: BACKGROUND_COLOR)
 }

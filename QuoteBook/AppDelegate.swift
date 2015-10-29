@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,6 +41,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Background fetching
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum);
+        
+        //Configure a Session for interacting with the watch app
+        if WCSession.isSupported() {
+            let session = WCSession.defaultSession()
+            session.delegate = self
+            session.activateSession()
+            print("iOS App Session Activated")
+            print("Transferring Quotes")
+            transferQuotesToWatch()
+        }
         
         return true
     }
@@ -76,3 +87,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: WCSessionDelegate {
+    func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
+        print("iOS app recieved Message ")
+        transferQuotesToWatch()
+    }
+}
+
+extension AppDelegate {
+    
+    func transferQuotesToWatch(){
+        //Transfer the Data to the watch
+        ParseService.fetchQuotes({ (var quotes:[Quote]) -> Void in
+            quotes.sortInPlace({ $0.createdAt!.compare($1.createdAt!) == .OrderedDescending })
+            let dictionary:[String:[Quote]] = ["Quotes":Array( quotes[0..<10] )]
+            print("Transferring data \(dictionary)")
+            _ = WCSession.defaultSession().transferUserInfo(dictionary)
+        })
+    }
+}

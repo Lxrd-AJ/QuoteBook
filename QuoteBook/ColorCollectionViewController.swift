@@ -48,9 +48,7 @@ class ColorCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        if let colorData = NSUserDefaults.standardUserDefaults().objectForKey(BACKGROUND_COLOR) as? NSData{
-            self.collectionView!.backgroundColor = NSKeyedUnarchiver.unarchiveObjectWithData(colorData) as? UIColor
-        }
+        self.collectionView!.backgroundColor = getBackgroundColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,8 +80,7 @@ class ColorCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let newColor = colors[ indexPath.row ]
         self.collectionView!.backgroundColor = newColor.color
-        let colorData = NSKeyedArchiver.archivedDataWithRootObject(newColor.color)
-        NSUserDefaults.standardUserDefaults().setObject(colorData, forKey: BACKGROUND_COLOR)
+        setBackgroundColor( newColor.color )
     }
 
 }

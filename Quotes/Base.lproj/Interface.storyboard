@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9059" systemVersion="15A279b" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
+    </dependencies>
+    <scenes>
+        <!--PageInterfaceController-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="PageInterfaceController" id="AgC-eL-Hgc" customClass="PageInterfaceController" customModule="Quotes_Extension">
+                    <items>
+                        <label width="1" alignment="left" text="An Error occurred while fetching your Quotes :(" textAlignment="center" numberOfLines="0" id="JqK-BR-X4a"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="347"/>
+        </scene>
+        <!--QuoteController-->
+        <scene sceneID="qjR-sW-z2H">
+            <objects>
+                <controller identifier="QuoteController" id="iCc-ul-IJg" customClass="QuoteController" customModule="Quotes_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="vertical" id="LZT-zy-Ene">
+                            <items>
+                                <label width="1" alignment="left" text="Label" textAlignment="center" id="3hw-vy-xxD"/>
+                                <separator alignment="left" id="FT2-Gu-qNI"/>
+                                <label width="1" alignment="left" text="Label" numberOfLines="0" id="dU0-fK-uqn"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="authorLabel" destination="3hw-vy-xxD" id="h3o-Fz-AzX"/>
+                        <outlet property="quoteLabel" destination="dU0-fK-uqn" id="oFy-cK-Pho"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="463" y="344"/>
+        </scene>
+        <!--Glance Interface Controller-->
+        <scene sceneID="BOz-TT-tkC">
+            <objects>
+                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="Quotes" customModuleProvider="target">
+                    <items>
+                        <group alignment="left" id="t8f-Gd-c4y">
+                            <items>
+                                <group width="1" alignment="left" id="CgI-Vu-pjr">
+                                    <items>
+                                        <imageView width="0.20000000000000001" height="1" alignment="left" image="qb1-2" contentMode="scaleAspectFit" id="EKL-sK-AZv"/>
+                                        <label width="0.80000000000000004" alignment="left" text="Sample Author" numberOfLines="0" minimumScaleFactor="0.69999999999999996" id="mdr-IT-d4d"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group alignment="left" id="uCw-4Q-Ouw">
+                            <items>
+                                <label width="1" alignment="left" text="I wanna be jalapenos business, said no one ever" textAlignment="center" numberOfLines="0" id="2NX-kk-hdv"/>
+                            </items>
+                        </group>
+                    </items>
+                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="235" y="672"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="XkS-y5-khE"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
+                        <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="235" y="1001"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="KIl-fV-djm">
+            <objects>
+                <controller id="gdX-wl-uQE" customClass="NotificationController" customModule="Quotes" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="1001"/>
+        </scene>
+    </scenes>
+</document>
