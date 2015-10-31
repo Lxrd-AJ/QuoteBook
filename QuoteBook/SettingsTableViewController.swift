@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class SettingsTableViewController: UITableViewController {
 
@@ -37,6 +38,24 @@ class SettingsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func feedbackButtonTapped(sender: UIButton) {
+        let mailComposerVC:MFMailComposeViewController = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        mailComposerVC.setToRecipients(["goquotebookapp@gmail.com"])
+        mailComposerVC.setSubject("Feedback about QuoteBook App")
+        
+        guard MFMailComposeViewController.canSendMail() else {
+            //show error message 
+            let errorAlert:UIAlertController = UIAlertController(title: "Sorry", message: "It seems we cannot send emails on your device", preferredStyle: .Alert )
+            let cancelAction:UIAlertAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+            errorAlert.addAction( cancelAction )
+            self.presentViewController(errorAlert, animated: true, completion: nil)
+            return;
+        }
+        
+        self.presentViewController(mailComposerVC, animated: true, completion: nil)
+    }
+    
     func notificationSwitchTapped(sender: UISwitch) {
         //Save the new settings
         NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: NOTIFICATION_SWITCH)
@@ -70,4 +89,10 @@ class SettingsTableViewController: UITableViewController {
         print( UIApplication.sharedApplication().scheduledLocalNotifications?.count )
     }
 
+}
+
+extension SettingsTableViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

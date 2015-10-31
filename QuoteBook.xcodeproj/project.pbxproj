@@ -53,6 +53,7 @@
 		21BB42AA1BDBFD6E00FB258D /* ColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42A91BDBFD6E00FB258D /* ColorCollectionViewController.swift */; };
 		21BB42AC1BDBFE9F00FB258D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42AB1BDBFE9F00FB258D /* Color.swift */; };
 		21BB42B01BDC006100FB258D /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42AF1BDC006100FB258D /* ColorCell.swift */; };
+		21D695B01BE52887004ED358 /* UtilitiesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D695AF1BE52887004ED358 /* UtilitiesTest.swift */; };
 		21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E641A94AF48005F49AF /* PageViewController.swift */; };
 		3E37A277335CCDBF06507F1D /* Pods_QuoteBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC0989E000B004E508E9888 /* Pods_QuoteBook.framework */; };
 /* End PBXBuildFile section */
@@ -153,6 +154,7 @@
 		21BB42A91BDBFD6E00FB258D /* ColorCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewController.swift; sourceTree = "<group>"; };
 		21BB42AB1BDBFE9F00FB258D /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		21BB42AF1BDC006100FB258D /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		21D695AF1BE52887004ED358 /* UtilitiesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesTest.swift; sourceTree = "<group>"; };
 		21E10E5D1A949B75005F49AF /* QuoteBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteBook-Bridging-Header.h"; sourceTree = "<group>"; };
 		21E10E641A94AF48005F49AF /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		307EAE377E69574561F8F83F /* Pods-QuoteBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook.release.xcconfig"; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				214283811BAF200100A76082 /* ParseServiceTest.swift */,
+				21D695AF1BE52887004ED358 /* UtilitiesTest.swift */,
 				214283801BAF200100A76082 /* QuoteBookTests-Bridging-Header.h */,
 				2197682019E248990030AD11 /* Supporting Files */,
 			);
@@ -675,6 +678,7 @@
 				214283971BB33B6600A76082 /* Quote.swift in Sources */,
 				2111758E1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */,
 				214768441BBBC7880051AF3E /* AddQuoteViewController.swift in Sources */,
+				21D695B01BE52887004ED358 /* UtilitiesTest.swift in Sources */,
 				214283981BB33B6600A76082 /* Utilities.swift in Sources */,
 				214283821BAF200100A76082 /* ParseServiceTest.swift in Sources */,
 				2142838F1BB339E500A76082 /* ParseService.swift in Sources */,

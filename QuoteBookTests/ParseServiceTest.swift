@@ -44,21 +44,30 @@ class ParseServiceTest: XCTestCase {
         })
     }
     
-    
-    func testQuotesStoredInLocalStore(){
-        let expectation:XCTestExpectation = expectationWithDescription("Fetching Quotes from local datastore")
-        ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
-            let query = PFQuery(className: "Quote")
-            query.fromLocalDatastore()
-            query.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?, error:NSError?) -> Void in
-                XCTAssertTrue(quotes.count == objects?.count, "Number fetched from server equals local amount")
-                expectation.fulfill()
-            })
-        })
-
-        waitForExpectationsWithTimeout(15.0, handler: { (error) in
-            XCTAssertNotNil(error , "Failed to execute test within resonable time")
+    func testParseQuoteToObject(){
+        self.measureBlock({
+            let quote:Quote = Quote(quote: "Test", author: "Test auth", tag: "TEST" )
+            let objQuote:PFObject = ParseService.parseQuoteToObject(quote)
+            XCTAssertNotNil(objQuote, "PFObject is Nil")
+            XCTAssertTrue((objQuote["author"] as! String) == quote.author!, "Authors do not match")
         })
     }
+    
+    
+//    func testQuotesStoredInLocalStore(){
+//        let expectation:XCTestExpectation = expectationWithDescription("Fetching Quotes from local datastore")
+//        ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
+//            let query = PFQuery(className: "Quote")
+//            query.fromLocalDatastore()
+//            query.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?, error:NSError?) -> Void in
+//                XCTAssertTrue(quotes.count == objects?.count, "Number fetched from server equals local amount")
+//                expectation.fulfill()
+//            })
+//        })
+//
+//        waitForExpectationsWithTimeout(30.0, handler: { (error) in
+//            XCTAssertNotNil(error , "Failed to execute test within resonable time")
+//        })
+//    }
     
 }
