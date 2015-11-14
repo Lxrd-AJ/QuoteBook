@@ -11,7 +11,7 @@ import Parse
 import WatchConnectivity
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     var window:UIWindow?
     var remoteQuoteID:String?
@@ -42,15 +42,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Background fetching
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum);
         
-        //Configure a Session for interacting with the watch app
+        //Configure a Session for interacting with the watch app to send Application context
         if WCSession.isSupported() {
-            let session = WCSession.defaultSession()
+            let session:WCSession = WCSession.defaultSession()
             session.delegate = self
             session.activateSession()
-            print("iOS App Session Activated")
-            print("Transferring Quotes")
-            transferQuotesToWatch()
-        }
+            
+            NSKeyedArchiver.setClassName("Quote", forClass: Quote.self )
+            NSKeyedArchiver.setClassName("WatchData", forClass: WatchData.self )
+            
+            //Send Application context data to the watch
+            updateApplicationContextToExtensions(session)
+            
+        }else{ print("Sessions not supported on iOS app") }
         
         return true
     }
@@ -81,28 +85,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         //Update the Model
         ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
+            if WCSession.isSupported(){
+                let session = WCSession.defaultSession()
+                session.delegate = self 
+                session.activateSession()
+                self.updateApplicationContextToExtensions(session)
+            }
+            //if let _session = self.session { self.updateApplicationContextToExtensions(_session) }
             completionHandler( UIBackgroundFetchResult.NewData )
         })
     }
-
-}
-
-extension AppDelegate: WCSessionDelegate {
-    func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
-        print("iOS app recieved Message ")
-        transferQuotesToWatch()
-    }
-}
-
-extension AppDelegate {
     
-    func transferQuotesToWatch(){
-        //Transfer the Data to the watch
+    func updateApplicationContextToExtensions( session:WCSession ){
         ParseService.fetchQuotes({ (var quotes:[Quote]) -> Void in
-            quotes.sortInPlace({ $0.createdAt!.compare($1.createdAt!) == .OrderedDescending })
-            let dictionary:[String:[Quote]] = ["Quotes":Array( quotes[0..<10] )]
-            print("Transferring data \(dictionary)")
-            _ = WCSession.defaultSession().transferUserInfo(dictionary)
+            quotes.sortInPlace({ $0.createdAt!.compare($1.createdAt!) == .OrderedDescending })            
+            let data:WatchData = WatchData( quotes:Array(quotes[0..<10]) )
+            let payload = NSKeyedArchiver.archivedDataWithRootObject(data)
+            do { try session.updateApplicationContext(["appContext":payload]); }
+            catch{ print(error) }
         })
+
     }
+
 }

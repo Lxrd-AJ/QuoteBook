@@ -4,7 +4,6 @@
 //
 //  Created by AJ Ibraheem on 20/09/2015.
 //  Copyright © 2015 The Leaf Enterprise. All rights reserved.
-//
 
 import Foundation
 import Parse
@@ -12,6 +11,8 @@ import Parse
 class ParseService {
     class func fetchQuotes( callBack:(quotes:[Quote]) -> Void ) -> [Quote]? {
         let query = PFQuery( className: "Quote" )
+        query.limit = 1000
+        //query.skip = 1000
         var result:[Quote]?
         query.findObjectsInBackgroundWithBlock({(objects:[PFObject]?,error:NSError?) -> Void in
             if error != nil {

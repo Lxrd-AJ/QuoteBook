@@ -18,7 +18,6 @@ class QuoteController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        //print("Awoken! with \(context)")
         quote = context! as! Quote
         
     }

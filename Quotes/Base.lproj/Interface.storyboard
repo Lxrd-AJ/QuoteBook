@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9059" systemVersion="15A279b" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9060" systemVersion="15A279b" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
     </dependencies>
     <scenes>
@@ -12,6 +12,9 @@
                     <items>
                         <label width="1" alignment="left" text="An Error occurred while fetching your Quotes :(" textAlignment="center" numberOfLines="0" id="JqK-BR-X4a"/>
                     </items>
+                    <connections>
+                        <outlet property="textLabel" destination="JqK-BR-X4a" id="Jam-ZS-yms"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
@@ -21,11 +24,11 @@
             <objects>
                 <controller identifier="QuoteController" id="iCc-ul-IJg" customClass="QuoteController" customModule="Quotes_Extension">
                     <items>
-                        <group width="1" height="1" alignment="left" layout="vertical" id="LZT-zy-Ene">
+                        <group width="1" alignment="left" layout="vertical" id="LZT-zy-Ene">
                             <items>
                                 <label width="1" alignment="left" text="Label" textAlignment="center" id="3hw-vy-xxD"/>
                                 <separator alignment="left" id="FT2-Gu-qNI"/>
-                                <label width="1" alignment="left" text="Label" numberOfLines="0" id="dU0-fK-uqn"/>
+                                <label width="1" alignment="left" text="Label" numberOfLines="0" minimumScaleFactor="0.0" id="dU0-fK-uqn"/>
                             </items>
                         </group>
                     </items>
@@ -42,23 +45,23 @@
             <objects>
                 <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="Quotes" customModuleProvider="target">
                     <items>
-                        <group alignment="left" id="t8f-Gd-c4y">
+                        <group alignment="left" layout="vertical" id="t8f-Gd-c4y">
                             <items>
-                                <group width="1" alignment="left" id="CgI-Vu-pjr">
-                                    <items>
-                                        <imageView width="0.20000000000000001" height="1" alignment="left" image="qb1-2" contentMode="scaleAspectFit" id="EKL-sK-AZv"/>
-                                        <label width="0.80000000000000004" alignment="left" text="Sample Author" numberOfLines="0" minimumScaleFactor="0.69999999999999996" id="mdr-IT-d4d"/>
-                                    </items>
-                                </group>
+                                <label alignment="left" text="QuoteBook App" textAlignment="left" numberOfLines="0" minimumScaleFactor="0.69999999999999996" id="mdr-IT-d4d"/>
+                                <separator alignment="left" id="jTb-fQ-Anr"/>
                             </items>
                         </group>
                         <group alignment="left" id="uCw-4Q-Ouw">
                             <items>
-                                <label width="1" alignment="left" text="I wanna be jalapenos business, said no one ever" textAlignment="center" numberOfLines="0" id="2NX-kk-hdv"/>
+                                <label width="1" alignment="left" text="No Quotes Available now :(" textAlignment="center" numberOfLines="0" id="2NX-kk-hdv"/>
                             </items>
                         </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="authorLabel" destination="mdr-IT-d4d" id="f2K-mG-MQW"/>
+                        <outlet property="quoteLabel" destination="2NX-kk-hdv" id="6J1-nj-2AJ"/>
+                    </connections>
                 </glanceController>
             </objects>
             <point key="canvasLocation" x="235" y="672"/>

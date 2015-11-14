@@ -9,18 +9,17 @@
 import WatchKit
 import WatchConnectivity
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
-    
-    var quotes:[Quote]?
+class ExtensionDelegate: NSObject {
+
+    var applicationContext:[String:AnyObject]?
 
     func applicationDidFinishLaunching() {
-        // Perform any final initialization of your application.
-        
         //Configure a Session
         if WCSession.isSupported() {
             let session = WCSession.defaultSession()
             session.delegate = self
             session.activateSession()
+            applicationContext = session.receivedApplicationContext;
         }
     }
 
@@ -36,12 +35,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 }
 
 extension ExtensionDelegate: WCSessionDelegate {
-    
-    func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
-        print(userInfo)
-        if let quotes = userInfo["Quotes"] as? [Quote] {
-            print("Unwrapped => \(quotes)")
-            self.quotes = quotes
-        }
+    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+        self.applicationContext = applicationContext
     }
 }

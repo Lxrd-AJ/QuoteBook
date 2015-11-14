@@ -46,6 +46,9 @@
 		21453F481AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png in Resources */ = {isa = PBXBuildFile; fileRef = 21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */; };
 		214768431BBBC69A0051AF3E /* AddQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214768421BBBC69A0051AF3E /* AddQuoteViewController.swift */; };
 		214768441BBBC7880051AF3E /* AddQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214768421BBBC69A0051AF3E /* AddQuoteViewController.swift */; };
+		215681AC1BF2B1A30061FC18 /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215681AB1BF2B1A30061FC18 /* WatchData.swift */; };
+		215681AE1BF2BF3F0061FC18 /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215681AB1BF2B1A30061FC18 /* WatchData.swift */; };
+		215681AF1BF2C4150061FC18 /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215681AB1BF2B1A30061FC18 /* WatchData.swift */; };
 		2166094A1BB6940500E94DFE /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216609491BB6940500E94DFE /* QuoteViewController.swift */; };
 		216C79221A16C00F00F73426 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 216C79211A16C00F00F73426 /* appIcon.png */; };
 		2197681419E248990030AD11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2197681319E248990030AD11 /* Images.xcassets */; };
@@ -143,6 +146,7 @@
 		21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png"; sourceTree = "<group>"; };
 		21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png"; sourceTree = "<group>"; };
 		214768421BBBC69A0051AF3E /* AddQuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuoteViewController.swift; sourceTree = "<group>"; };
+		215681AB1BF2B1A30061FC18 /* WatchData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchData.swift; sourceTree = "<group>"; };
 		216609491BB6940500E94DFE /* QuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		216C79211A16C00F00F73426 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		2197680019E248990030AD11 /* QuoteBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -333,6 +337,7 @@
 			children = (
 				2142838D1BAFC61400A76082 /* Quote.swift */,
 				21BB42AB1BDBFE9F00FB258D /* Color.swift */,
+				215681AB1BF2B1A30061FC18 /* WatchData.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -634,6 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215681AF1BF2C4150061FC18 /* WatchData.swift in Sources */,
 				212E3E3D1BE1CBEB006E4D1E /* QuoteController.swift in Sources */,
 				212E3E281BE1C913006E4D1E /* NotificationController.swift in Sources */,
 				212E3E261BE1C913006E4D1E /* ExtensionDelegate.swift in Sources */,
@@ -657,6 +663,7 @@
 				2111758D1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */,
 				214283861BAF32BB00A76082 /* Utilities.swift in Sources */,
 				21BB42B01BDC006100FB258D /* ColorCell.swift in Sources */,
+				215681AC1BF2B1A30061FC18 /* WatchData.swift in Sources */,
 				211175901BB8769900E39BC2 /* ColorButton.swift in Sources */,
 				2166094A1BB6940500E94DFE /* QuoteViewController.swift in Sources */,
 				21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */,
@@ -678,6 +685,7 @@
 				214283971BB33B6600A76082 /* Quote.swift in Sources */,
 				2111758E1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */,
 				214768441BBBC7880051AF3E /* AddQuoteViewController.swift in Sources */,
+				215681AE1BF2BF3F0061FC18 /* WatchData.swift in Sources */,
 				21D695B01BE52887004ED358 /* UtilitiesTest.swift in Sources */,
 				214283981BB33B6600A76082 /* Utilities.swift in Sources */,
 				214283821BAF200100A76082 /* ParseServiceTest.swift in Sources */,
