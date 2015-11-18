@@ -43,18 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum);
         
         //Configure a Session for interacting with the watch app to send Application context
-        if WCSession.isSupported() {
-            let session:WCSession = WCSession.defaultSession()
-            session.delegate = self
-            session.activateSession()
-            
-            NSKeyedArchiver.setClassName("Quote", forClass: Quote.self )
-            NSKeyedArchiver.setClassName("WatchData", forClass: WatchData.self )
-            
-            //Send Application context data to the watch
-            updateApplicationContextToExtensions(session)
-            
-        }else{ print("Sessions not supported on iOS app") }
+        updateSessionContext()
         
         return true
     }
@@ -85,15 +74,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         //Update the Model
         ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
-            if WCSession.isSupported(){
-                let session = WCSession.defaultSession()
-                session.delegate = self 
-                session.activateSession()
-                self.updateApplicationContextToExtensions(session)
-            }
-            //if let _session = self.session { self.updateApplicationContextToExtensions(_session) }
+            self.updateSessionContext()
             completionHandler( UIBackgroundFetchResult.NewData )
         })
+    }
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        updateSessionContext()
+    }
+    
+    //attaches to the current WCSession and updates the application context on the watch
+    func updateSessionContext(){
+        if WCSession.isSupported() {
+            let session:WCSession = WCSession.defaultSession()
+            session.delegate = self
+            session.activateSession()
+            
+            NSKeyedArchiver.setClassName("Quote", forClass: Quote.self )
+            NSKeyedArchiver.setClassName("WatchData", forClass: WatchData.self )
+            
+            //Send Application context data to the watch
+            updateApplicationContextToExtensions(session)
+            
+        }else{ print("Sessions not supported on iOS app") }
     }
     
     func updateApplicationContextToExtensions( session:WCSession ){
