@@ -23,13 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         
         self.window!.backgroundColor = getBackgroundColor()
         
-        //Notifications settings
-        let userNotificationTypes:UIUserNotificationType = [ .Alert, .Badge, .Sound ]
-        let settings:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
-        application.registerUserNotificationSettings(settings)
-        application.registerForRemoteNotifications()
-        application.applicationIconBadgeNumber = 0; //Reset the notification badge
-        
         //Notifications checking
         if let localNotification:UILocalNotification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
             application.applicationIconBadgeNumber = localNotification.applicationIconBadgeNumber--

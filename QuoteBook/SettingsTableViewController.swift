@@ -12,7 +12,9 @@ import MessageUI
 class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var reminderCell: UITableViewCell!
+    @IBOutlet weak var newQuotesReminderCell: UITableViewCell!
     let NOTIFICATION_SWITCH:String = "NOTIFICATION_SWITCH"
+    let NEW_QUOTES_NOTIFICATION_SWITCH:String = "NEW_QUOTES_NOTIFICATION"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,12 @@ class SettingsTableViewController: UITableViewController {
         reminderSwitch.setOn(switchValue, animated: false)
         reminderSwitch.addTarget(self, action: "notificationSwitchTapped:", forControlEvents: .ValueChanged)
         reminderCell.accessoryView = reminderSwitch
+        //New Quotes Notification
+        let newQuotesNotifSwitch:UISwitch = UISwitch(frame: CGRectZero)
+        let shouldPushNewQuotes = NSUserDefaults.standardUserDefaults().boolForKey(NEW_QUOTES_NOTIFICATION_SWITCH)
+        newQuotesNotifSwitch.setOn( shouldPushNewQuotes, animated: false)
+        newQuotesNotifSwitch.addTarget(self, action: "newQuotesNotificationSwitchTapped:", forControlEvents: .ValueChanged)
+        newQuotesReminderCell.accessoryView = newQuotesNotifSwitch
         
     }
     
@@ -56,6 +64,26 @@ class SettingsTableViewController: UITableViewController {
         self.presentViewController(mailComposerVC, animated: true, completion: nil)
     }
     
+    func newQuotesNotificationSwitchTapped( sender:UISwitch ){
+        //NB: Currently we only send New quotes Notifications from the server, so as a result, the user can register/unregister for notifications since only one type of push notifications are being sent on the global channel
+        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: NEW_QUOTES_NOTIFICATION_SWITCH)
+        let application:UIApplication = UIApplication.sharedApplication()
+        
+        if sender.on {
+            //Register for push notifications
+            let userNotificationTypes:UIUserNotificationType = [ .Alert, .Badge, .Sound ]
+            let settings:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+            application.applicationIconBadgeNumber = 0; //Reset the notification badge
+            print("Registered for remote notifications")
+        }else{
+            application.unregisterForRemoteNotifications()
+            application.applicationIconBadgeNumber = 0;
+            print("Unregistered for remote notifications")
+        }
+    }
+    
     func notificationSwitchTapped(sender: UISwitch) {
         //Save the new settings
         NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: NOTIFICATION_SWITCH)
@@ -69,7 +97,7 @@ class SettingsTableViewController: UITableViewController {
                 scheduleDate = scheduleDate.dateByAddingTimeInterval(86400) //The following day
                 dateComponent = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year,NSCalendarUnit.Hour , NSCalendarUnit.Minute], fromDate: scheduleDate)
             }
-            dateComponent.hour = 9; dateComponent.minute = 30;
+            dateComponent.hour = 8; dateComponent.minute = 30;
             scheduleDate = calendar.dateFromComponents(dateComponent)!
             
             //create the notification
