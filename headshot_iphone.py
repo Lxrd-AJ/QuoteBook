@@ -20,11 +20,11 @@ def generateScreenShot( filename,dict ):
     # Using each entry in the dictinary resize the image to the dict value size
     for key,value in dict.iteritems():
         print "Generating " + key + " image for " + filename[0]
-        resizeImage( fullFileName, value[0], value[1], filename[0] + '/' + key + '.jpg')
+        resizeImage( fullFileName, value[0], value[1], filename[0] + '/' + key + filename[1])
 
 # Get all files in the current directory
 for fn in os.listdir('.'):
     if os.path.isfile(fn):
         filename = os.path.splitext(fn)
-        if filename[1] == '.jpg':
+        if filename[1] == '.jpg' or filename[1] == '.png':
             generateScreenShot(filename, dict)
