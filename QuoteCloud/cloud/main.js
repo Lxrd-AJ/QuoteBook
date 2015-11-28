@@ -56,28 +56,57 @@ Parse.Cloud.job("fetchQuotesFromStandS4", function(request,status){
 Parse.Cloud.beforeSave("Quote", function(request,response){
     var Quote = Parse.Object.extend("Quote");
     var query = new Parse.Query(Quote);
+    var limit = 1000;
+    var skip = 0;
+    var found = false;
+    query.limit(limit);
     var newQuote = request.object;
+    //Find the total number of quotes in the database
+    query.count({
+        success: function(count){
+            console.log("Quotes Count " + count);
+            if( count > limit ){ //default parse query limit
+                console.log("Count of Quotes greater than 1000");
+                var diff = count - limit;
+                while( (diff > 0) && !found ){
+                    if(limit <= diff){ query.limit(limit); }
+                    else{ query.limit(diff); }
+                    validateQuotesWithQuery(query,response);
 
-    query.find({
-        success: function(quotes){
-            //Prevent Duplicate quotes
-            for( var i = 0; i < quotes.length; i++ ){
-                var quote = quotes[i];
-                if( quote.get('quote') === newQuote.get('quote') ){
-                    if( quote.get('author') === newQuote.get('author') ){
-                        response.error("Quote already exists");
-                        break;
-                    }
+                    diff -= limit; skip += limit;
+                    query.skip(skip);
                 }
+            }else{
+                console.log("Quotes count not greater than " + limit);
+                validateQuotesWithQuery(query,response);
             }
-            response.success();
-        },
-        error: function(error){
-            console.error(error);
-            response.error("An Error occurred while trying to fetch the quotes");
+        },error: function(error){
+            console.error( error );
         }
     });
 
+    function validateQuotesWithQuery( query,response ){
+        //By default a query limits itself to 100, check if more and go beyond!
+        query.find({
+            success: function(quotes){
+                //Prevent Duplicate quotes
+                for( var i = 0; i < quotes.length; i++ ){
+                    var quote = quotes[i];
+                    if( quote.get('quote') === newQuote.get('quote') ){
+                        if( quote.get('author') === newQuote.get('author') ){
+                            response.error("Quote already exists");
+                            found = true; break;
+                        }
+                    }
+                }
+                response.success();
+            },
+            error: function(error){
+                console.error(error);
+                response.error("An Error occurred while trying to fetch the quotes");
+            }
+        });
+    }
 
 });
 
@@ -91,7 +120,7 @@ Parse.Cloud.afterSave("Quote", function(request){
         where: pushQuery,
         data:{
             alert: "New Quote by " + author + " added.",
-            objectID: request.object.id 
+            objectID: request.object.id
         }
     }, {
         success: function(){ console.log("Successfully sent the push notification for new quote by " + author); },

@@ -66,6 +66,7 @@ class SettingsTableViewController: UITableViewController {
     
     func newQuotesNotificationSwitchTapped( sender:UISwitch ){
         //NB: Currently we only send New quotes Notifications from the server, so as a result, the user can register/unregister for notifications since only one type of push notifications are being sent on the global channel
+        //If Pushing Notifications of different types/channels then remove this stub and simply subscribe/unsusbscribe to the specific channel 🤓🤓
         NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: NEW_QUOTES_NOTIFICATION_SWITCH)
         let application:UIApplication = UIApplication.sharedApplication()
         
