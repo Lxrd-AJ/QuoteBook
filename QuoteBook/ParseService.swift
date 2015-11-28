@@ -11,8 +11,8 @@ import Parse
 class ParseService {
     class func fetchQuotes( callBack:(quotes:[Quote]) -> Void ) -> [Quote]? {
         let query = PFQuery( className: "Quote" )
-        query.limit = 1000
-        //query.skip = 1000
+        query.limit = 50
+        query.orderByDescending("createdAt");
         var result:[Quote]?
         query.findObjectsInBackgroundWithBlock({(objects:[PFObject]?,error:NSError?) -> Void in
             if error != nil {
@@ -62,18 +62,4 @@ class ParseService {
         object["Tag"] = quote.tag
         return object;
     }
-    
-//    //RULE: Return only 10 quotes
-//    class func quotesForWatch( callBack:(quotes:[Quote] ) -> Void)  {
-//        let query = PFQuery(className: "Quote")
-//        query.fromLocalDatastore()
-//        query.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?, error:NSError?) -> Void in
-//            if let objs = objects {
-//                let quotes = objs.map( ParseService.parseObjectToQuote )
-//                    .sort({ $0.createdAt!.compare($1.createdAt!) == .OrderedDescending })
-//                callBack(quotes: quotes)
-//                    
-//            }
-//        })
-//    }
 }
