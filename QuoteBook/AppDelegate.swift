@@ -1,4 +1,4 @@
-//
+    //
 //  AppDelegate.swift
 //  QuoteBook
 //
@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         self.window!.backgroundColor = getBackgroundColor()
+        self.window?.tintColor = UIColor.blackColor()
         
         //Notifications checking
         if let localNotification:UILocalNotification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
