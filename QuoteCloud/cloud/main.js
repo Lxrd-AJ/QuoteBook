@@ -1,8 +1,19 @@
 var xmlReader = require('cloud/xmlreader.js');
-// Use Parse.Cloud.define to define as many cloud functions as you want.
-// For example:
+var SchemaUpdate = require('cloud/update_schema.js');
+
+// Parse.initialize("z3rPfifyHvVjZh2U9KsWOEQz9GOWPOYc1o8LCfDk","FwQhD5OP1XXVQyztjq1mj3ujw7TGWM8C3JkHuEKf");//"AppID,JS_key"
+
 Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
+});
+
+Parse.Cloud.define("Update_Schema", function(request,response){
+    SchemaUpdate.findQuotes().then(function(quotes){
+        var hashMap = SchemaUpdate.convertResultToMap(quotes);
+        console.log(hashMap);
+        //SchemaUpdate.createAuthorsFromMap(hashMap);
+        //response.success( hashMap );
+    });
 });
 
 Parse.Cloud.job("fetchQuotes", function(request,status){
@@ -53,6 +64,20 @@ Parse.Cloud.job("fetchQuotesFromStandS4", function(request,status){
     });
 });
 
+Parse.Cloud.beforeSave("Author", function(request,response){
+    var newAuthor = request.object;
+    var authorQuery = new Parse.Query("Author")
+    authorQuery.limit(1000);
+    //Prevent Duplicate authors
+    authorQuery.find().then(function(authors){
+        var authorNotExists = authors.every(function(author){
+            return author.get('name') !== newAuthor.get('name');
+        });
+        if( authorNotExists ){ response.success(); }
+        else{ console.log("Duplicate Author"); response.error(); }
+    });
+});
+
 Parse.Cloud.beforeSave("Quote", function(request,response){
     var Quote = Parse.Object.extend("Quote");
     var query = new Parse.Query(Quote);
@@ -94,12 +119,13 @@ Parse.Cloud.beforeSave("Quote", function(request,response){
                     var quote = quotes[i];
                     if( quote.get('quote') === newQuote.get('quote') ){
                         if( quote.get('author') === newQuote.get('author') ){
-                            response.error("Quote already exists");
+                            //response.error();
                             found = true; break;
                         }
                     }
                 }
-                response.success();
+                if(!found){response.success()}
+                else{ response.error("Quote already exists")}
             },
             error: function(error){
                 console.error(error);
@@ -142,19 +168,45 @@ function saveQuote( response, type, source ){
     }else{ json = response.data; }
 
     var Quote = Parse.Object.extend("Quote");
+    var Author = Parse.Object.extend("Author")
+    var authorQuery = new Parse.Query(Author);
     var quote = new Quote();
+
     quote.set('author',json["source"]);
     quote.set('quote', json["quote"]);
     quote.set('source', source);
-    quote.save(null,{
-        success: function(quote){
-            console.log("Successfully saved quote: " + quote.quote + " to DB");
-            promise.resolve(quote);
-        },
-        error: function(gamescore, error){
-            console.error(error);
-            promise.reject(error);
+
+    authorQuery.equalTo("name",json["source"]);
+    authorQuery.first({
+        success: function(author){
+            quote.set('parent',author);
+            saveQuote(quote);
+        },error: function(error){
+            //create a new author
+            var author = new Author();
+            author.set('name',json["source"]);
+            quote.set("parent",author); //Trust issues
+            author.save(null,{
+                success: function(author){
+                    quote.set("parent",author);
+                    saveQuote(quote);
+                }
+            })
         }
     });
+
+    function saveQuote(quote){
+        quote.save(null,{
+            success: function(quote){
+                console.log("Successfully saved quote: " + quote.get('author') + " to DB");
+                promise.resolve(quote);
+            },
+            error: function(quote, error){
+                console.error(error);
+                promise.reject(error);
+            }
+        });
+    }
+
     return promise;
 }
