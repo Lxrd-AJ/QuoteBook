@@ -47,5 +47,23 @@ exports.createAuthorsFromMap = function(map){
 }
 
 exports.updateQuoteWithAuthor = function(quote,author){
+    var promise = new Parse.Promise();
+    if( !author ){console.error("No Author for quote"); return; }
+    quote.set("parent",author);
+    quote.set("executeTriggers",false);
+    quote.save(null,{
+        success: function(quote){ promise.resolve(quote); },
+        error: function(err){ promise.reject(err); }
+    });
+    return promise
+}
 
+exports.getAuthorForQuote = function(quote){
+    var authorName = quote.get("author");
+    var Author = Parse.Object.extend("Author");
+    var authorQuery = new Parse.Query(Author);
+    authorQuery.equalTo("name",authorName);
+    return authorQuery.first().then(function(author){
+        return this.updateQuoteWithAuthor(quote,author);
+    }.bind(this));
 }

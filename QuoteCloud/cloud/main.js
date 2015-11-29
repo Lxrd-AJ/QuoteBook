@@ -8,37 +8,8 @@ Parse.Cloud.define("hello", function(request, response) {
 });
 
 Parse.Cloud.define("Update_Schema", function(request,response){
-    SchemaUpdate.findQuotes().then(function(quotes){
-        var hashMap = SchemaUpdate.convertResultToMap(quotes);
-        console.log(hashMap);
-        //SchemaUpdate.createAuthorsFromMap(hashMap);
-        //response.success( hashMap );
-    });
+    response.success("No function to run");
 });
-
-Parse.Cloud.job("fetchQuotes", function(request,status){
-	status.message("Currently executing the job");
-	Parse.Cloud.httpRequest({
-		url: "http://www.iheartquotes.com/api/v1/random",
-		params: {
-			"format":"json",
-			"max_lines":"10",
-			"max_characters":"65",
-		},
-		success: function( response ){
-			return saveQuote( response, 'json' , 'iHeartQuotes');
-		},
-		error: function( response ){
-			console.log("Request failed with response code" + response.status );
-		}
-	}).then( function( response ){
-		//Job success
-		status.success("Downloaded quote successfully " + response);
-	}, function( error ){
-		status.error("Failed to download quote from iheartquotes @" + new Date().toLocaleDateString('en-GB') +"\n" + JSON.stringify(error));
-	});
-});
-// "source": "prog_style+joel_on_software"
 
 Parse.Cloud.job("fetchQuotesFromStandS4", function(request,status){
 	status.message("Fetching Quotes from StandS4");
@@ -133,7 +104,6 @@ Parse.Cloud.beforeSave("Quote", function(request,response){
             }
         });
     }
-
 });
 
 //Send out a notification whenever a new Quote is created
@@ -198,7 +168,7 @@ function saveQuote( response, type, source ){
     function saveQuote(quote){
         quote.save(null,{
             success: function(quote){
-                console.log("Successfully saved quote: " + quote.get('author') + " to DB");
+                console.log("Successfully saved quote by " + quote.get('author') + " to DB");
                 promise.resolve(quote);
             },
             error: function(quote, error){
