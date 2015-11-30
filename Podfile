@@ -7,6 +7,7 @@ target 'QuoteBook' do
     #pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git', :branch => 'xcode6.3'
     #pod 'OAStackView'
     pod 'Parse'
+    pod 'SwiftSpinner'
 end
 
 target 'QuoteBookTests' do
