@@ -18,14 +18,13 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Feed"
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.tableFooterView = UIView()
         self.tableView.backgroundView = createTextLabelWithMessage("This is a bit awkward,I seem to have no Data \n Please pull to refresh")
         
         //Pull to Refresh UI
-        refreshControl.backgroundColor = getBackgroundColor()
+        
         refreshControl.tintColor = UIColor.whiteColor()
         refreshControl.addTarget(self, action: "fetchQuotes", forControlEvents: .ValueChanged)
         self.tableView.addSubview(refreshControl)
@@ -36,6 +35,11 @@ class FeedViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.view.alpha = 1.0
+        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBar.topItem?.title = "Quotes Feed"
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.grayColor(), NSFontAttributeName: UIFont(name: "Baskerville", size: 20)!]
+        refreshControl.backgroundColor = getBackgroundColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +51,13 @@ class FeedViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        UIView.animateWithDuration(0.2, animations: { self.view.alpha = 0.0 })
+        if let destController = segue.destinationViewController as? PageViewController, selectedRowIdx = self.tableView.indexPathForSelectedRow?.row {
+            destController.quotes = self.quotes
+            destController.index = selectedRowIdx
+            destController.shouldFetchQuotes = false
+        }
+        self.tableView.deselectRowAtIndexPath(self.tableView.indexPathForSelectedRow!, animated: true)
     }
     
     func fetchQuotes() {
@@ -88,11 +99,17 @@ extension FeedViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:FeedCell = self.tableView.dequeueReusableCellWithIdentifier("FeedCell", forIndexPath: indexPath) as! FeedCell
-        cell.testLabel.text = quotes[indexPath.row].quote
+        cell.quoteLabel.text = quotes[indexPath.row].quote
+        cell.authorLabel.text = quotes[indexPath.row].author
+        let selectionView = UIView()
+        selectionView.backgroundColor = UIColor(red: 245/255, green: 215/255, blue: 110/255, alpha: 1)
+        cell.selectedBackgroundView = selectionView
         return cell
     }
 }
 
 extension FeedViewController: UITableViewDelegate {
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //
+    }
 }

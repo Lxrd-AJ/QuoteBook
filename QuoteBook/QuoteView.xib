@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -12,17 +12,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" maximumZoomScale="3" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U9O-fr-WfO">
-                    <rect key="frame" x="8" y="229" width="584" height="326"/>
-                    <animations/>
+                    <rect key="frame" x="8" y="232" width="584" height="320"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eZK-eO-GwU">
-                    <rect key="frame" x="38" y="109" width="524" height="21"/>
-                    <animations/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eZK-eO-GwU">
+                    <rect key="frame" x="38" y="109" width="524" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="Yx7-V4-jK7"/>
                         <constraint firstAttribute="height" constant="21" id="lMv-r0-CIf"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
@@ -36,7 +33,6 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJZ-4Y-fjv">
                     <rect key="frame" x="537" y="35" width="30" height="30"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="6AN-h6-dn0"/>
                     </constraints>
@@ -44,23 +40,31 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6w-EJ-rSO">
                     <rect key="frame" x="8" y="535" width="45" height="50"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="45" id="IJa-WB-HyR"/>
                     </constraints>
                     <state key="normal" image="share"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDY-pB-VGO">
+                    <rect key="frame" x="8" y="37" width="30" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="fG7-zf-uoI"/>
+                    </constraints>
+                    <state key="normal" image="Back-25"/>
+                </button>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="U9O-fr-WfO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="92" id="5Fm-65-Vjx"/>
                 <constraint firstItem="eZK-eO-GwU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="109" id="698-Pq-RhX"/>
+                <constraint firstItem="mDY-pB-VGO" firstAttribute="bottom" secondItem="bJZ-4Y-fjv" secondAttribute="bottom" id="8Y5-XZ-aIU"/>
                 <constraint firstItem="m6w-EJ-rSO" firstAttribute="leading" secondItem="U9O-fr-WfO" secondAttribute="leading" id="AQ1-Ag-pIo"/>
+                <constraint firstItem="U9O-fr-WfO" firstAttribute="top" secondItem="mDY-pB-VGO" secondAttribute="bottom" constant="167" id="EBW-6C-jWH"/>
                 <constraint firstItem="U9O-fr-WfO" firstAttribute="top" secondItem="eZK-eO-GwU" secondAttribute="bottom" constant="99" id="FpP-FU-6oJ"/>
                 <constraint firstItem="U9O-fr-WfO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="Ksw-Lc-FXs"/>
                 <constraint firstItem="U9O-fr-WfO" firstAttribute="top" secondItem="eZK-eO-GwU" secondAttribute="bottom" constant="83" id="Lz1-dv-FU0"/>
                 <constraint firstAttribute="trailing" secondItem="bJZ-4Y-fjv" secondAttribute="trailing" constant="60" id="OXW-3g-dCX"/>
+                <constraint firstItem="mDY-pB-VGO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="P1G-f2-0m1"/>
                 <constraint firstItem="eZK-eO-GwU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TJF-dR-GFJ"/>
                 <constraint firstAttribute="trailing" secondItem="bJZ-4Y-fjv" secondAttribute="trailing" constant="33" id="VFv-AA-SsO"/>
                 <constraint firstAttribute="trailing" secondItem="eZK-eO-GwU" secondAttribute="trailing" constant="38" id="ZZf-Ko-BRA"/>
@@ -69,6 +73,7 @@
                 <constraint firstItem="bJZ-4Y-fjv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="515" id="dK1-D8-LG4"/>
                 <constraint firstItem="bJZ-4Y-fjv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="f80-2e-Hoo"/>
                 <constraint firstItem="eZK-eO-GwU" firstAttribute="top" secondItem="bJZ-4Y-fjv" secondAttribute="bottom" constant="49" id="grp-eA-9kT"/>
+                <constraint firstItem="mDY-pB-VGO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="37" id="hvj-PJ-4iK"/>
                 <constraint firstItem="eZK-eO-GwU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="33" id="kur-qW-djD"/>
                 <constraint firstItem="m6w-EJ-rSO" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" constant="-7" id="tBH-V9-im1"/>
                 <constraint firstItem="U9O-fr-WfO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zbP-tn-VSJ"/>
@@ -86,6 +91,7 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="backButton" destination="mDY-pB-VGO" id="73k-Z5-eJ3"/>
                 <outlet property="quoteTextView" destination="U9O-fr-WfO" id="vhN-NU-cam"/>
                 <outlet property="settingsButton" destination="bJZ-4Y-fjv" id="EwF-LW-sH1"/>
                 <outlet property="shareButton" destination="m6w-EJ-rSO" id="TOG-G3-ebq"/>
@@ -96,12 +102,12 @@
         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9GO-Cs-kxB">
             <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <animations/>
             <state key="normal" title="Button"/>
             <point key="canvasLocation" x="74" y="417"/>
         </button>
     </objects>
     <resources>
+        <image name="Back-25" width="25" height="25"/>
         <image name="settings" width="50" height="50"/>
         <image name="share" width="50" height="50"/>
     </resources>

@@ -23,9 +23,11 @@ class QuoteViewController: UIViewController {
         if let view = self.view as? QuoteView {
             view.settingsButton.hidden = true
             view.shareButton.hidden = true
-            view.addQuoteButton.hidden = true
+            view.backButton.hidden = true
+            //view.addQuoteButton.hidden = true
             view.settingsButton.addTarget(self, action: "handleSettingsTap:", forControlEvents: .TouchUpInside )
             view.shareButton.addTarget(self, action: "showSharingOptions:", forControlEvents: .TouchUpInside)
+            view.backButton.addTarget(self, action: "removeViewController:", forControlEvents: .TouchUpInside)
             
             //Add the tap gesture to the view
             let tapGesture = UITapGestureRecognizer(target: self, action: "toggleSettingsButton:")
@@ -46,10 +48,15 @@ class QuoteViewController: UIViewController {
             UIView.animateWithDuration(1.1, animations: {
                 view.settingsButton.hidden = !view.settingsButton.hidden
                 view.shareButton.hidden = !view.shareButton.hidden
+                view.backButton.hidden = !view.backButton.hidden
                 //Dont show the add Button, yet :)
                 //view.addQuoteButton.hidden = !view.addQuoteButton.hidden
             }, completion: nil)
         }
+    }
+    
+    func removeViewController( button:UIButton ){
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func handleSettingsTap( button:UIButton ){

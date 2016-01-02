@@ -14,7 +14,7 @@ class QuoteView: UIView {
     @IBOutlet weak var quoteTextView: UITextView!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var addQuoteButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     class func instanceFromNib() -> QuoteView {
         let view = UIView.loadFromNibName("QuoteView") as! QuoteView

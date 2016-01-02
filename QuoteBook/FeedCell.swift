@@ -10,7 +10,8 @@ import UIKit
 
 class FeedCell: UITableViewCell {
     
-    @IBOutlet weak var testLabel:UILabel!
+    @IBOutlet weak var authorLabel:UILabel!
+    @IBOutlet weak var quoteLabel:UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -13,6 +13,7 @@ class PageViewController: UIPageViewController {
     var loadingController:QuoteViewController = QuoteViewController()
     var quotes:[Quote] = []
     var quotesViewControllers:[QuoteViewController] = []
+    var shouldFetchQuotes: Bool = true
     var index:Int = 0{
         didSet{
             if( index < 0 ){ index = quotes.count - 1 }
@@ -33,10 +34,15 @@ class PageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         //Setup
-        let loadingQuote:Quote = Quote(quote: "Patience is a virtue \n\nFetching your quotes....", author: "QuoteBook App", tag: ERROR );
-        loadingController = newPage( loadingQuote,index: 0 );
-        self.setViewControllers([loadingController], direction: .Forward, animated: true, completion: nil)
-        setUpQuotes()
+        if shouldFetchQuotes {
+            let loadingQuote:Quote = Quote(quote: "Patience is a virtue \n\nFetching your quotes....", author: "QuoteBook App", tag: ERROR );
+            loadingController = newPage( loadingQuote,index: 0 );
+            self.setViewControllers([loadingController], direction: .Forward, animated: true, completion: nil)
+            ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
+                self.quotes = quotes
+                self.setupViewControllersWithQuotes(quotes)
+            })
+        }else{ setupViewControllersWithQuotes(self.quotes) }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -46,7 +52,7 @@ class PageViewController: UIPageViewController {
         //If notified about a new Quote, then call setUpQuotes
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if appDelegate.remoteQuoteID != nil {
-            setUpQuotes()
+            //TODO: Find a way to present the new quote
             appDelegate.remoteQuoteID = nil ;
         }
     }
@@ -56,28 +62,26 @@ class PageViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setUpQuotes(){
-        ParseService.fetchQuotes({ (quotes:[Quote]) -> Void in
-            self.quotes = quotes
-            //self.quotes.shuffle()
-            //sort the quotes by creation date
-            self.quotes.sortInPlace({ $0.createdAt!.compare($1.createdAt!) == .OrderedDescending })
-            if quotes.count == 0 {
-                let quote:Quote = Quote()
-                quote.quote = "😑😑 Err, It seems I can't connect to the mothership now.\n Try again when there is an internet connection"
-                quote.author = "QuoteBook Maestro📱"
-                quote.tag = ERROR;
-                self.setViewControllers([self.newPage(quote,index: 0)], direction: .Forward, animated: true, completion: nil)
-            }else{
-                //self.quotesViewControllers = self.quotes.map( self.newPage )
-                var counter = -1;
-                self.quotesViewControllers = self.quotes.map({ quote in
-                    return self.newPage(quote, index: ++counter)
-                })
-                //TODO: if there is a first quote in AppDelegate then use it as the initial VC
-                self.setViewControllers( [self.quotesViewControllers[0]], direction: .Forward, animated: true, completion: nil)
-            }
-        })
+    func setupViewControllersWithQuotes( quotes:[Quote] ){
+        self.quotes = quotes
+        //self.quotes.shuffle()
+        //sort the quotes by creation date
+        self.quotes.sortInPlace({ $0.createdAt!.compare($1.createdAt!) == .OrderedDescending })
+        if quotes.count == 0 {
+            let quote:Quote = Quote()
+            quote.quote = "😑😑 Err, It seems I can't connect to the mothership now.\n Try again when there is an internet connection"
+            quote.author = "QuoteBook Maestro📱"
+            quote.tag = ERROR;
+            self.setViewControllers([self.newPage(quote,index: 0)], direction: .Forward, animated: true, completion: nil)
+        }else{
+            //self.quotesViewControllers = self.quotes.map( self.newPage )
+            var counter = -1;
+            self.quotesViewControllers = self.quotes.map({ quote in
+                return self.newPage(quote, index: ++counter)
+            })
+            //TODO: if there is a first quote in AppDelegate then use it as the initial VC
+            self.setViewControllers( [self.quotesViewControllers[index]], direction: .Forward, animated: true, completion: nil)
+        }
 
     }
     
