@@ -17,6 +17,7 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.navigationController?.hidesBarsOnSwipe = true
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -24,7 +25,6 @@ class FeedViewController: UIViewController {
         self.tableView.backgroundView = createTextLabelWithMessage("This is a bit awkward,I seem to have no Data \n Please pull to refresh")
         
         //Pull to Refresh UI
-        
         refreshControl.tintColor = UIColor.whiteColor()
         refreshControl.addTarget(self, action: "fetchQuotes", forControlEvents: .ValueChanged)
         self.tableView.addSubview(refreshControl)
@@ -102,7 +102,7 @@ extension FeedViewController: UITableViewDataSource {
         cell.quoteLabel.text = quotes[indexPath.row].quote
         cell.authorLabel.text = quotes[indexPath.row].author
         let selectionView = UIView()
-        selectionView.backgroundColor = UIColor(red: 245/255, green: 215/255, blue: 110/255, alpha: 1)
+        selectionView.backgroundColor = getBackgroundColor()//UIColor(red: 245/255, green: 215/255, blue: 110/255, alpha: 1)
         cell.selectedBackgroundView = selectionView
         return cell
     }

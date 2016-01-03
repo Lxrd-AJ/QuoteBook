@@ -96,9 +96,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOK-VA-b0r">
                                                     <rect key="frame" x="266" y="7" width="68" height="30"/>
-                                                    <state key="normal" title="Feedback">
-                                                        <color key="titleColor" red="0.20568300516711344" green="0.53855225604362411" blue="0.72157644094966444" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
+                                                    <state key="normal" title="Feedback"/>
                                                     <connections>
                                                         <action selector="feedbackButtonTapped:" destination="KzX-d2-8Ys" eventType="touchUpInside" id="v8W-i1-5vE"/>
                                                     </connections>
@@ -146,7 +144,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YpO-1Z-Ys0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1398" y="1435"/>
+            <point key="canvasLocation" x="1380" y="589"/>
         </scene>
         <!--Credits-->
         <scene sceneID="rSS-aZ-ChH">
@@ -320,135 +318,81 @@
             <point key="canvasLocation" x="-437" y="257"/>
         </scene>
         <!--Authors-->
-        <scene sceneID="84b-l6-TKz">
+        <scene sceneID="65P-ia-WEz">
             <objects>
-                <viewController id="Ld0-a6-QoD" customClass="AuthorsViewController" customModule="QuoteBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FzQ-Iw-shh"/>
-                        <viewControllerLayoutGuide type="bottom" id="twk-ck-4Fv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="JDu-Kp-ZQ9">
+                <collectionViewController storyboardIdentifier="AuthorsCollectionViewController" id="zfc-uq-3qo" customClass="AuthorsCollectionViewController" customModule="QuoteBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vui-pe-ZC0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vgd-qh-5vd">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2Wc-BZ-bk3">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tmu-rb-C83">
-                                        <rect key="frame" x="0.0" y="44" width="600" height="492"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AuthorCell" rowHeight="50" id="lBu-SW-DJH" customClass="AuthorCell" customModule="QuoteBook" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="600" height="50"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lBu-SW-DJH" id="SLH-7T-FTR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyg-gQ-jMr">
-                                                            <rect key="frame" x="251" y="14" width="98" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="12W-f3-weN">
+                            <size key="itemSize" width="150" height="190"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="25" minY="10" maxX="25" maxY="5"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AuthorCell" id="WRd-OV-uqF" customClass="AuthorCell" customModule="QuoteBook" customModuleProvider="target">
+                                <rect key="frame" x="25" y="74" width="150" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Quote Right-96" translatesAutoresizingMaskIntoConstraints="NO" id="SM7-GW-edf">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="70"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 quotes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9S-xL-BZU">
+                                            <rect key="frame" x="8" y="161" width="134" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="fxU-wW-KHT"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albert Einstein " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.65000000000000002" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8A-ZC-ll3">
+                                            <rect key="frame" x="6" y="81" width="139" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="139" id="wgl-5m-SMQ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                                 <constraints>
-                                    <constraint firstItem="2Wc-BZ-bk3" firstAttribute="leading" secondItem="Tmu-rb-C83" secondAttribute="leading" id="SGD-SS-u0v"/>
-                                    <constraint firstItem="Tmu-rb-C83" firstAttribute="top" secondItem="2Wc-BZ-bk3" secondAttribute="bottom" id="ZhQ-QE-F9y"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tmu-rb-C83" secondAttribute="trailing" id="rkm-l9-Ldk"/>
-                                    <constraint firstItem="Tmu-rb-C83" firstAttribute="leading" secondItem="Vgd-qh-5vd" secondAttribute="leading" id="s1X-9U-Qs4"/>
-                                    <constraint firstAttribute="bottom" secondItem="Tmu-rb-C83" secondAttribute="bottom" id="ujQ-Wq-Kou"/>
+                                    <constraint firstItem="SM7-GW-edf" firstAttribute="leading" secondItem="WRd-OV-uqF" secondAttribute="leading" id="1f9-Ys-nsl"/>
+                                    <constraint firstItem="SM7-GW-edf" firstAttribute="centerX" secondItem="t8A-ZC-ll3" secondAttribute="centerX" id="1qe-dq-JUP"/>
+                                    <constraint firstItem="s9S-xL-BZU" firstAttribute="bottom" secondItem="WRd-OV-uqF" secondAttribute="bottomMargin" id="Ade-Zl-oOC"/>
+                                    <constraint firstItem="SM7-GW-edf" firstAttribute="centerX" secondItem="s9S-xL-BZU" secondAttribute="centerX" id="Dr3-t6-JkB"/>
+                                    <constraint firstItem="s9S-xL-BZU" firstAttribute="leading" secondItem="WRd-OV-uqF" secondAttribute="leadingMargin" id="EeL-4u-5Xu"/>
+                                    <constraint firstItem="t8A-ZC-ll3" firstAttribute="top" secondItem="SM7-GW-edf" secondAttribute="bottom" constant="11" id="IKo-a5-hdc"/>
+                                    <constraint firstItem="SM7-GW-edf" firstAttribute="top" secondItem="WRd-OV-uqF" secondAttribute="top" id="Ikp-Fu-zkn"/>
+                                    <constraint firstItem="t8A-ZC-ll3" firstAttribute="centerY" secondItem="WRd-OV-uqF" secondAttribute="centerY" id="PPW-jj-oIW"/>
+                                    <constraint firstItem="t8A-ZC-ll3" firstAttribute="leading" secondItem="WRd-OV-uqF" secondAttribute="leadingMargin" constant="-2" id="gn2-9Y-CfM"/>
+                                    <constraint firstItem="t8A-ZC-ll3" firstAttribute="centerX" secondItem="WRd-OV-uqF" secondAttribute="centerX" id="gwh-zk-EZA"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="t8A-ZC-ll3" secondAttribute="trailing" constant="-3" id="oP3-mG-6jV"/>
                                 </constraints>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Vgd-qh-5vd" secondAttribute="trailing" id="8Bj-uN-DIe"/>
-                            <constraint firstItem="Vgd-qh-5vd" firstAttribute="top" secondItem="FzQ-Iw-shh" secondAttribute="bottom" id="9nm-hh-R9S"/>
-                            <constraint firstAttribute="bottom" secondItem="Vgd-qh-5vd" secondAttribute="bottom" id="MDV-Oj-vwZ"/>
-                            <constraint firstItem="Vgd-qh-5vd" firstAttribute="leading" secondItem="JDu-Kp-ZQ9" secondAttribute="leading" id="h5E-6i-OXy"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Authors" image="author" id="Cb4-sW-0MF"/>
-                    <connections>
-                        <outlet property="tableView" destination="Tmu-rb-C83" id="jca-xy-Tt0"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yww-86-yy1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                                <connections>
+                                    <outlet property="authorImageView" destination="SM7-GW-edf" id="KId-tZ-GRy"/>
+                                    <outlet property="authorNameLabel" destination="t8A-ZC-ll3" id="7iq-vY-iob"/>
+                                    <outlet property="quotesCountLabel" destination="s9S-xL-BZU" id="22h-iy-ZFw"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="zfc-uq-3qo" id="RQo-9r-4NW"/>
+                            <outlet property="delegate" destination="zfc-uq-3qo" id="SP8-lj-sS7"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Authors" image="author" id="q2h-XE-nAx"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAV-tx-6ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="-795"/>
-        </scene>
-        <!--Search View Controller-->
-        <scene sceneID="Sut-p3-eDg">
-            <objects>
-                <viewController id="9m9-na-QrD" customClass="SearchViewController" customModule="QuoteBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gyt-hd-ApL"/>
-                        <viewControllerLayoutGuide type="bottom" id="oQ4-vz-sHV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3Jh-D0-2ib">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lTU-37-JnT">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search_color" translatesAutoresizingMaskIntoConstraints="NO" id="Hyl-i8-Ny3">
-                                <rect key="frame" x="275" y="275" width="50" height="50"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a quote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6O-yU-cGZ">
-                                <rect key="frame" x="230" y="347" width="141" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Hyl-i8-Ny3" firstAttribute="centerY" secondItem="3Jh-D0-2ib" secondAttribute="centerY" id="1tG-7h-EIX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lTU-37-JnT" secondAttribute="trailing" constant="-20" id="49z-XJ-zqN"/>
-                            <constraint firstItem="Hyl-i8-Ny3" firstAttribute="centerX" secondItem="3Jh-D0-2ib" secondAttribute="centerX" id="4ab-yM-QlZ"/>
-                            <constraint firstItem="lTU-37-JnT" firstAttribute="leading" secondItem="3Jh-D0-2ib" secondAttribute="leadingMargin" constant="-20" id="Cna-qH-teN"/>
-                            <constraint firstItem="lTU-37-JnT" firstAttribute="top" secondItem="gyt-hd-ApL" secondAttribute="bottom" id="EAf-k6-I4u"/>
-                            <constraint firstItem="lTU-37-JnT" firstAttribute="centerX" secondItem="3Jh-D0-2ib" secondAttribute="centerX" id="Hep-p1-0d9"/>
-                            <constraint firstItem="D6O-yU-cGZ" firstAttribute="top" secondItem="Hyl-i8-Ny3" secondAttribute="bottom" constant="22" id="IQl-T8-D8M"/>
-                            <constraint firstItem="D6O-yU-cGZ" firstAttribute="centerX" secondItem="Hyl-i8-Ny3" secondAttribute="centerX" id="yG2-VS-TIc"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="oGq-cZ-XcS"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E6m-7f-zKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1390" y="-100"/>
-        </scene>
-        <!--Favourites-->
-        <scene sceneID="Syf-qI-R8G">
-            <objects>
-                <viewController id="aNw-gB-Jjc" customClass="FavouritesViewController" customModule="QuoteBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mZC-9u-RQg"/>
-                        <viewControllerLayoutGuide type="bottom" id="o86-9z-7hP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4HX-Q3-Nig">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favourites" image="Like_Filled" id="tAt-xb-JBG"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Cl-qZ-x1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1398" y="607"/>
+            <point key="canvasLocation" x="1284" y="-479"/>
         </scene>
         <!--Feed-->
         <scene sceneID="XE9-3L-UYm">
@@ -465,7 +409,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TLr-cN-qCf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" id="obg-hZ-ybz" customClass="FeedCell" customModule="QuoteBook" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="200"/>
@@ -498,7 +441,7 @@
                                                 <constraint firstItem="rcS-tT-vQX" firstAttribute="centerY" secondItem="rYq-T1-MHE" secondAttribute="centerY" id="pBe-lr-Hqn"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.99215686274509807" green="0.8901960784313725" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="rcS-tT-vQX" firstAttribute="height" secondItem="obg-hZ-ybz" secondAttribute="height" id="GlK-3X-d32"/>
                                             <constraint firstItem="rcS-tT-vQX" firstAttribute="width" secondItem="obg-hZ-ybz" secondAttribute="width" id="hbj-eE-ZaZ"/>
@@ -532,7 +475,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="8Os-TN-NPG">
             <objects>
-                <tabBarController id="oV6-wN-5Gt" customClass="TabBarController" customModule="QuoteBook" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="oV6-wN-5Gt" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="nFL-wk-Oyh"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Jgh-zZ-ktt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -541,9 +484,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="1Af-VZ-n4a" kind="relationship" relationship="viewControllers" id="3Ji-q5-JsC"/>
-                        <segue destination="Ld0-a6-QoD" kind="relationship" relationship="viewControllers" id="XKw-fI-Nec"/>
-                        <segue destination="9m9-na-QrD" kind="relationship" relationship="viewControllers" id="rFS-kf-uNK"/>
-                        <segue destination="aNw-gB-Jjc" kind="relationship" relationship="viewControllers" id="Xiv-BC-17j"/>
+                        <segue destination="zfc-uq-3qo" kind="relationship" relationship="viewControllers" id="yBl-fM-1Gl"/>
                         <segue destination="KzX-d2-8Ys" kind="relationship" relationship="viewControllers" id="hR1-EP-47w"/>
                     </connections>
                 </tabBarController>
@@ -554,8 +495,7 @@
     </scenes>
     <resources>
         <image name="Feed" width="32" height="32"/>
-        <image name="Like_Filled" width="32" height="32"/>
-        <image name="Search_color" width="50" height="50"/>
+        <image name="Quote Right-96" width="32" height="32"/>
         <image name="Settings-1" width="32" height="32"/>
         <image name="author" width="32" height="32"/>
     </resources>

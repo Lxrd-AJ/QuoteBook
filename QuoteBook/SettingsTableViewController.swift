@@ -36,6 +36,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBar.topItem?.title = "Settings"
         if let row = tableView.indexPathForSelectedRow {
             self.tableView.deselectRowAtIndexPath(row, animated: true)
         }

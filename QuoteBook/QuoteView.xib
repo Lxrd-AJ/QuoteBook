@@ -46,7 +46,7 @@
                     <state key="normal" image="share"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDY-pB-VGO">
-                    <rect key="frame" x="8" y="37" width="30" height="28"/>
+                    <rect key="frame" x="8" y="35" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="fG7-zf-uoI"/>
                     </constraints>
@@ -71,6 +71,7 @@
                 <constraint firstItem="bJZ-4Y-fjv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="ZbO-Gv-EcG"/>
                 <constraint firstItem="eZK-eO-GwU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="38" id="ah0-C7-viP"/>
                 <constraint firstItem="bJZ-4Y-fjv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="515" id="dK1-D8-LG4"/>
+                <constraint firstItem="mDY-pB-VGO" firstAttribute="height" secondItem="bJZ-4Y-fjv" secondAttribute="height" id="dVz-lK-4y9"/>
                 <constraint firstItem="bJZ-4Y-fjv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="f80-2e-Hoo"/>
                 <constraint firstItem="eZK-eO-GwU" firstAttribute="top" secondItem="bJZ-4Y-fjv" secondAttribute="bottom" constant="49" id="grp-eA-9kT"/>
                 <constraint firstItem="mDY-pB-VGO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="37" id="hvj-PJ-4iK"/>
@@ -81,6 +82,7 @@
             </constraints>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="hvj-PJ-4iK"/>
                     <exclude reference="TJF-dR-GFJ"/>
                     <exclude reference="grp-eA-9kT"/>
                     <exclude reference="kur-qW-djD"/>

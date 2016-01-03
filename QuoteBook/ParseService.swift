@@ -44,7 +44,22 @@ class ParseService {
         });
         return result;
     }
+    
+    class func getAllAuthors( callBack:(authors:[Author]) -> Void ){
+        let query = PFQuery( className: "Author" )
+        query.orderByDescending("createdAt");
+        query.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?,error:NSError?) -> Void in
+            if error == nil {
+                if let objs = objects {
+                    callBack(authors: objs.map(Author.parseObjectToAuthor))
+                }
+            }else{ callBack(authors: []) }
+        })
+    }
+    
+    
 
+    //TODO: Move to Quote Class instead
     class func parseObjectToQuote( object:PFObject ) -> Quote {
         let result = Quote();
         result.author = object["author"] as? String
@@ -54,7 +69,7 @@ class ParseService {
         result.updatedAt = object.updatedAt
         return result;
     }
-    
+    //TODO: Move to Quote Class instead
     class func parseQuoteToObject( quote:Quote ) -> PFObject {
         let object = PFObject(className: "Quote" )
         object["author"] = quote.author
