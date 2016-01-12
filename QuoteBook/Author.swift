@@ -14,6 +14,7 @@ class Author {
     var objectID: String = ""
     var createdAt: NSDate?
     var updatedAt: NSDate?
+    var wikiPageTitle: String?
     
     class func parseObjectToAuthor( object:PFObject ) -> Author {
         let author = Author()
@@ -21,6 +22,7 @@ class Author {
         author.name = object["name"] as! String
         author.createdAt = object.createdAt
         author.updatedAt = object.updatedAt
+        author.wikiPageTitle = object["wikiPageTitle"] as? String
         return author
     }
 }

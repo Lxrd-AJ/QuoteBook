@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class AuthorCell: UICollectionViewCell {
     
     @IBOutlet weak var authorImageView: UIImageView!
     @IBOutlet weak var authorNameLabel: UILabel!
     @IBOutlet weak var quotesCountLabel: UILabel!
+    var json: JSON?
+    var request: Alamofire.Request?
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        authorImageView.image = nil
+    }
 }

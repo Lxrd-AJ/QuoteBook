@@ -62,7 +62,8 @@
 		21BB42B01BDC006100FB258D /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42AF1BDC006100FB258D /* ColorCell.swift */; };
 		21D695B01BE52887004ED358 /* UtilitiesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D695AF1BE52887004ED358 /* UtilitiesTest.swift */; };
 		21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E641A94AF48005F49AF /* PageViewController.swift */; };
-		3E37A277335CCDBF06507F1D /* Pods_QuoteBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC0989E000B004E508E9888 /* Pods_QuoteBook.framework */; };
+		B3A8D8E5CF2A7316F586D82D /* Pods_QuoteBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAF0E5E1A055BC2632C2369 /* Pods_QuoteBook.framework */; };
+		B638265A0BCCEB3D8224F2C6 /* Pods_QuoteBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F775FE81FDE6A69B28D0F7E /* Pods_QuoteBookTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,9 +170,12 @@
 		21D695AF1BE52887004ED358 /* UtilitiesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesTest.swift; sourceTree = "<group>"; };
 		21E10E5D1A949B75005F49AF /* QuoteBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteBook-Bridging-Header.h"; sourceTree = "<group>"; };
 		21E10E641A94AF48005F49AF /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		307EAE377E69574561F8F83F /* Pods-QuoteBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook.release.xcconfig"; sourceTree = "<group>"; };
-		911456C276108ABE58D71C7E /* Pods-QuoteBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook.debug.xcconfig"; sourceTree = "<group>"; };
-		9FC0989E000B004E508E9888 /* Pods_QuoteBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuoteBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F20676CC3ADFC04631EFF1C /* Pods-QuoteBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBookTests/Pods-QuoteBookTests.release.xcconfig"; sourceTree = "<group>"; };
+		68CAB10BC574F90AEC26FE08 /* Pods-QuoteBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook.release.xcconfig"; sourceTree = "<group>"; };
+		8F775FE81FDE6A69B28D0F7E /* Pods_QuoteBookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuoteBookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95276AC64C0AC4D5EF439BD9 /* Pods-QuoteBookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBookTests/Pods-QuoteBookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9FAF0E5E1A055BC2632C2369 /* Pods_QuoteBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuoteBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3FCA2D29225B82318F7719B /* Pods-QuoteBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				211747EA1AA91B7600B08EF6 /* CoreData.framework in Frameworks */,
-				3E37A277335CCDBF06507F1D /* Pods_QuoteBook.framework in Frameworks */,
+				B3A8D8E5CF2A7316F586D82D /* Pods_QuoteBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B638265A0BCCEB3D8224F2C6 /* Pods_QuoteBookTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +283,7 @@
 				212E3E201BE1C913006E4D1E /* Quotes Extension */,
 				2197680119E248990030AD11 /* Products */,
 				7B32073B6A6EDCC371F1E814 /* Frameworks */,
-				6D075A0B6A9CF9D33DE2B184 /* Pods */,
+				6B481CB5CCCC1A1F62F8C88F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -387,11 +392,13 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		6D075A0B6A9CF9D33DE2B184 /* Pods */ = {
+		6B481CB5CCCC1A1F62F8C88F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				911456C276108ABE58D71C7E /* Pods-QuoteBook.debug.xcconfig */,
-				307EAE377E69574561F8F83F /* Pods-QuoteBook.release.xcconfig */,
+				A3FCA2D29225B82318F7719B /* Pods-QuoteBook.debug.xcconfig */,
+				68CAB10BC574F90AEC26FE08 /* Pods-QuoteBook.release.xcconfig */,
+				95276AC64C0AC4D5EF439BD9 /* Pods-QuoteBookTests.debug.xcconfig */,
+				3F20676CC3ADFC04631EFF1C /* Pods-QuoteBookTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -402,7 +409,8 @@
 				212E3E451BE2A9DA006E4D1E /* Parse.framework */,
 				211747E91AA91B7600B08EF6 /* CoreData.framework */,
 				211747E71AA91B6300B08EF6 /* libPods-QuoteBook-Alamofire.a */,
-				9FC0989E000B004E508E9888 /* Pods_QuoteBook.framework */,
+				9FAF0E5E1A055BC2632C2369 /* Pods_QuoteBook.framework */,
+				8F775FE81FDE6A69B28D0F7E /* Pods_QuoteBookTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -449,13 +457,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2197682619E248990030AD11 /* Build configuration list for PBXNativeTarget "QuoteBook" */;
 			buildPhases = (
-				F55F49FC608EA0B14CF52E0B /* Check Pods Manifest.lock */,
+				4B29967C270F7A2DD4B6B1AB /* Check Pods Manifest.lock */,
 				219767FC19E248990030AD11 /* Sources */,
 				219767FD19E248990030AD11 /* Frameworks */,
 				219767FE19E248990030AD11 /* Resources */,
 				212E3E381BE1C914006E4D1E /* Embed Watch Content */,
-				9E33CEF5422FA1A47AD97D80 /* Embed Pods Frameworks */,
-				A65B2B46CADA442BBAA6A0CE /* Copy Pods Resources */,
+				A896BBC952FA71B6C5D35225 /* Embed Pods Frameworks */,
+				AE5CA31CE6E5986CBB8DD8F3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -471,9 +479,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2197682919E248990030AD11 /* Build configuration list for PBXNativeTarget "QuoteBookTests" */;
 			buildPhases = (
+				02E118213B242F059362FF40 /* Check Pods Manifest.lock */,
 				2197681819E248990030AD11 /* Sources */,
 				2197681919E248990030AD11 /* Frameworks */,
 				2197681A19E248990030AD11 /* Resources */,
+				1CFD83A437AD8DAAF96B8F98 /* Embed Pods Frameworks */,
+				3D579EF9A35D429DA29328AC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -599,7 +610,67 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9E33CEF5422FA1A47AD97D80 /* Embed Pods Frameworks */ = {
+		02E118213B242F059362FF40 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1CFD83A437AD8DAAF96B8F98 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuoteBookTests/Pods-QuoteBookTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D579EF9A35D429DA29328AC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuoteBookTests/Pods-QuoteBookTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B29967C270F7A2DD4B6B1AB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A896BBC952FA71B6C5D35225 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -614,7 +685,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A65B2B46CADA442BBAA6A0CE /* Copy Pods Resources */ = {
+		AE5CA31CE6E5986CBB8DD8F3 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -627,21 +698,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuoteBook/Pods-QuoteBook-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F55F49FC608EA0B14CF52E0B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -941,7 +997,7 @@
 		};
 		2197682719E248990030AD11 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 911456C276108ABE58D71C7E /* Pods-QuoteBook.debug.xcconfig */;
+			baseConfigurationReference = A3FCA2D29225B82318F7719B /* Pods-QuoteBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -967,7 +1023,7 @@
 		};
 		2197682819E248990030AD11 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 307EAE377E69574561F8F83F /* Pods-QuoteBook.release.xcconfig */;
+			baseConfigurationReference = 68CAB10BC574F90AEC26FE08 /* Pods-QuoteBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -993,6 +1049,7 @@
 		};
 		2197682A19E248990030AD11 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95276AC64C0AC4D5EF439BD9 /* Pods-QuoteBookTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -1015,6 +1072,7 @@
 		};
 		2197682B19E248990030AD11 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F20676CC3ADFC04631EFF1C /* Pods-QuoteBookTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
