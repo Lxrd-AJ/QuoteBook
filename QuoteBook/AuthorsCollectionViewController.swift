@@ -43,13 +43,26 @@ class AuthorsCollectionViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "showAuthorViewController" ,let indexPath = self.collectionView?.indexPathsForSelectedItems()?.first {
+            let authorViewController: AuthorViewController = segue.destinationViewController as! AuthorViewController
+            let author = self.authors[ indexPath.item ]
+            let cell = self.collectionView?.cellForItemAtIndexPath(indexPath) as! AuthorCell
+            authorViewController.author = author;
+            authorViewController.json = cell.json
+            authorViewController.backgroundImage = cell.authorImageView.image
+            
+        }
+    }
 
     //UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
-
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return authors.count

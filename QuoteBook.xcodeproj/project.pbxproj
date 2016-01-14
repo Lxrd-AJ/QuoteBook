@@ -47,6 +47,7 @@
 		215681AC1BF2B1A30061FC18 /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215681AB1BF2B1A30061FC18 /* WatchData.swift */; };
 		215681AE1BF2BF3F0061FC18 /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215681AB1BF2B1A30061FC18 /* WatchData.swift */; };
 		215681AF1BF2C4150061FC18 /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215681AB1BF2B1A30061FC18 /* WatchData.swift */; };
+		216325711C459FC500478B63 /* AuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216325701C459FC500478B63 /* AuthorViewController.swift */; };
 		2166094A1BB6940500E94DFE /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216609491BB6940500E94DFE /* QuoteViewController.swift */; };
 		216C79221A16C00F00F73426 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 216C79211A16C00F00F73426 /* appIcon.png */; };
 		2170B8F91C38B61400ED3599 /* AuthorsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170B8F81C38B61400ED3599 /* AuthorsCollectionViewController.swift */; };
@@ -61,6 +62,7 @@
 		21BB42AC1BDBFE9F00FB258D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42AB1BDBFE9F00FB258D /* Color.swift */; };
 		21BB42B01BDC006100FB258D /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42AF1BDC006100FB258D /* ColorCell.swift */; };
 		21D695B01BE52887004ED358 /* UtilitiesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D695AF1BE52887004ED358 /* UtilitiesTest.swift */; };
+		21E06DB81C48595200DA1659 /* AuthorWikiImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E06DB71C48595200DA1659 /* AuthorWikiImageCell.swift */; };
 		21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E641A94AF48005F49AF /* PageViewController.swift */; };
 		B3A8D8E5CF2A7316F586D82D /* Pods_QuoteBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAF0E5E1A055BC2632C2369 /* Pods_QuoteBook.framework */; };
 		B638265A0BCCEB3D8224F2C6 /* Pods_QuoteBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F775FE81FDE6A69B28D0F7E /* Pods_QuoteBookTests.framework */; };
@@ -151,6 +153,7 @@
 		21453F451AB92F41000E939B /* iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 1 Mar 2015 06.11.09.png"; sourceTree = "<group>"; };
 		21453F461AB92F41000E939B /* iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot 2 Mar 2015 14.50.29.png"; sourceTree = "<group>"; };
 		215681AB1BF2B1A30061FC18 /* WatchData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchData.swift; sourceTree = "<group>"; };
+		216325701C459FC500478B63 /* AuthorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorViewController.swift; sourceTree = "<group>"; };
 		216609491BB6940500E94DFE /* QuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		216C79211A16C00F00F73426 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		2170B8F81C38B61400ED3599 /* AuthorsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +171,7 @@
 		21BB42AB1BDBFE9F00FB258D /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		21BB42AF1BDC006100FB258D /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		21D695AF1BE52887004ED358 /* UtilitiesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesTest.swift; sourceTree = "<group>"; };
+		21E06DB71C48595200DA1659 /* AuthorWikiImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorWikiImageCell.swift; sourceTree = "<group>"; };
 		21E10E5D1A949B75005F49AF /* QuoteBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuoteBook-Bridging-Header.h"; sourceTree = "<group>"; };
 		21E10E641A94AF48005F49AF /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3F20676CC3ADFC04631EFF1C /* Pods-QuoteBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteBookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteBookTests/Pods-QuoteBookTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -366,6 +370,7 @@
 				2111758C1BB6A61100E39BC2 /* SettingsTableViewController.swift */,
 				211175921BB8812500E39BC2 /* BackgroundViewController.swift */,
 				21BB42A91BDBFD6E00FB258D /* ColorCollectionViewController.swift */,
+				216325701C459FC500478B63 /* AuthorViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 				21BB42AF1BDC006100FB258D /* ColorCell.swift */,
 				2188DC831C0B42280003723D /* FeedCell.swift */,
 				2170B8FA1C38B9CD00ED3599 /* AuthorCell.swift */,
+				21E06DB71C48595200DA1659 /* AuthorWikiImageCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -725,6 +731,7 @@
 				214283841BAF20D800A76082 /* QuoteView.swift in Sources */,
 				2170B8F91C38B61400ED3599 /* AuthorsCollectionViewController.swift in Sources */,
 				21105DC11BAF1C120061DCFD /* ParseService.swift in Sources */,
+				21E06DB81C48595200DA1659 /* AuthorWikiImageCell.swift in Sources */,
 				211175931BB8812500E39BC2 /* BackgroundViewController.swift in Sources */,
 				2142838A1BAFC26800A76082 /* AppDelegate.swift in Sources */,
 				21BB42AC1BDBFE9F00FB258D /* Color.swift in Sources */,
@@ -732,6 +739,7 @@
 				2142838E1BAFC61400A76082 /* Quote.swift in Sources */,
 				2111758D1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */,
 				2188DC821C0B3E020003723D /* FeedViewController.swift in Sources */,
+				216325711C459FC500478B63 /* AuthorViewController.swift in Sources */,
 				214283861BAF32BB00A76082 /* Utilities.swift in Sources */,
 				21BB42B01BDC006100FB258D /* ColorCell.swift in Sources */,
 				2170B8FB1C38B9CD00ED3599 /* AuthorCell.swift in Sources */,

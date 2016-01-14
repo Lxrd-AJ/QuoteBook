@@ -8,6 +8,7 @@ target 'QuoteBook' do
     pod 'SwiftSpinner'
     pod 'Alamofire', '~> 3.0'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+    pod 'JTSImageViewController', '~> 1.5.1'
 end
 
 target 'QuoteBookTests' do
