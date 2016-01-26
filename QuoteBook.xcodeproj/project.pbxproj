@@ -58,6 +58,7 @@
 		2188DC841C0B42280003723D /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2188DC831C0B42280003723D /* FeedCell.swift */; };
 		2197681419E248990030AD11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2197681319E248990030AD11 /* Images.xcassets */; };
 		2197681719E248990030AD11 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2197681519E248990030AD11 /* LaunchScreen.xib */; };
+		21A4B6431C5552B0003324B4 /* WikiMediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4B6421C5552B0003324B4 /* WikiMediaService.swift */; };
 		21BB42AA1BDBFD6E00FB258D /* ColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42A91BDBFD6E00FB258D /* ColorCollectionViewController.swift */; };
 		21BB42AC1BDBFE9F00FB258D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42AB1BDBFE9F00FB258D /* Color.swift */; };
 		21BB42B01BDC006100FB258D /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB42AF1BDC006100FB258D /* ColorCell.swift */; };
@@ -167,6 +168,7 @@
 		2197681619E248990030AD11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2197681C19E248990030AD11 /* QuoteBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuoteBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2197682119E248990030AD11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21A4B6421C5552B0003324B4 /* WikiMediaService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiMediaService.swift; sourceTree = "<group>"; };
 		21BB42A91BDBFD6E00FB258D /* ColorCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewController.swift; sourceTree = "<group>"; };
 		21BB42AB1BDBFE9F00FB258D /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		21BB42AF1BDC006100FB258D /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				21105DC01BAF1C120061DCFD /* ParseService.swift */,
+				21A4B6421C5552B0003324B4 /* WikiMediaService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				21BB42AC1BDBFE9F00FB258D /* Color.swift in Sources */,
 				21BB42AA1BDBFD6E00FB258D /* ColorCollectionViewController.swift in Sources */,
 				2142838E1BAFC61400A76082 /* Quote.swift in Sources */,
+				21A4B6431C5552B0003324B4 /* WikiMediaService.swift in Sources */,
 				2111758D1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */,
 				2188DC821C0B3E020003723D /* FeedViewController.swift in Sources */,
 				216325711C459FC500478B63 /* AuthorViewController.swift in Sources */,

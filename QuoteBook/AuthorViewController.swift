@@ -24,7 +24,7 @@ class AuthorViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = author.name
-        print(json)
+        //print(json)
         
         //imagesCollectionView.hidden = true
         //viewQuotesButton.hidden = true
@@ -39,6 +39,11 @@ class AuthorViewController: UIViewController {
         }else{ self.backgroundImageView.hidden = true }
         if json != nil { setupViewWithJSON(json!) }
         else{ print("View is nill") }
+        
+        //Setup Images
+        if let imgs = json!["images"].array {
+            print(imgs)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +55,7 @@ class AuthorViewController: UIViewController {
     }
 
     func setupViewWithJSON( json:JSON ){
-        let webContent = "<html><body>\(json["extract"].string!)</body></html>"
+        let webContent = "<html><head><style type=\"text/css\">body{ font-family: 'Baskerville' }</style></head><body>\(json["extract"].string!)</body></html>"
         self.webView.loadHTMLString(webContent, baseURL: nil)
         self.webView.addBorder(edges: [.Left,.Right], colour: getBackgroundColor(), thickness: 5.0)
         

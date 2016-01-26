@@ -6,10 +6,6 @@
 //  Copyright © 2016 The Leaf Enterprise. All rights reserved.
 //
 
-//Get Author Info with images => https://en.wikipedia.org/w/api.php?action=query&titles=Albert%20Einstein&prop=extracts|images|info&format=json&exintro=1
-// https://en.wikipedia.org/w/api.php?action=query&titles=Alexander%20Pope&prop=extracts|images|info|imageinfo&format=json&exintro=1
-
-//Getting Image Data => https://en.wikipedia.org/w/api.php?action=query&titles=File:Albert Einstein's exam of maturity grades (color2).jpg&prop=imageinfo&iiprop=url
 
 import UIKit
 import SwiftSpinner
@@ -82,9 +78,10 @@ class AuthorsCollectionViewController: UICollectionViewController {
         
         //Get the author image
         let wikiAuthorUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts|images|info&format=json&exintro=1".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-        
-        //TODO: Learn from this tutorial http://www.raywenderlich.com/85080/beginning-alamofire-tutorial and refactor this code yo!
+
         //TODO: Cache the JSON Response
+        //TODO: Build an array of images at the top e.g a map of author name to images and fetch it from the cell here instead of making the requests here.
+        //TODO: Use Grand Central Dispatch when making the network request
         cell.request = Alamofire.request( .GET, wikiAuthorUrl, parameters:["titles":author.name]).responseJSON(completionHandler: { response in
             if let requestValue = response.result.value {
                 if let json = self.parseWikiResponseJSON( JSON(requestValue) ) {
