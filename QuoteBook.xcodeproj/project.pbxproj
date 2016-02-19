@@ -65,6 +65,7 @@
 		21D695B01BE52887004ED358 /* UtilitiesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D695AF1BE52887004ED358 /* UtilitiesTest.swift */; };
 		21E06DB81C48595200DA1659 /* AuthorWikiImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E06DB71C48595200DA1659 /* AuthorWikiImageCell.swift */; };
 		21E10E651A94AF48005F49AF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E10E641A94AF48005F49AF /* PageViewController.swift */; };
+		21FC11E21C76686700A2D0FF /* WikiMediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4B6421C5552B0003324B4 /* WikiMediaService.swift */; };
 		B3A8D8E5CF2A7316F586D82D /* Pods_QuoteBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAF0E5E1A055BC2632C2369 /* Pods_QuoteBook.framework */; };
 		B638265A0BCCEB3D8224F2C6 /* Pods_QuoteBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F775FE81FDE6A69B28D0F7E /* Pods_QuoteBookTests.framework */; };
 /* End PBXBuildFile section */
@@ -765,6 +766,7 @@
 				214283931BB33B6600A76082 /* QuoteView.swift in Sources */,
 				211175911BB8769900E39BC2 /* ColorButton.swift in Sources */,
 				211175881BB695C300E39BC2 /* QuoteViewController.swift in Sources */,
+				21FC11E21C76686700A2D0FF /* WikiMediaService.swift in Sources */,
 				214283941BB33B6600A76082 /* PageViewController.swift in Sources */,
 				214283971BB33B6600A76082 /* Quote.swift in Sources */,
 				2111758E1BB6A61100E39BC2 /* SettingsTableViewController.swift in Sources */,

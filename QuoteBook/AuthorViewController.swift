@@ -11,8 +11,6 @@ import SwiftyJSON
 
 class AuthorViewController: UIViewController {
     
-    var json:JSON?
-    var backgroundImage: UIImage? //TODO: Remove later when you are using a WikiService class
     var author: Author!
 
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -24,26 +22,16 @@ class AuthorViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = author.name
-        //print(json)
-        
-        //imagesCollectionView.hidden = true
-        //viewQuotesButton.hidden = true
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         //Setup UI
-        if let img = backgroundImage {
-            self.backgroundImageView.image = img
-        }else{ self.backgroundImageView.hidden = true }
-        if json != nil { setupViewWithJSON(json!) }
-        else{ print("View is nill") }
-        
-        //Setup Images
-        if let imgs = json!["images"].array {
-            print(imgs)
-        }
+        self.backgroundImageView.image = author.image
+        let webContent = "<html><head><style type=\"text/css\">body{ font-family: 'Baskerville' }</style></head><body>\(author.biography)</body></html>"
+        self.webView.loadHTMLString(webContent, baseURL: nil)
+        self.webView.addBorder(edges: [.Left,.Right], colour: getBackgroundColor(), thickness: 5.0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,14 +39,6 @@ class AuthorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func showQuotesForCurrentAuthor(sender: UIButton) {
-    }
-
-    func setupViewWithJSON( json:JSON ){
-        let webContent = "<html><head><style type=\"text/css\">body{ font-family: 'Baskerville' }</style></head><body>\(json["extract"].string!)</body></html>"
-        self.webView.loadHTMLString(webContent, baseURL: nil)
-        self.webView.addBorder(edges: [.Left,.Right], colour: getBackgroundColor(), thickness: 5.0)
-        
-    }
+    @IBAction func showQuotesForCurrentAuthor(sender: UIButton) {}
 
 }

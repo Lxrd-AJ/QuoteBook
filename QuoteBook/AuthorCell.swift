@@ -16,7 +16,6 @@ class AuthorCell: UICollectionViewCell {
     @IBOutlet weak var authorNameLabel: UILabel!
     @IBOutlet weak var quotesCountLabel: UILabel!
     var json: JSON?
-    var request: Alamofire.Request?
     
     override func prepareForReuse() {
         super.prepareForReuse()

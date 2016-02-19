@@ -1,17 +1,37 @@
 PODS:
-  - Alamofire (3.1.4)
-  - Bolts/Tasks (1.5.0)
+  - Alamofire (3.2.0)
+  - Bolts/Tasks (1.6.0)
   - JTSImageViewController (1.5.1)
+  - OMGHTTPURLRQ (3.1.1):
+    - OMGHTTPURLRQ/RQ (= 3.1.1)
+  - OMGHTTPURLRQ/FormURLEncode (3.1.1)
+  - OMGHTTPURLRQ/RQ (3.1.1):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
+  - OMGHTTPURLRQ/UserAgent (3.1.1)
   - Parse (1.10.0):
     - Bolts/Tasks (~> 1.5)
+  - PromiseKit (3.0.2):
+    - PromiseKit/Foundation (= 3.0.2)
+    - PromiseKit/QuartzCore (= 3.0.2)
+    - PromiseKit/UIKit (= 3.0.2)
+  - PromiseKit/CorePromise (3.0.2)
+  - PromiseKit/Foundation (3.0.2):
+    - OMGHTTPURLRQ (~> 3.1.0)
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (3.0.2):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (3.0.2):
+    - PromiseKit/CorePromise
   - SwiftSpinner (0.8.0)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - JTSImageViewController (~> 1.5.1)
-  - Parse
-  - SwiftSpinner
+  - Parse (~> 1.10.0)
+  - PromiseKit (~> 3.0)
+  - SwiftSpinner (~> 0.8.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -20,17 +40,19 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftyJSON:
-    :commit: 5f59648a6e9356b26c5cb698ab924fa7d750b6c9
+    :commit: 42bdb102d2624b143c07850ebdc1537d5b6579b6
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: fbc829692f351fa1d8a31dd75fd7f7f56fea31fb
-  Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
+  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  Bolts: f52a250053bb517ca874523c3913776359ab3def
   JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
+  OMGHTTPURLRQ: 633f98ee745aeda02345935a52eec1784cddb589
   Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
+  PromiseKit: ab1a380f7a30cf8cce663a2411e8b3580b10313d
   SwiftSpinner: 11c2c5ec7443d92f3026d3067ca8a91d4adef13f
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 5cf310d9a6fe3a0bab4be424cfc23a51b09d7e88
+PODFILE CHECKSUM: 5f4fb87647f941858a1b1a25e0302059ec1be9bc
 
 COCOAPODS: 1.0.0.beta.1
