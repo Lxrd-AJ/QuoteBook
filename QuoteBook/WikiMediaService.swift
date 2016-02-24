@@ -31,7 +31,9 @@ extension Alamofire.Request {
 }
 
 /**
- Handles all WikiPedia related services
+ Handles all WikiPedia related services, provides the following functionality
+    * Getting the image of an author
+    * Getting the Biography of an author
  
  - todo:
     1. Get the author Biography
@@ -74,14 +76,13 @@ struct WikiService {
         Unsafe method, do not call yet
     */
     static func getAuthorImage( author:Author ) -> Promise<UIImage?> {
-        //TODO: Handle Error
-        return WikiService.getAuthorJSON( author.name ).then( on: WikiService.queue ){ (json:JSON?) -> UIImage in
+        return WikiService.getAuthorJSON( author.name ).then( on: WikiService.queue ){ (json:JSON?) -> Promise<UIImage?> in
             if let json = json where json["images"].isExists() {
                 if let imgTitle = WikiService.getImageTitleFromWikiJSON( json["images"].array! ){
-                    
+                    return getUIImage( imgTitle )
                 }
             }
-            return UIImage()
+            throw Error.errorWithCode(0, failureReason: "abc")
         }
     }
     
@@ -89,39 +90,50 @@ struct WikiService {
      - todo:
         - Recieve as parameters only the attributes you need and not the entire author object
      */
-    static func getAuthorBiography( author:Author ) -> String? {
-        return nil
+    static func getAuthorBiography( author:Author ) -> Promise<String?> {
+        return WikiService.getAuthorJSON( author.name ).then{ (json:JSON?)  in //-> String?
+            guard json != nil else{ return nil }
+            if !json!["query"]["pages"]["-1"].isExists() { //if the author exists in wiki
+                //Get the author extract
+                if let index:[String:JSON] = json!["query"]["pages"].dictionary where index.first != nil  {
+                    let authorJSON = index.first!.1
+                    return authorJSON["extract"].string!
+                }
+            }
+            return nil
+        }
     }
     
     /**
      - warning: Do not call yet, as error handling not yet implemented
      */
     private static func getUIImage( imageName:String ) -> Promise<UIImage?> {
-        return firstly{ () -> String in
+        return Promise{ fulfill,reject in
             //Get the image information
             Alamofire.request( Router.Image(imageName) ).responseJSON(completionHandler: { response in
                 switch response.result {
                 case .Success(let result):
                     let json = JSON( result )
-                    if let imgURL = json["query"]["pages"]["-1"]["imageinfo"][0]["url"].string { return imgURL }
-                    else{} //TODO: Fail Gracefully here
+                    if let imgURL = json["query"]["pages"]["-1"]["imageinfo"][0]["url"].string { fulfill(imgURL) }
+                    else{ reject(result.error!!) } //TODO: Fail Gracefully here
                 case .Failure(let err):
-                    print(err) //TODO: Fail Here
+                    print(err)
+                    reject(err)
                 }
             })
         }.then{ (imgURL:String) -> Promise<UIImage?> in
             //fulfill the returned promise with a UIImage
             return Promise{ fulfill,reject in
-                Alamofire.request( .GET, imgURL ).responseImage(completionHandler: { response in
-                    switch response {
+                Alamofire.request( .GET, imgURL ).responseImage({ response in
+                    switch response.result {
                     case .Success( let image):
                         fulfill(image)
-                    case .Failure( let err):
-                        reject(err)
+                    case .Failure( _):
+                        fulfill(nil)
                     }
                 })
-        }}
-
+            }//end Promise
+        }
     }
     
     private static func getImageTitleFromWikiJSON( wikiJSON:[JSON] ) -> String? {
@@ -138,23 +150,11 @@ struct WikiService {
             Alamofire.request(Router.Author(authorName)).responseJSON(completionHandler:{ response in
                 if response.result.error != nil, let error = response.result.error { reject(error) }
                 else if let data = response.result.value { fulfill( JSON(data) ) }
-                else{ abort() }
+                else{ reject( NSError(domain: "abc", code: 0, userInfo: nil) ) }
             })
         }
     }
 }
-
-//func parseWikiResponseJSON( json:JSON ) -> JSON? {
-//    //If query.pages.-1 exists then the author was not found on wikipedia
-//    if !json["query"]["pages"]["-1"].isExists() { //if the author exists in wiki
-//        //Set the author JSON on the cell
-//        if let index:[String:JSON] = json["query"]["pages"].dictionary where index.first != nil  {
-//            return index.first!.1
-//        }
-//    }
-//    return nil
-//}
-//
 
 //TODO: Cache the JSON Response
 //TODO: Use Grand Central Dispatch when making the network request
