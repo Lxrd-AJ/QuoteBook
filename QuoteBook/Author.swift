@@ -38,7 +38,9 @@ class Author {
         
         if object["biography"] == nil {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-                author.biography = WikiService.getAuthorBiography(author)
+                WikiService.getAuthorBiography(author).then{ biography in
+                    author.biography = biography
+                }
             })
         }else{ author.biography = object["biography"] as? String }
         

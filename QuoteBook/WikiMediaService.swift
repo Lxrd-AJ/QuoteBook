@@ -91,16 +91,17 @@ struct WikiService {
         - Recieve as parameters only the attributes you need and not the entire author object
      */
     static func getAuthorBiography( author:Author ) -> Promise<String?> {
-        return WikiService.getAuthorJSON( author.name ).then{ (json:JSON?)  in //-> String?
-            guard json != nil else{ return nil }
-            if !json!["query"]["pages"]["-1"].isExists() { //if the author exists in wiki
-                //Get the author extract
-                if let index:[String:JSON] = json!["query"]["pages"].dictionary where index.first != nil  {
-                    let authorJSON = index.first!.1
-                    return authorJSON["extract"].string!
+        return WikiService.getAuthorJSON( author.name ).then{ (json:JSON?) -> Promise<String?> in
+            return Promise{ fulfill, reject in
+                guard json != nil else{ fulfill(nil); return; }
+                if !json!["query"]["pages"]["-1"].isExists() { //if the author exists in wiki
+                    //Get the author extract
+                    if let index:[String:JSON] = json!["query"]["pages"].dictionary where index.first != nil  {
+                        let authorJSON = index.first!.1
+                        fulfill(authorJSON["extract"].string!)
+                    }
                 }
             }
-            return nil
         }
     }
     
