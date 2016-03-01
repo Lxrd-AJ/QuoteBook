@@ -14,6 +14,10 @@ import SwiftyJSON
 
 private let reuseIdentifier = "AuthorCell"
 
+/**
+ - todo:
+    * Show an error message wand stop spinning if there is no internet connection
+ */
 class AuthorsCollectionViewController: UICollectionViewController {
     
     var authors: [Author] = []
@@ -26,6 +30,7 @@ class AuthorsCollectionViewController: UICollectionViewController {
         //Fetch the authors
         ParseService.getAllAuthors({ (authors:[Author]) -> Void in
             self.authors = authors
+            //TODO: Hack! - Try getting the authors from the current quotes too and adding them here
             self.collectionView?.reloadData()
             SwiftSpinner.hide()
         })
@@ -64,11 +69,15 @@ class AuthorsCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! AuthorCell
         let author = self.authors[ indexPath.item ]
         
+        //Prefetch images/biography if necessary
+        author.fetchBiography()
+        author.fetchImage()
+        
         cell.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.5)
         cell.layer.cornerRadius = 5.0
         cell.authorNameLabel.text = author.name
         cell.authorNameLabel.sizeToFit()
-        cell.authorImageView.image = nil
+        //cell.authorImageView.image = nil
         cell.quotesCountLabel.hidden = true
         cell.authorImageView.image = author.image
         

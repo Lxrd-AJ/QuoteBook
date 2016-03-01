@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import XCGLogger
 
 class AuthorViewController: UIViewController {
     
@@ -22,6 +23,8 @@ class AuthorViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = author.name
+        self.backgroundImageView.image = author.image
+        log.info("\(author.image)")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -29,9 +32,13 @@ class AuthorViewController: UIViewController {
         
         //Setup UI
         self.backgroundImageView.image = author.image
-        let webContent = "<html><head><style type=\"text/css\">body{ font-family: 'Baskerville' }</style></head><body>\(author.biography)</body></html>"
-        self.webView.loadHTMLString(webContent, baseURL: nil)
+        if let biography = author.biography {
+            let webContent = "<html><head><style type=\"text/css\">body{ font-family: 'Baskerville' }</style></head><body>\(biography)</body></html>"
+            self.webView.loadHTMLString(webContent, baseURL: nil)
+        }
         self.webView.addBorder(edges: [.Left,.Right], colour: getBackgroundColor(), thickness: 5.0)
+        self.webView.backgroundColor = getBackgroundColor()
+        self.webView.layer.cornerRadius = 50.0
     }
 
     override func didReceiveMemoryWarning() {

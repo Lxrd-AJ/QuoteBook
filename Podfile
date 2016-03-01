@@ -10,6 +10,7 @@ target 'QuoteBook' do
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'JTSImageViewController', '~> 1.5.1'
     pod 'PromiseKit', '~> 3.0'
+    pod 'XCGLogger', '~> 3.2'
 end
 
 target 'QuoteBookTests' do

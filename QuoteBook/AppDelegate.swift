@@ -9,6 +9,9 @@
 import UIKit
 import Parse
 import WatchConnectivity
+import XCGLogger
+    
+let log = XCGLogger.defaultInstance()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
@@ -40,6 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         
         //Configure a Session for interacting with the watch app to send Application context
         updateSessionContext()
+        
+        //Enable Logging
+        log.setup(.Debug, showThreadName: true, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil, fileLogLevel: .Debug)
         
         return true
     }

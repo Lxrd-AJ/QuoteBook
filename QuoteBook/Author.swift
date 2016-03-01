@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import PromiseKit
 
 class Author {
 
@@ -26,38 +27,65 @@ class Author {
         author.createdAt = object.createdAt
         author.updatedAt = object.updatedAt
         author.wikiPageTitle = object["wikiPageTitle"] as? String
-        
-        //MARK: WikiMedia Related Data
-        if object["image"] == nil {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-                WikiService.getAuthorImage( author ).then{ image in
-                    author.image = image
-                }
+        //Fetch the image data from Parse
+        if let imageFile = object["image"] as? PFFile{
+            imageFile.getDataInBackgroundWithBlock({ (data:NSData?,error:NSError?) -> Void in
+                if let data = data{ author.image = UIImage(data: data) }
             })
-        }else{ author.image = object["image"] as? UIImage }
-        
-        if object["biography"] == nil {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-                WikiService.getAuthorBiography(author).then{ biography in
-                    author.biography = biography
-                }
-            })
-        }else{ author.biography = object["biography"] as? String }
-        
-        if (object["image"] == nil) || (object["biography"] == nil) { author.save() }
-        //END MARK: WikiMedia Related Data
+        }
+        author.biography = object["biography"] as? String
         
         return author
     }
+    
+    func fetchBiography(){
+        if biography == nil { //Avoid unnessary requests to wikiPedia
+            when( WikiService.getAuthorBiography(self) ).then{ biography in
+                self.biography = biography.first!
+            }.always{
+                    log.info("Saving Biography for \(self.name)")
+                    self.save()
+            }.error{ err in print(err) }
+        }else{ print("Not fetching Bio"); return; }
+        
+    }
+    
+    func fetchImage() {
+        if image == nil { //Avoid unnessary requests to wikiPedia
+            when( WikiService.getAuthorImage(self) ).then{ image in
+                self.image = image.first!
+            }.always{ self.save()
+            }.error{ err in
+                    print("An Error occured while fetching the user image")
+                    print(err)
+            }
+            log.info("Fetched \(self.name)'s image => \(self.image)")
+        }else{ print("Not fetching Image"); return; }
+    }
 
     func save() {
-        let object = PFObject(className: "Author")
-        object["name"] = self.name
-        if self.objectID != "" { object.objectId = self.objectID }
-        object["wikiPageTitle"] = self.wikiPageTitle
-        object["image"] = self.image
-        object["biography"] = self.biography
-        object.saveInBackground()
+        let saveQuery = PFQuery(className: "Author")
+        saveQuery.getObjectInBackgroundWithId( self.objectID ){ (object:PFObject?, error:NSError?) -> Void in
+            if error != nil { print("Failed to save object") }
+            else if let object = object {
+                log.info(".....saving details for \(self.name)")
+                object["name"] = self.name
+                object["wikiPageTitle"] = self.wikiPageTitle
+                if let image = self.image {
+                    object["image"] = PFFile(name: "\(self.name).jpg", data: UIImageJPEGRepresentation(image, 0.0)!)
+                }
+                object["biography"] = self.biography
+//                object.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+//                    if success { log.info("Successfully saved \(self.name)") }
+//                    else{ log.severe("\(error)") }
+//                })
+                do {
+                    try object.save()
+                }catch{
+                    print("Failed to save")
+                }
+            }
+        }
     }
 }
 

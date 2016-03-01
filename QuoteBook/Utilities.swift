@@ -104,7 +104,9 @@ extension Array {
         }
     }
 }
-
+/**
+ Helper function to provide the user's preferred background color
+ */
 func getBackgroundColor() -> UIColor {
     if let colorData = NSUserDefaults(suiteName: "group.com.TheLeaf.QuoteBook")!.objectForKey(BACKGROUND_COLOR) as? NSData{
         return NSKeyedUnarchiver.unarchiveObjectWithData(colorData) as! UIColor

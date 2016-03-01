@@ -34,18 +34,14 @@ extension Alamofire.Request {
  Handles all WikiPedia related services, provides the following functionality
     * Getting the image of an author
     * Getting the Biography of an author
- 
- - todo:
-    1. Get the author Biography
-    2. Get the author image
  */
 struct WikiService {
     
     static let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
     
     private enum Router: URLRequestConvertible {
-        static let wikiAuthorUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts|images|info&format=json&exintro=1"
-        static let wikiImgUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url&format=json"
+        static let wikiAuthorUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts|images|info&format=json&exintro=1".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        static let wikiImgUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url&format=json".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
         
         case Author(String)
         case Image(String)
@@ -60,8 +56,8 @@ struct WikiService {
                 }
             }()
             
-            let URL = NSURL(string: result.url)
-            let URLRequest = NSURLRequest(URL: URL!)
+            let URL = NSURL(string: result.url)!
+            let URLRequest = NSURLRequest(URL: URL)
             let encoding = Alamofire.ParameterEncoding.URL
             
             return encoding.encode(URLRequest, parameters: result.parameters).0
@@ -71,18 +67,29 @@ struct WikiService {
     /**
     - todo:
         - Recieve as parameters only the attributes you need and not the entire author object
-        - Handle all errors in each promise section
-    - warning:
-        Unsafe method, do not call yet
     */
     static func getAuthorImage( author:Author ) -> Promise<UIImage?> {
-        return WikiService.getAuthorJSON( author.name ).then( on: WikiService.queue ){ (json:JSON?) -> Promise<UIImage?> in
-            if let json = json where json["images"].isExists() {
-                if let imgTitle = WikiService.getImageTitleFromWikiJSON( json["images"].array! ){
-                    return getUIImage( imgTitle )
-                }
+        return WikiService.getAuthorJSON( author.name ).then( on: WikiService.queue ){ (json:JSON?) -> Promise<String?> in
+            return Promise{ fulfill,reject in
+                if let json = json {
+                    //Get the author extract
+                    if let index:[String:JSON] = json["query"]["pages"].dictionary where index.first != nil  {
+                        let authorJSON = index.first!.1
+                        if let imagesArray = authorJSON["images"].array where authorJSON["images"].isExists() {
+                            if let imgTitle = WikiService.getImageTitleFromWikiJSON( imagesArray ){
+                                log.info("About to request for user image with image title \(imgTitle)")
+                                fulfill( imgTitle )
+                            }else{ reject(NSError(domain: "noImgTitle", code: 0, userInfo: nil)) }
+                        }else{ reject(NSError(domain: "noImagesJSON", code: 0, userInfo: nil)) }
+                    }else{ reject(NSError(domain: "noAuthorPage", code: 0, userInfo: nil)) }
+                }else{ reject(NSError(domain: "noJSON", code: 0, userInfo: nil)) }
+            }//end promise
+        }.then{ imgTitle in
+            return getUIImage(imgTitle!)
+        }.recover{ body in
+            return Promise{ fulfill,_ in
+                fulfill(nil)
             }
-            throw Error.errorWithCode(0, failureReason: "abc")
         }
     }
     
@@ -99,14 +106,18 @@ struct WikiService {
                     if let index:[String:JSON] = json!["query"]["pages"].dictionary where index.first != nil  {
                         let authorJSON = index.first!.1
                         fulfill(authorJSON["extract"].string!)
-                    }
-                }
+                    }else{ reject(NSError(domain: "noExtract", code: 0, userInfo: nil)) }
+                }else{ reject(NSError(domain: "authorNotInWiki", code: 0, userInfo: nil)) }
+            }
+        }.recover{ body in
+            return Promise{ fulfill,_ in
+                fulfill(nil)
             }
         }
     }
     
     /**
-     - warning: Do not call yet, as error handling not yet implemented
+     Returns a Promise to return the image for the imageTitle given
      */
     private static func getUIImage( imageName:String ) -> Promise<UIImage?> {
         return Promise{ fulfill,reject in
@@ -116,7 +127,8 @@ struct WikiService {
                 case .Success(let result):
                     let json = JSON( result )
                     if let imgURL = json["query"]["pages"]["-1"]["imageinfo"][0]["url"].string { fulfill(imgURL) }
-                    else{ reject(result.error!!) } //TODO: Fail Gracefully here
+                    else if let error = result.error{ reject(error!) } //Sometimes there is no result and also no error from wikipedia
+                    else{ reject(NSError(domain: "unknownReason", code: 0, userInfo: nil)) }
                 case .Failure(let err):
                     print(err)
                     reject(err)
@@ -128,6 +140,7 @@ struct WikiService {
                 Alamofire.request( .GET, imgURL ).responseImage({ response in
                     switch response.result {
                     case .Success( let image):
+                        print("Found image \(image)")
                         fulfill(image)
                     case .Failure( _):
                         fulfill(nil)
@@ -150,50 +163,10 @@ struct WikiService {
         return Promise { fulfill, reject in
             Alamofire.request(Router.Author(authorName)).responseJSON(completionHandler:{ response in
                 if response.result.error != nil, let error = response.result.error { reject(error) }
-                else if let data = response.result.value { fulfill( JSON(data) ) }
-                else{ reject( NSError(domain: "abc", code: 0, userInfo: nil) ) }
+                else if let data = response.result.value {
+                    fulfill( JSON(data) )
+                }else{ reject( NSError(domain: "abc", code: 0, userInfo: nil) ) }
             })
         }
     }
 }
-
-//TODO: Cache the JSON Response
-//TODO: Use Grand Central Dispatch when making the network request
-//cell.request = Alamofire.request( .GET, wikiAuthorUrl, parameters:["titles":author.name]).responseJSON(completionHandler: { response in
-//    if let requestValue = response.result.value {
-//        if let json = self.parseWikiResponseJSON( JSON(requestValue) ) {
-//            cell.json = json
-//            //Get the 1st JPEG image url
-//            if json["images"].isExists() {
-//                if let imageName = self.getImageTitleFromWikiJSON(json["images"].array!) {
-//                    //Get the Image Data JSON
-//                    let wikiImgUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url&format=json".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-//                    let encodingKey = response.request!.URLString
-//                    if let image = self.imageCache.objectForKey(encodingKey) as? UIImage {
-//                        cell.authorImageView.image = image
-//                    }else{
-//                        Alamofire.request( .GET, wikiImgUrl, parameters:["titles":imageName]).responseJSON { response in
-//                            switch response.result {
-//                            case .Success:
-//                                if let value = response.result.value {
-//                                    let json = JSON(value)
-//                                    if let imgUrl = json["query"]["pages"]["-1"]["imageinfo"][0]["url"].string {
-//                                        Alamofire.request( .GET, imgUrl ).response { (request,response,data,error) in
-//                                            if let data = data {
-//                                                let image = UIImage(data: data, scale: 1)
-//                                                cell.authorImageView.image = image
-//                                                self.imageCache.setObject(image!, forKey: encodingKey)
-//                                            }
-//                                        }
-//                                    }
-//                                }
-//                            case .Failure(let error):
-//                                print(error)
-//                            }
-//                        }//end requeest
-//                    }//end else
-//                }
-//            }
-//        }
-//    }
-//})
