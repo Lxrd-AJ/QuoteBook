@@ -23,6 +23,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (3.0.2):
     - PromiseKit/CorePromise
+  - SnapKit (0.15.0)
   - SwiftSpinner (0.8.0)
   - SwiftyJSON (2.3.2)
   - XCGLogger (3.2)
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - JTSImageViewController (~> 1.5.1)
   - Parse (~> 1.10.0)
   - PromiseKit (~> 3.0)
+  - SnapKit (~> 0.15.0)
   - SwiftSpinner (~> 0.8.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - XCGLogger (~> 3.2)
@@ -52,10 +54,11 @@ SPEC CHECKSUMS:
   OMGHTTPURLRQ: 633f98ee745aeda02345935a52eec1784cddb589
   Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
   PromiseKit: ab1a380f7a30cf8cce663a2411e8b3580b10313d
+  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftSpinner: 11c2c5ec7443d92f3026d3067ca8a91d4adef13f
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   XCGLogger: da1f341f4bb8979db6e1df64232f04d9698402d4
 
-PODFILE CHECKSUM: 8482aaa06eb8504d7c518853b5e8fb93b095ada3
+PODFILE CHECKSUM: 88dfaeb7d3dd5cc10465b7e66cdd725eb1e3257c
 
 COCOAPODS: 1.0.0.beta.1

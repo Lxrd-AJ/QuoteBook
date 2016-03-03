@@ -7,6 +7,7 @@
 
 import Foundation
 import Parse
+import PromiseKit
 
 class ParseService {
     class func fetchQuotes( callBack:(quotes:[Quote]) -> Void ) -> [Quote]? {
@@ -55,6 +56,24 @@ class ParseService {
                 }
             }else{ callBack(authors: []) }
         })
+    }
+    
+    /**
+     Returns a promise that resolves to the quotes for the specified author or nil if not founf
+     */
+    class func getQuotesForAuthor( author:Author ) -> Promise<[Quote]?> {
+        let query = PFQuery(className: "Quote")
+        query.whereKey("author", equalTo: author.name)
+        return Promise{ fulfill, reject in
+            query.findObjectsInBackgroundWithBlock({ (objects:[PFObject]?, error:NSError?) -> Void in
+                if error == nil {
+                    if let objects = objects {
+                        let quotes = objects.map( ParseService.parseObjectToQuote )
+                        fulfill(quotes)
+                    }
+                }else{ fulfill(nil) }
+            })
+        }
     }
     
     

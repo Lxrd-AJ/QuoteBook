@@ -14,11 +14,9 @@ class AuthorCell: UICollectionViewCell {
     
     @IBOutlet weak var authorImageView: UIImageView!
     @IBOutlet weak var authorNameLabel: UILabel!
-    @IBOutlet weak var quotesCountLabel: UILabel!
-    var json: JSON?
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        authorImageView.image = nil
+        //authorImageView.image = nil
     }
 }

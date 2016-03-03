@@ -74,12 +74,12 @@ class AuthorsCollectionViewController: UICollectionViewController {
         author.fetchImage()
         
         cell.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.5)
-        cell.layer.cornerRadius = 5.0
+        cell.layer.cornerRadius = 10.0
         cell.authorNameLabel.text = author.name
         cell.authorNameLabel.sizeToFit()
         //cell.authorImageView.image = nil
-        cell.quotesCountLabel.hidden = true
         cell.authorImageView.image = author.image
+        cell.authorImageView.layer.cornerRadius = 20.0
         
         return cell
     }

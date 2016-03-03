@@ -11,6 +11,7 @@ target 'QuoteBook' do
     pod 'JTSImageViewController', '~> 1.5.1'
     pod 'PromiseKit', '~> 3.0'
     pod 'XCGLogger', '~> 3.2'
+    pod 'SnapKit', '~> 0.15.0'
 end
 
 target 'QuoteBookTests' do

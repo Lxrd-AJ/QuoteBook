@@ -10,6 +10,9 @@ import Foundation
 import Parse
 import PromiseKit
 
+/**
+- warning: `save()` method doesnt work
+ */
 class Author {
 
     var name: String = ""
@@ -38,16 +41,18 @@ class Author {
         return author
     }
     
+    /**
+     Makes a promise to fetch the author biography
+     */
     func fetchBiography(){
         if biography == nil { //Avoid unnessary requests to wikiPedia
             when( WikiService.getAuthorBiography(self) ).then{ biography in
                 self.biography = biography.first!
             }.always{
-                    log.info("Saving Biography for \(self.name)")
-                    self.save()
+                log.info("Saving Biography for \(self.name)")
+                self.save()
             }.error{ err in print(err) }
         }else{ print("Not fetching Bio"); return; }
-        
     }
     
     func fetchImage() {
@@ -56,17 +61,21 @@ class Author {
                 self.image = image.first!
             }.always{ self.save()
             }.error{ err in
-                    print("An Error occured while fetching the user image")
-                    print(err)
+                print("An Error occured while fetching the user image")
+                print(err)
             }
             log.info("Fetched \(self.name)'s image => \(self.image)")
         }else{ print("Not fetching Image"); return; }
     }
 
+    /**
+     Saves the object to the persistent store on the server so other devices don't have to fetch from WikiPedia again
+     - warning: Currently `save` on PFObject isn't working.
+     */
     func save() {
         let saveQuery = PFQuery(className: "Author")
         saveQuery.getObjectInBackgroundWithId( self.objectID ){ (object:PFObject?, error:NSError?) -> Void in
-            if error != nil { print("Failed to save object") }
+            if error != nil { log.error("Failed to save object \(self.name)") }
             else if let object = object {
                 log.info(".....saving details for \(self.name)")
                 object["name"] = self.name
@@ -81,6 +90,7 @@ class Author {
 //                })
                 do {
                     try object.save()
+                    try object.pin() //Temp hack
                 }catch{
                     print("Failed to save")
                 }

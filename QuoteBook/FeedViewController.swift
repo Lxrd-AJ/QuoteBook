@@ -13,6 +13,8 @@ class FeedViewController: UIViewController {
 
     @IBOutlet weak var tableView:UITableView!
     var quotes:[Quote] = []
+    var author:Author?
+    var shouldShowGlobalQuotes = true
     let refreshControl:UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -22,7 +24,6 @@ class FeedViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.tableFooterView = UIView()
-        self.tableView.backgroundView = createTextLabelWithMessage("This is a bit awkward,I seem to have no Data \n Please pull to refresh")
         
         //Pull to Refresh UI
         refreshControl.tintColor = UIColor.whiteColor()
@@ -30,14 +31,21 @@ class FeedViewController: UIViewController {
         self.tableView.addSubview(refreshControl)
         
         SwiftSpinner.show("Patience is a Virtue \n Fetching your quotes")
-        fetchQuotes()
+        
+        if shouldShowGlobalQuotes {
+            //self.navigationController?.navigationBar.topItem?.title = "Quotes Feed"
+            fetchQuotes()
+        }else{
+            //Fetch Quotes for the current author
+            fetchQuotesForAuthor()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.view.alpha = 1.0
         self.navigationController?.navigationBarHidden = false
-        self.navigationController?.navigationBar.topItem?.title = "Quotes Feed"
+        self.navigationItem.title = "Feed_"
         self.navigationController?.navigationBar.titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.grayColor(), NSFontAttributeName: UIFont(name: "Baskerville", size: 20)!]
         refreshControl.backgroundColor = getBackgroundColor()
     }
@@ -61,20 +69,40 @@ class FeedViewController: UIViewController {
     }
     
     func fetchQuotes() {
-        //Fetch the top quotes
-        ParseService.fetchQuotes({(quotes:[Quote]) -> Void in
-            self.quotes = quotes
-            if self.refreshControl.refreshing { self.refreshControl.endRefreshing() }
-            if quotes.count == 0 {
-                SwiftSpinner.show("😑😑 Err, It seems I can't connect to the mothership now.").addTapHandler({
+        if shouldShowGlobalQuotes {
+            //Fetch the top quotes
+            ParseService.fetchQuotes({(quotes:[Quote]) -> Void in
+                self.quotes = quotes
+                if self.refreshControl.refreshing { self.refreshControl.endRefreshing() }
+                if quotes.count == 0 {
+                    self.showErrorMessage()
+                }else{
+                    self.tableView.reloadData()
                     SwiftSpinner.hide()
-                    }, subtitle: "Try again when there is an internet connection")
-            }else{
-                self.tableView.reloadData()
-                SwiftSpinner.hide()
+                }
+            })
+        }else{ fetchQuotesForAuthor() }
+    }
+    
+    func fetchQuotesForAuthor(){
+        //Fetch Quotes for the current author
+        if let author = author {
+            ParseService.getQuotesForAuthor(author).then{ quotes -> Void in
+                if let quotes = quotes {
+                    for q in quotes{ log.info("\(q.quote)") }
+                    self.quotes = quotes
+                    self.tableView.reloadData()
+                    SwiftSpinner.hide()
+                }else{ self.showErrorMessage() }
             }
-        })
-
+        }else{ self.showErrorMessage() }
+    }
+    
+    func showErrorMessage(){
+        SwiftSpinner.show("😑😑 Err, It seems I can't connect to the mothership now.").addTapHandler({
+            SwiftSpinner.hide()
+            self.tableView.backgroundView = self.createTextLabelWithMessage("This is a bit awkward,I seem to have no Data \n Please pull to refresh")
+        }, subtitle: "Try again when there is an internet connection")
     }
     
     func createTextLabelWithMessage( text:String ) -> UILabel {

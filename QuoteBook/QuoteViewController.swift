@@ -24,8 +24,7 @@ class QuoteViewController: UIViewController {
             view.settingsButton.hidden = true
             view.shareButton.hidden = true
             view.backButton.hidden = true
-            //view.addQuoteButton.hidden = true
-            view.settingsButton.addTarget(self, action: "handleSettingsTap:", forControlEvents: .TouchUpInside )
+            //view.settingsButton.addTarget(self, action: "handleSettingsTap:", forControlEvents: .TouchUpInside )
             view.shareButton.addTarget(self, action: "showSharingOptions:", forControlEvents: .TouchUpInside)
             view.backButton.addTarget(self, action: "removeViewController:", forControlEvents: .TouchUpInside)
             
@@ -46,7 +45,8 @@ class QuoteViewController: UIViewController {
         if let view = self.view as? QuoteView {
             //TODO: Add animation to remove the button after 3 seconds
             UIView.animateWithDuration(1.1, animations: {
-                view.settingsButton.hidden = !view.settingsButton.hidden
+                //We are no longeer showing the settings button
+                //view.settingsButton.hidden = !view.settingsButton.hidden
                 view.shareButton.hidden = !view.shareButton.hidden
                 view.backButton.hidden = !view.backButton.hidden
                 //Dont show the add Button, yet :)

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E49a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="f9g-xo-50Q">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -339,42 +340,37 @@
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="an5-q9-q5O">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Quote Right-96" translatesAutoresizingMaskIntoConstraints="NO" id="SM7-GW-edf">
-                                                    <rect key="frame" x="59" y="0.0" width="32" height="63"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albert Einstein " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.65000000000000002" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8A-ZC-ll3">
-                                                    <rect key="frame" x="6" y="63" width="138" height="64"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 quotes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9S-xL-BZU">
-                                                    <rect key="frame" x="48" y="127" width="54" height="63"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Quote Right-96" translatesAutoresizingMaskIntoConstraints="NO" id="SM7-GW-edf">
+                                            <rect key="frame" x="7" y="8" width="137" height="110"/>
                                             <constraints>
-                                                <constraint firstItem="t8A-ZC-ll3" firstAttribute="leading" secondItem="an5-q9-q5O" secondAttribute="leading" constant="6" id="uS9-sC-Daa"/>
+                                                <constraint firstAttribute="height" constant="110" id="3D2-k4-8r2"/>
+                                                <constraint firstAttribute="width" constant="137" id="Tuj-pS-tts"/>
+                                                <constraint firstAttribute="width" secondItem="SM7-GW-edf" secondAttribute="height" multiplier="137:110" id="i9O-wN-jXd"/>
                                             </constraints>
-                                        </stackView>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albert Einstein " textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.65000000000000002" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8A-ZC-ll3">
+                                            <rect key="frame" x="7" y="126" width="137" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="137" id="mPe-kS-NIn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="an5-q9-q5O" firstAttribute="height" secondItem="WRd-OV-uqF" secondAttribute="height" placeholder="YES" id="76Z-eF-dV3"/>
-                                    <constraint firstItem="an5-q9-q5O" firstAttribute="width" secondItem="WRd-OV-uqF" secondAttribute="width" placeholder="YES" id="ObD-7t-B9M"/>
-                                    <constraint firstItem="an5-q9-q5O" firstAttribute="top" secondItem="WRd-OV-uqF" secondAttribute="top" id="XJ6-bQ-PJA"/>
-                                    <constraint firstItem="an5-q9-q5O" firstAttribute="leading" secondItem="WRd-OV-uqF" secondAttribute="leading" id="s8R-Rp-z64"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="SM7-GW-edf" secondAttribute="trailing" constant="-2" id="DX6-2t-fvB"/>
+                                    <constraint firstItem="SM7-GW-edf" firstAttribute="top" secondItem="WRd-OV-uqF" secondAttribute="topMargin" id="Hyh-6B-p2O"/>
+                                    <constraint firstItem="SM7-GW-edf" firstAttribute="leading" secondItem="WRd-OV-uqF" secondAttribute="leadingMargin" constant="-1" id="QrR-S9-k3E"/>
+                                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="t8A-ZC-ll3" secondAttribute="bottom" constant="24" id="cnq-34-rD3"/>
+                                    <constraint firstItem="t8A-ZC-ll3" firstAttribute="top" secondItem="SM7-GW-edf" secondAttribute="bottom" constant="8" id="jjN-4m-yY6"/>
+                                    <constraint firstItem="t8A-ZC-ll3" firstAttribute="leading" secondItem="SM7-GW-edf" secondAttribute="leading" id="mEs-fN-2aA"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="authorImageView" destination="SM7-GW-edf" id="KId-tZ-GRy"/>
                                     <outlet property="authorNameLabel" destination="t8A-ZC-ll3" id="7iq-vY-iob"/>
-                                    <outlet property="quotesCountLabel" destination="s9S-xL-BZU" id="22h-iy-ZFw"/>
                                     <segue destination="V0c-xI-fv2" kind="show" identifier="showAuthorViewController" id="bxV-wB-abE"/>
                                 </connections>
                             </collectionViewCell>
@@ -496,7 +492,7 @@
         <!--Feed-->
         <scene sceneID="XE9-3L-UYm">
             <objects>
-                <viewController title="Feed" id="1Af-VZ-n4a" customClass="FeedViewController" customModule="QuoteBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" title="Feed" id="1Af-VZ-n4a" customClass="FeedViewController" customModule="QuoteBook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mnr-Db-52E"/>
                         <viewControllerLayoutGuide type="bottom" id="mYa-xm-zDq"/>
@@ -510,7 +506,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" id="obg-hZ-ybz" customClass="FeedCell" customModule="QuoteBook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="obg-hZ-ybz" id="rYq-T1-MHE">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
